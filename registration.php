@@ -1,9 +1,12 @@
 
 <!DOCTYPE html>
 <html>
+<head>
+<link rel="stylesheet" href="style_reg.css">
+</head>
 <body>
 
-<form action="performreg.php" method='POST' style="border:1px solid #ccc">
+<form action="performreg.php" method='POST'>
 
 <div>
 <h1>Registration Form</h1>
@@ -22,6 +25,13 @@
 
 <label for="Affilitation"><b>Affiliation:</b></label>
 <input type="aff" placeholder="Enter your affiliation" name="affiliation" ><br><br>
+
+<div class="elem-group">
+    <label for="captcha">Please Enter the Captcha Text</label>
+    <img src="captcha.php" alt="CAPTCHA" class="captcha-image"><i class="fas fa-redo refresh-captcha"></i>
+    <br>
+    <input type="text" id="captcha" name="captcha_challenge" pattern="[A-Z]{6}">
+</div>
 
 <button type="submit">Register</button>
 <div><button type="button">Cancel</button>
