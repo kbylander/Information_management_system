@@ -1,4 +1,5 @@
 <?php
+$username = $_POST['username'];
 $password = $_POST['userpassword'];
 $confirmpassword = $_POST['confirmpassword'];
 $email = $_POST['useremail'];
@@ -8,7 +9,7 @@ $email = $_POST['useremail'];
 include 'passwordsecurity.php'; //This script does all password security checks
 if($strongpassword){ //Strong password means that the entered passwords are matching and it satisfies the password security standard
   include 'passwordhash.php'; //Hashes the password, store $hash to database
-  echo "strong password $password $hash";
+  echo "strong password $password $hash ";
 }
 elseif($matchingpasswords){ //The password is not strong enough but they are matching
   echo 'Password should be at least 8 characters in length and should include at least one upper case letter and one number';
@@ -25,4 +26,15 @@ if($isemail){ //If the email entered is an actual email
 else{ //The email entered is not structured like an email
   echo 'Enter a proper email address';
 }
+
+include 'duplicateentrycheck.php';
+/*if $uniqueusername{
+  echo "Unique: $debug";//$numberofentries";
+}
+else{
+  echo "Not unique: $debug";
+}*/
+echo " $username";
+
+include 'userentry.php';
 ?>
