@@ -1,16 +1,30 @@
 <?php
-//$sql = "INSERT INTO users (username, hash, email, accessID)
-//VALUES ('$username', '$hash', '$email', 1)";
-
+$sql_stmt = "SELECT username FROM users WHERE username LIKE '$username'";
 include '../connectDB.php';
-$query = mysqli_query($link, "SELECT * FROM users WHERE username='$username'");
-/*if (mysqli_num_rows($query) > 0){
+$select = mysqli_query($link, $sql_stmt);
+$num_entries = mysqli_num_rows($select);
+if ($num_entries > 0){
   $uniqueusername = False;
 }
 else{
   $uniqueusername = True;
-}*/
-$debug = "TEST";
-//mysqli_query($link, $sql);
+}
+
+$sql_stmt = "SELECT email FROM users WHERE email LIKE '$email'";
+$select = mysqli_query($link, $sql_stmt);
+$num_entries = mysqli_num_rows($select);
+if ($num_entries > 0){
+  $uniqueemail = False;
+}
+else{
+  $uniqueemail = True;
+}
+
+if($uniqueusername && $uniqueemail){
+  $uniqueuser = True;
+}
+else {
+  $uniqueuser = False;
+}
 include '../disconnectDB.php';
 ?>

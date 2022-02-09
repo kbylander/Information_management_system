@@ -17,6 +17,7 @@ if($password == $confirmpassword) //Checks if entered passwords are matching
     }
   }
 else{
+    $strongpassword = False;
     $matchingpasswords = False; //Passwords entered are not matching, boolean set to False
 }
 

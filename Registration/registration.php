@@ -13,18 +13,18 @@
 <p>Please fill in this form below:</p>
 <hr>
 <label><b>Name:</b></label>
-<input type="text" placeholder="User Name" name="username" ><br><br>
+<input type="text" placeholder="User Name" name="username" required><br><br>
 
 <label><b>Email:</b></label>
-<input type="text" placeholder="Enter Email" name="useremail" ><br><br>
+<input type="text" placeholder="Enter Email" name="useremail" required><br><br>
 
 <label><b>Password:</b></label>
-<input type="text" placeholder="Enter Password" name="userpassword" required><br><br>
+<input type="password" placeholder="Enter Password" name="userpassword" required><br><br>
 <label><b>Confirm Password:</b></label>
-<input type="text" placeholder="Confirm Password" name="confirmpassword" required><br><br>
+<input type="password" placeholder="Confirm Password" name="confirmpassword" required><br><br>
 
 <label for="Affilitation"><b>Affiliation:</b></label>
-<input type="aff" placeholder="Enter your affiliation" name="affiliation" ><br><br>
+<input type="text" placeholder="Enter your affiliation" name="affiliation" ><br><br>
 
 <div class="elem-group">
     <label for="captcha">Please Enter the Captcha Text</label>
