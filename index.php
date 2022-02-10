@@ -11,7 +11,7 @@
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="About.php">About</a></li>
-                    <li><a href="DbInfo.php">Database</a></li>
+                    <li><a href="dblogin.php">Database</a></li>
                     <li><a href="ContactUs.php">Contact Us</a></li>
                 </ul>
             </div>
@@ -31,7 +31,7 @@
         <h1 id= "t1"> Welcome to Genetic Match.com </h1>
         <div class = "centerbuttoms">
             <button id = "b1" onclick="location.href = 'dblogin.php';" type="button">Database Login</button>
-            <button id = "b2" onclick="location.href = 'member.php';" type="button">Become a member</button>
+            <button id = "b2" onclick="location.href = 'registration.php';" type="button">Become a member</button>
         </div>
 </div>
 </main>
