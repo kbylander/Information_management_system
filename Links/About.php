@@ -9,9 +9,9 @@
         <nav>
             <div class ="nav-links">
                 <ul>
-                    <li><a href="index.php">Home</a></li>
+                    <li><a href="../index.php">Home</a></li>
                     <li><a href="#">About</a></li>
-                    <li><a href="dblogin.php">Database</a></li>
+                    <li><a href="../Login/login.php">Database</a></li>
                     <li><a href="ContactUs.php">Contact Us</a></li>
                 </ul>
             </div>
