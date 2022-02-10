@@ -5,10 +5,9 @@ $fasta1 = $_POST['fastafile1'];
 $fasta2 = $_POST['fastafile2'];
 
 
-$file1 = $fasta1;
-$document1 = file_get_contents($file1);
-$file2 = $fasta2;
-$document2 = file_get_contents($file2);
+$document1 = file_get_contents($fasta1);
+$document2 = file_get_contents($fasta2);
+
 
 //seperate each line in file
 $lines1 = explode("\n", $document1);
@@ -17,6 +16,7 @@ $lines2 = explode("\n", $document2);
 // extract header
 $header1 = $lines1[0];
 $header2 = $lines2[0];
+
 
 // append all sequence lines into one big string
 for ($x = 1; $x <= count($lines1); $x++) {
