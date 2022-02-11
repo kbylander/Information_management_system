@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&display=swap%27');
+</style> 
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap%27');
+</style>
 <head> 
 <link rel="stylesheet" href="style_reg.css">
 </head>
@@ -8,7 +14,7 @@
 <form action="performreg.php" method='POST'>
 
 <div class="sign-up-form">
-    <img src="user.png">
+    <img src="user_färg.png">
     <h1> Please fill in the registration form </h1>
     <form>  
     <input type="name" class="input-box" placeholder="Username">
