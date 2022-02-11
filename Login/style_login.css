@@ -1,0 +1,106 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Bebas Neue', sans-serif;
+    background: linear-gradient(120deg,  #def4dd, #B0D8FF, #BAD2FF, #CEC5FF, #E2B8FF );
+    background-size: cover;
+    background-position: center;
+    height: 2px;
+}
+
+.log-in-form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0 0 3px 0 rgb(0, 0, 0, 0.3);
+    background: #fff;
+    padding: 20px;
+}
+
+.log-in-form h1{
+    color: #BAD2FF;
+    padding-left: 40%;
+    font-size: 40px;
+}
+
+.log-in-form form{
+    padding: 0 40px;
+    box-sizing: border-box;
+
+}
+
+form .input-box{
+    
+    border-bottom: 2px solid #adadaa;
+
+}
+
+
+
+
+
+.input-box
+{
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px 0;
+  width: 75%;
+  border: 1px solid #999;
+  outline: none;
+}
+
+input {
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 1.25em;
+    font-family: 'Open Sans Condensed', sans-serif;
+    width: 500px;
+    padding: 8px;
+  }
+
+img {
+    width: 70px;
+    margin-top: 0px;
+    padding-left: 0%;
+}
+
+.signup_link{
+    margin: 30px 0;
+    text-align: center;
+    font-size: 16px;
+    color: #666666;
+}
+
+.signup_link{
+    color: #B0D8FF;
+    text-decoration: none;
+}
+
+.signup_link a:hover{
+    text-decoration: none;
+}
+
+button {
+    width: 75%;
+    color: #fff;
+    border-radius: 200px;
+    font-size: 15px;
+    border-radius: 20px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    font-family: 'Open Sans Condensed', sans-serif;
+  }
+
+.login{
+    background-color: #BAD2FF;
+    border-bottom: 2px solid #adadaa;
+}
+
+button:hover {
+  border: 2px solid #fff;
+}

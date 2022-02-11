@@ -83,11 +83,10 @@ input {
   border: 1px solid #ccc;
   box-sizing: border-box;
   font-size: 1.25em;
-  font-family: 'Aleo';
+  font-family: 'Open Sans Condensed', sans-serif;
   width: 500px;
   padding: 8px;
 }
-
 
 button {
   width: 100%;

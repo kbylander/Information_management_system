@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&display=swap%27');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap%27');
+</style>
 <head>
-    <title>Database</title> 
-    <link rel="stylesheet" href="../Registration/style_reg.css">
+    <link rel="stylesheet" href="style_login.css">
 </head>
 <body>
 <section class="header">
@@ -26,23 +29,18 @@
                     </div>
     </div>
 </section>
+
 <form action="conflogin.php" method='POST'>
-
-<div>
-<h1>Login form</h1>
-<p>Log in with your credentials:</p>
-<hr>
-
-<label><b>Email:</b></label>
-<input type="text" placeholder="Enter Email" name="useremail" ><br><br>
-
-<label><b>Password:</b></label>
-<input type="password" placeholder="Enter Password" name="userpassword" ><br><br> <!--change to type="password" later-->
-
-<button type="submit">Login</button>
-<div><button id = "b2" onclick="location.href = '../index.php';" type="button">Cancel</button>
-
-</div></div>
+<div class="log-in-form">
+<img align="left" src="login.png">
+<h1>Login</h1>
+<input type="text" class="input-box" placeholder="Enter Email" name="useremail" required>
+<input type="password" class="input-box" placeholder="Enter Password" name="userpassword" required>
+<button type="submit" class="login">Login</button>
+<div class="signup_link">
+    Not a member? <a href="../Registration/registration.php">Signup</a>
+</div>
+</div>
 </form>
 <footer>
     <p>©Copyright 2022 by Daredevils. All rights reversed.</p>
