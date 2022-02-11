@@ -21,14 +21,15 @@
     <input type="password" class="input-box" placeholder="Enter Password" name="userpassword" required>
     <input type="password" class="input-box" placeholder="Confirm Password" name="confirmpassword" required>
     <input type="text" class="input-box"  placeholder="Enter your affiliation" name="affiliation">
+   
     <label for="captcha">Please Enter the Captcha Text</label>
     <img src="captcha.php" alt="CAPTCHA" class="captcha-image"><i class="fas fa-redo refresh-captcha"></i>
     <br>
-    <input type="text" id="captcha" name="captcha_challenge" placeholder="Enter Captcha" required pattern="[A-Z]{6}">
-    <script>
-    var refreshButton = document.querySelector(".refresh-captcha");
+    <input type="text" id="captcha" name="captcha_challenge" placeholder="Enter Captcha" pattern="[A-Z]{6}" required>
+    <script type="text/javascript">
+    var refreshButton = document.querySelector('.refresh-captcha');
     refreshButton.onclick = function() {
-    document.querySelector(".captcha-image").src = 'captcha.php?' + Date.now();
+    document.querySelector('.captcha-image').src = 'captcha.php?' + Date.now();
     }
     </script>
     <button type="submit" class="register">Register</button>
