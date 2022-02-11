@@ -1,42 +1,12 @@
-*{
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
-.header {
-  padding: 50px;
-  text-align: center;
-  width:100%;
-  background: linear-gradient(90deg, rgb(44, 107, 223) 0%, rgb(50, 50, 170) 35%, rgb(17, 184, 218) 100%);
-}
-.GoogleTranslate{
-  position:absolute;
-  top:0;
-  right:0;
-}
-.nav-links{
-  flex:1;
-  position:absolute;
-  right: 0px;
-  top: 50px;
-}
-.nav-links ul li{
-  list-style: none;
-  display: inline-block;
-  margin: 0 20px;
-  font-size: 20px;
-}
-
 body
 {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: linear-gradient(to bottom, rgba(55, 115, 226, 0.5), rgba(56, 132, 247, 0.5));
+  background-color: #def4dd;
   background-size: cover;
   background-position: center;
-
+  height: 2px;
 }
 
 .sign-up-form
@@ -141,8 +111,4 @@ button {
 
 button:hover {
   border: 2px solid #fff;
-}
-
-footer{
-  background: linear-gradient(to bottom, rgba(55, 115, 226, 0.5), rgba(56, 132, 247, 0.5));
 }
