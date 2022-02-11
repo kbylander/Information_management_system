@@ -2,8 +2,8 @@ body
 {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-  background-color: #def4dd;
+  font-family: 'Bebas Neue', sans-serif;
+  background-color: #CEC5FF;
   background-size: cover;
   background-position: center;
   height: 2px;
@@ -21,7 +21,7 @@ body
 
 .sign-up-form h1
 {
- color: #1c8adb;
+ color: #CFE1B1;
  margin-bottom: 30px;
 
 }
@@ -98,15 +98,16 @@ button {
   margin: 10px 0;
   border: none;
   cursor: pointer;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
 
 .register {
-  background-color: #1c8adb;
+  background-color: #E2B8FF;
 }
 
 .cancel{
-  background-color: #21afde;
+  background-color: #BAD2FF;
 }
 
 button:hover {
