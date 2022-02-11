@@ -6,13 +6,18 @@ $confirmpassword = $_POST['confirmpassword'];
 $email = $_POST['useremail'];
 $affiliation = $_POST['affiliation'];
 
+echo $email;
+echo $username;
+echo $password;
+echo $affiliation;
+
 /* Running all the required scripts to check if login information in sufficient */
 include 'passwordsecurity.php'; //This script does all password security checks
 include 'emailsecurity.php'; //This script does the email check
 include 'duplicateentrycheck.php'; //This script checks the database so the username and passwords are unique
 
 if(isset($_POST['captcha_challenge']) && $_POST['captcha_challenge'] == $_SESSION['captcha_text']) {
-// Check if captcha was correctly entered 
+// Check if captcha was correctly entered
 //If statements to confirm if a user can be added or what is wrong with the entry.
   if($strongpassword && $isemail && $uniqueuser){
     include 'passwordhash.php'; //Hashes the password
@@ -44,7 +49,7 @@ if(isset($_POST['captcha_challenge']) && $_POST['captcha_challenge'] == $_SESSIO
     }
   }
   // Capthca was not correctly entered
-} else {
+ else {
   echo '<p>You entered an incorrect Captcha.</p>';
 }
 ?>
