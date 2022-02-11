@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head> 
-<title> Sign Up Form </title>
 <link rel="stylesheet" href="style_reg.css">
 </head>
 <body>

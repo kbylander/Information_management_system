@@ -48,7 +48,7 @@ $captcha_string = generate_string($permitted_chars, $string_length);
 for($i = 0; $i < $string_length; $i++) {
   $letter_space = 170/$string_length;
   $initial = 15;
- // imagettftext($image, 20, rand(-15, 15), $initial + $i*$letter_space, rand(20, 40), $textcolors[rand(0, 1)], $fonts[array_rand($fonts)], $captcha_string[$i]);
+  imagettftext($image, 20, rand(-15, 15), $initial + $i*$letter_space, rand(20, 40), $textcolors[rand(0, 1)], $fonts[array_rand($fonts)], $captcha_string[$i]);
 }
  
 imagepng($image);
