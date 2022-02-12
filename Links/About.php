@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&display=swap%27');
+</style>
 <head>
     <title>About</title>
     <link rel="stylesheet" href="style1.css">
