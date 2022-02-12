@@ -1,56 +1,61 @@
-<?php
+<?PHP
+  // Adapted for The Art of Web: www.the-art-of-web.com
+  // Please acknowledge use of this code by including this header.
 
-
-$permitted_chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  // initialize image with dimensions of 120 x 30 pixels
+  $image = @imagecreatetruecolor(120, 30) or die("Cannot Initialize new GD image stream");
   
-function generate_string($input, $strength = 5) {
-    $input_length = strlen($input);
-    $random_string = '';
-    for($i = 0; $i < $strength; $i++) {
-        $random_character = $input[mt_rand(0, $input_length - 1)];
-        $random_string .= $random_character;
-    }
+/// new code
+  imageantialias($image, true);
+ 
+  $colors = [];
+   
+  $red = rand(125, 175);
+  $green = rand(125, 175);
+  $blue = rand(125, 175);
+   
+  for($i = 0; $i < 5; $i++) {
+    $colors[] = imagecolorallocate($image, $red - 20*$i, $green - 20*$i, $blue - 20*$i);
+  }
+   
+  imagefill($image, 0, 0, $colors[0]);
+   
+  for($i = 0; $i < 10; $i++) {
+    imagesetthickness($image, rand(2, 10));
+    $rect_color = $colors[rand(1, 4)];
+    imagerectangle($image, rand(-10, 190), rand(-10, 10), rand(-10, 190), rand(40, 60), $rect_color);
+  }
+  //// end of new code
   
-    return $random_string;
-}
+  // set background to white and allocate drawing colours
+  $linecolor = imagecolorallocate($image, 0xCC, 0xCC, 0xCC);
+  //$textcolor = imagecolorallocate($image, 0x33, 0x33, 0x33);
 
-header('Content-type: image/png');
-$image = imagecreatetruecolor(200, 50);
- 
-imageantialias($image, true);
- 
-$colors = [];
- 
-$red = rand(125, 175);
-$green = rand(125, 175);
-$blue = rand(125, 175);
- 
-for($i = 0; $i < 5; $i++) {
-  $colors[] = imagecolorallocate($image, $red - 20*$i, $green - 20*$i, $blue - 20*$i);
-}
- 
-imagefill($image, 0, 0, $colors[0]);
- 
-for($i = 0; $i < 10; $i++) {
-  imagesetthickness($image, rand(2, 10));
-  $rect_color = $colors[rand(1, 4)];
-  imagerectangle($image, rand(-10, 190), rand(-10, 10), rand(-10, 190), rand(40, 60), $rect_color);
-}
-$black = imagecolorallocate($image, 0, 0, 0);
-$white = imagecolorallocate($image, 255, 255, 255);
-$textcolors = [$black, $white];
- 
-$fonts = [dirname(__FILE__).'\fonts\PlayfairDisplay-VariableFont_wght.ttf', dirname(__FILE__).'\fonts\Merriweather-Regular.ttf'];
+  $black = imagecolorallocate($image, 0, 0, 0);
+  $white = imagecolorallocate($image, 255, 255, 255);
+  $textcolors = [$black, $white];
 
-$string_length = 6;
-$captcha_string = generate_string($permitted_chars, $string_length);
- 
-for($i = 0; $i < $string_length; $i++) {
-  $letter_space = 170/$string_length;
-  $initial = 15;
-  //imagettftext($image, 20, rand(-15, 15), $initial + $i*$letter_space, rand(20, 40), $textcolors[rand(0, 1)], $fonts[array_rand($fonts)], $captcha_string[$i]);
-}
- 
-imagepng($image);
-imagedestroy($image); 
+  //$textcolor = imagecolorallocate($image, $green, $blue, $red);
+  //draw random lines on canvas
+  for($i=0; $i < 5; $i++) {
+    imagesetthickness($image, rand(1,3));
+    imageline($image, 0, rand(0,30), 120, rand(0,30), $linecolor);
+  }
+
+  session_start();
+   
+  // add random digits to canvas
+  $digit = '';
+  for($x = 15; $x <= 95; $x += 20) {
+    $digit .= ($num = rand(0, 9));
+    imagechar($image, rand(5, 8), $x, rand(2, 14), $num, $textcolors[rand(0, 1)]);
+  }
+
+  // record digits in session variable
+  $_SESSION['digit'] = $digit;
+
+  // display image and clean up
+  header('Content-type: image/png');
+  imagepng($image);
+  imagedestroy($image);
 ?>

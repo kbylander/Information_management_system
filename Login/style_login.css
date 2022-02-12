@@ -101,6 +101,32 @@ button {
     border-bottom: 2px solid #adadaa;
 }
 
+.cancel{
+    background-color: #BAD2FF;
+    border-bottom: 2px solid #adadaa;
+}
+
 button:hover {
   border: 2px solid #fff;
 }
+
+.LanguageToggle{
+    position:absolute;
+    top:0;
+    right:0;
+}
+
+footer{
+    padding-top: 100px;
+}
+
+hr{
+    margin-top: 20px;
+    width: 80%;
+  }
+  
+  .or{
+    background: #fff;
+    width: -50px;
+    margin-bottom: auto;
+  }

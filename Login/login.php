@@ -37,6 +37,9 @@
 <input type="text" class="input-box" placeholder="Enter Email" name="useremail" required>
 <input type="password" class="input-box" placeholder="Enter Password" name="userpassword" required>
 <button type="submit" class="login">Login</button>
+<hr>
+<p class=or>OR</p>
+<button onclick="location.href = '../index.php';" type="button" class="cancel">Cancel</button>
 <div class="signup_link">
     Not a member? <a href="../Registration/registration.php">Signup</a>
 </div>
