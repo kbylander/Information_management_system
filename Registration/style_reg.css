@@ -15,8 +15,8 @@ body
   box-shadow: 0 0 3px 0 rgb(0, 0, 0, 0.3);
   background: #fff;
   padding: 20px;
-  margin: 8% auto 0;
   text-align: center;
+  margin: auto;
 }
 
 .sign-up-form h1
@@ -103,12 +103,28 @@ button {
 
 .register {
   background-color: #E2B8FF;
+  border-bottom: 2px solid #adadaa;
 }
 
 .cancel{
   background-color: #BAD2FF;
+  border-bottom: 2px solid #adadaa;
 }
 
 button:hover {
   border: 2px solid #fff;
+}
+
+footer {
+  position: absolute;
+  right: 75%;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+
+.LanguageToggle{
+  position:absolute;
+  top:0;
+  right: 90%;
 }

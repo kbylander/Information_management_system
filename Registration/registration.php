@@ -11,6 +11,15 @@
 </head>
 <body>
 
+<div class="LanguageToggle">
+                    <div class="GoogleTranslate">
+                        <div id="google_translate_element" style="text:right;"></div><script type="text/javascript">
+                        function googleTranslateElementInit() {
+                          new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,de,en,es,it,ja,pt,ru,zh-CN,zh-TW', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                        }
+                        </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                    </div>
+                    </div>
 <form action="performreg.php" method='POST'>
 
 <div class="sign-up-form">
@@ -38,5 +47,8 @@
     <button id = "b5" onclick="location.href = '../index.php';" type="button" class="cancel">Cancel</button>
 </div>
 </form>
+<footer>
+    <p>©Copyright 2022 by Daredevils. All rights reversed.</p>
+</footer>
 </body>
 </html>
