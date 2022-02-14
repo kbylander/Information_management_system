@@ -8,7 +8,7 @@
     padding: 50px;
     text-align: center;
     width:100%;
-    background: linear-gradient(90deg, rgb(44, 107, 223) 0%, rgb(50, 50, 170) 35%, rgb(17, 184, 218) 100%);
+    background: linear-gradient(120deg,  #def4dd, #B0D8FF, #BAD2FF, #CEC5FF, #E2B8FF );
   }
 .GoogleTranslate{
     position:absolute;
@@ -32,7 +32,7 @@
     width:100%;
     height: 600px;
     font-size: 20px;
-    background: linear-gradient(to bottom, rgba(55, 115, 226, 0.5), rgba(56, 132, 247, 0.5));
+    background: linear-gradient(120deg,  #def4dd, #B0D8FF, #BAD2FF, #CEC5FF, #E2B8FF );
     background-size: cover;
 }
 
@@ -40,6 +40,11 @@
     padding: 1%;
     font-size: 80px;
     text-align: left;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+#t1{
+    font-family: 'Lora', sans-serif;
 }
 
 .contact {
@@ -65,5 +70,5 @@
 }
 
 footer{
-    background: linear-gradient(to bottom, rgba(55, 115, 226, 0.5), rgba(56, 132, 247, 0.5));
+    background: linear-gradient(120deg,  #def4dd, #B0D8FF, #BAD2FF, #CEC5FF, #E2B8FF );
 }

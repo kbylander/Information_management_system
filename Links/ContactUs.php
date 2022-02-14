@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap%27');
+    @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+</style>
 <head>
     <title>Contact Us</title>
     <link rel="stylesheet" href="style2.css">
