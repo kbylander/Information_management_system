@@ -1,3 +1,4 @@
+<?php session_start()?>
 <!DOCTYPE html>
 <html>
 <style>
@@ -25,12 +26,17 @@
 <div class="sign-up-form">
     <img src="user_färg.png">
     <h1> Please fill in the registration form </h1>
+    <?php if (isset($_SESSION['RegistrationErrors'])): ?>
+      <div class="form-errors">
+        <p><?php echo $_SESSION['RegistrationErrors']?></p>
+      </div>
+    <?php endif; ?>
     <input type="name" class="input-box" placeholder="Username" name="username" required>
     <input type="text" class="input-box" placeholder="Enter Email" name="useremail" required>
     <input type="password" class="input-box" placeholder="Enter Password" name="userpassword" required>
     <input type="password" class="input-box" placeholder="Confirm Password" name="confirmpassword" required>
     <input type="text" class="input-box"  placeholder="Enter your affiliation" name="affiliation">
-   
+
     <label for="captcha">Please Enter the Captcha Text</label>
     <img src="captcha.php" alt="CAPTCHA" class="captcha-image"><i class="fas fa-redo refresh-captcha"></i>
     <br>
