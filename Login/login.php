@@ -1,3 +1,4 @@
+<?PHP session_start()?>
 <!DOCTYPE html>
 <html>
 <style>
@@ -34,7 +35,15 @@
 <div class="log-in-form">
 <img align="left" src="login.png">
 <h1>Login</h1>
-<input type="text" class="input-box" placeholder="Enter Email" name="useremail" required>
+
+<?PHP if(isset($_SESSION['LoginError'])): ?>
+<div class='form-errors'>
+<p> <?php echo $_SESSION['LoginError'] ?> </p>
+<?PHP $_SESSION['LoginError'] = ''; ?>
+</div>
+<?php endif; ?>
+
+<input type="text" class="input-box" placeholder="Enter Username" name="username" required>
 <input type="password" class="input-box" placeholder="Enter Password" name="userpassword" required>
 <button type="submit" class="login">Login</button>
 <hr>
