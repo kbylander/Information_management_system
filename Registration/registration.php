@@ -29,6 +29,7 @@
     <?php if (isset($_SESSION['RegistrationErrors'])): ?>
       <div class="form-errors">
         <p><?php echo $_SESSION['RegistrationErrors']?></p>
+        <?php $_SESSION['RegistrationErrors'] = ''?> 
       </div>
     <?php endif; ?>
     <input type="name" class="input-box" placeholder="Username" name="username" required>
