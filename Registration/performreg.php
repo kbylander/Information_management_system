@@ -13,8 +13,7 @@ include 'passwordsecurity.php'; //This script does all password security checks
 include 'emailsecurity.php'; //This script does the email check
 include 'duplicateentrycheck.php'; //This script checks the database so the username and passwords are unique
 
-//if(isset($_POST['captcha_challenge']) && $_POST['captcha_challenge'] == $_SESSION['captcha_text']) {
-// Check if captcha was correctly entered
+if(isset($_POST['captcha_challenge']) && $_POST['captcha_challenge'] == $_SESSION['digit']) { // Check if captcha was correctly entered
 //If statements to confirm if a user can be added or what is wrong with the entry.
   if($strongpassword && $isemail && $uniqueuser){
     include 'passwordhash.php'; //Hashes the password
@@ -41,8 +40,9 @@ include 'duplicateentrycheck.php'; //This script checks the database so the user
     }
     header("Location:registration.php"); //Registration was unsuccessful. The user is redirected back to the registration form
   }
-  // Capthca was not correctly entered
- /*else {
-  echo '<p>You entered an incorrect Captcha.</p>';
-}*/
+}
+ else { // Capthca was not correctly entered
+  $_SESSION['RegistrationErrors'] = "Registration unsuccessful<br><br>CAPTCHA not correctly entered";
+  header("Location:registration.php"); //Registration was unsuccessful. The user is redirected back to the registration form
+  }
 ?>

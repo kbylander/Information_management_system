@@ -29,7 +29,7 @@
     <?php if (isset($_SESSION['RegistrationErrors'])): ?>
       <div class="form-errors">
         <p><?php echo $_SESSION['RegistrationErrors']?></p>
-        <?php $_SESSION['RegistrationErrors'] = ''?> 
+        <?php $_SESSION['RegistrationErrors'] = ''?>
       </div>
     <?php endif; ?>
     <input type="name" class="input-box" placeholder="Username" name="username" required>
@@ -41,7 +41,7 @@
     <label for="captcha">Please Enter the Captcha Text</label>
     <img src="captcha.php" alt="CAPTCHA" class="captcha-image"><i class="fas fa-redo refresh-captcha"></i>
     <br>
-    <input type="text" id="captcha" name="captcha_challenge" placeholder="Enter Captcha" pattern="[A-Z]{6}" required>
+    <input type="text" id="captcha" name="captcha_challenge" placeholder="Enter Captcha" pattern="[0-9]{5}" required>
     <script type="text/javascript">
     var refreshButton = document.querySelector('.refresh-captcha');
     refreshButton.onclick = function() {
