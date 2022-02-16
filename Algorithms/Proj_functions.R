@@ -21,10 +21,10 @@ Genpofad <- function(fasta1, fasta2, pw = TRUE, conseq = FALSE) {
   cat(paste(2, mini),
       paste(seq_name1, sequence1),
       paste(seq_name2, sequence2),
-      file = "Algorithms/Output/sequences.txt", sep = "\n")
+      file = "sequences.txt", sep = "\n")
   
   # Read the alignment
-  SNP.sequences <- read.dna("Algorithms/Output/sequences.txt", format = "sequential")
+  SNP.sequences <- read.dna("sequences.txt", format = "sequential")
   
   # Compute GENPOFAD distance
   d <- dist.snp(SNP.sequences, model="GENPOFAD", pairwise.deletion = pw)
@@ -38,6 +38,7 @@ Genpofad <- function(fasta1, fasta2, pw = TRUE, conseq = FALSE) {
 }
 
 Matchstates <- function(fasta1, fasta2, pw = TRUE, conseq = FALSE) {
+  
   
   # Read fasta-files
   fastaFile1 <- readDNAStringSet(fasta1)
