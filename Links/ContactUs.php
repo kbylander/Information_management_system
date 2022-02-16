@@ -1,3 +1,8 @@
+<?php //Initiating session and making sure the user gets tagged as not logged in.
+session_start();
+if(!isset($_SESSION['loggedin'])) {
+  $_SESSION['loggedin'] = False;
+} ?>
 <!DOCTYPE html>
 <html>
 <style>
@@ -9,18 +14,23 @@
     <link rel="stylesheet" href="style2.css">
 </head>
 <body>
-<section class="header">
-        <nav>
-            <div class ="nav-links">
+<div class="banner">
+            <div class="navbar">
+                <img src="../wolf_icon.png" class="logo">
                 <ul>
                     <li><a href="../index.php">Home</a></li>
                     <li><a href="About.php">About</a></li>
-                    <li><a href="../Login/login.php">Database</a></li>
+                    <?php if ($_SESSION['loggedin']) { //If logged in, take the user to the database?>
+                    <li><a href="DbInfo.php">Database</a></li>
+                    <?php }
+                    else{ //If not logged in, take the user to the login page?>
+                    <li><a href="Login/login.php">Database</a></li>
+                    <?php } ?>
                     <li><a href="#">Contact Us</a></li>
                 </ul>
             </div>
-        </nav>
-    <div class="LanguageToggle">
+
+            <div class="LanguageToggle">
                     <div class="GoogleTranslate">
                         <div id="google_translate_element" style="text:right;"></div><script type="text/javascript">
                         function googleTranslateElementInit() {
@@ -28,8 +38,7 @@
                         }
                         </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
                     </div>
-    </div>
-</section>
+            </div>
 <main>
 <div class = "contact">
     <h1 id= "B1"> Conctact Us </h1>
