@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Genetic Match.com</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<section class="header">
-        <nav>
-            <div class ="nav-links">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+</style> 
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+</style> 
+    <head>
+        <title>Welcome to Genetic Match.com</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="banner">
+            <div class="navbar">
+                <img src="wolf_icon.png" class="logo">
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="About.php">About</a></li>
@@ -15,8 +21,8 @@
                     <li><a href="ContactUs.php">Contact Us</a></li>
                 </ul>
             </div>
-        </nav>
-    <div class="LanguageToggle">
+
+            <div class="LanguageToggle">
                     <div class="GoogleTranslate">
                         <div id="google_translate_element" style="text:right;"></div><script type="text/javascript">
                         function googleTranslateElementInit() {
@@ -24,19 +30,15 @@
                         }
                         </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
                     </div>
-    </div>
-</section>
-<main>
-<div class = "center">
-        <h1 id= "t1"> Welcome to Genetic Match.com </h1>
-        <div class = "centerbuttoms">
-            <button id = "b1" onclick="location.href = 'dblogin.php';" type="button">Database Login</button>
-            <button id = "b2" onclick="location.href = 'member.php';" type="button">Become a member</button>
-        </div>
-</div>
-</main>
-<footer>
-    <p>©Copyright 2022 by Daredevils. All rights reversed.</p>
-</footer>
-</body>
+            </div>
+
+            <div class="content">
+                <h1>MAKE YOUR MATCH</h1>
+                <p>With Genetic Match.com we find the perfect fit for you!<p>
+                <div>
+                    <button onclick="location.href = 'dblogin.php';" type="button"><span></span>DATABASE LOGIN</button>
+                    <button onclick="location.href = 'member.php';" type="button"><span></span>BECOME A MEMBER</button>
+                </div>
+            </div> 
+    </body>
 </html>

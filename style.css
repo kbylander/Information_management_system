@@ -1,74 +1,119 @@
 *{
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    font-family: sans-serif;
 }
 
-.header {
-    padding: 50px;
+.banner{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(varrrg.jpg) no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
+}
+.navbar{
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 120px;
+    cursor: pointer;
+}
+
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+
+.navbar ul li a{
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+.navbar ul li::after{
+    content:'';
+    height: 3px;
+    width: 0;
+    background: #BAD2FF;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+.navbar ul li:hover::after{
+    width: 100%;
+}
+
+.content{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     text-align: center;
-    width:100%;
-    background: linear-gradient(90deg, rgb(44, 107, 223) 0%, rgb(50, 50, 170) 35%, rgb(17, 184, 218) 100%);
-  }
+    color: #fff ; 
+}
+
+.content h1{
+    font-family: 'Righteous', cursive;
+    font-size: 70px;
+    margin-top: 80px;
+}
+
+.content p{
+    font-family: 'Open Sans', sans-serif;
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+}
+
+button{
+    font-family: 'Open Sans', sans-serif;
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #CEC5FF ;
+    background: transparent;
+    color: #fff ;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+span{
+    font-family: 'Open Sans', sans-serif;
+    background: #CEC5FF ;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+button:hover span{
+    width: 100%;
+}
+
+button:hover{
+    border: none;
+}
+
 .GoogleTranslate{
     position:absolute;
     top:0;
     right:0;
-}
-.nav-links{
-    flex:1;
-    position:absolute;
-    right: 0px;
-    top: 50px;
-}
-.nav-links ul li{
-    list-style: none;
-    display: inline-block;
-    margin: 0 20px;
-    font-size: 20px;
-}
-
-.center {
-    height: 600px;
-    position: relative;
-    background: linear-gradient(to bottom, rgba(55, 115, 226, 0.5), rgba(56, 132, 247, 0.5)), url(background.jpg) 0 0 no-repeat fixed;
-    background-size: cover;
-    overflow: hidden;
-    color: #FFFFFF
-}
-
-.centerbuttoms{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
-
-#t1{
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    font-size: 50px;
-}
-
-#b1{
-    width: 220px;
-    height: 50px;
-    font-family: "Lucida Console", "Courier New", monospace;
-    font-size: 20px;
-    background-color: #32ce38;
-}
-#b2{
-    width: 220px;
-    height: 50px;
-    font-family: "Lucida Console", "Courier New", monospace;
-    font-size: 20px;
-    background-color: #1fb1eb;
-}
-
-footer{
-    background: linear-gradient(to bottom, rgba(55, 115, 226, 0.5), rgba(56, 132, 247, 0.5));
 }
