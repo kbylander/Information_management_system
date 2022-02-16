@@ -1,11 +1,12 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-</style> 
+</style>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
-</style> 
+</style>
     <head>
         <title>Welcome to Genetic Match.com</title>
         <link rel="stylesheet" href="style.css">
@@ -17,7 +18,12 @@
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="Links/About.php">About</a></li>
+                    <?php if ($_SESSION['loggedin']) { //If logged in, take the user to the database?>
                     <li><a href="DbInfo.php">Database</a></li>
+                    <?php }
+                    else{ //If not logged in, take the user to the login page?>
+                    <li><a href="Login/login.php">Database</a></li>
+                    <?php } ?>
                     <li><a href="Links/ContactUs.php">Contact Us</a></li>
                 </ul>
             </div>
@@ -34,11 +40,18 @@
 
             <div class="content">
                 <h1>MAKE YOUR MATCH</h1>
+              <?php if ($_SESSION['loggedin']) { //?>
+                <p>Welcome <?php echo $_SESSION['user']?>!<p>
+                <div>
+                <button onclick="location.href = 'DbInfo.php';" type="button"><span></span>DATABASE</button>
+              <?php }
+              else{ ?>
                 <p>With Genetic Match.com we find the perfect fit for you!<p>
                 <div>
-                    <button onclick="location.href = 'Login/login.php';" type="button"><span></span>DATABASE LOGIN</button>
-                    <button onclick="location.href = 'Registration/registration.php';" type="button"><span></span>BECOME A MEMBER</button>
+                  <button onclick="location.href = 'Login/login.php';" type="button"><span></span>DATABASE LOGIN</button>
+                  <button onclick="location.href = 'Registration/registration.php';" type="button"><span></span>BECOME A MEMBER</button>
+              <?php } ?>
                 </div>
-            </div> 
+            </div>
     </body>
 </html>

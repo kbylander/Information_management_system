@@ -1,8 +1,7 @@
-
 <?php
 session_start();
 $_SESSION['user']='';
-$_SESSION['loggedin'] = FALSE; 
+$_SESSION['loggedin'] = FALSE;
 $_SESSION['LoginError'] = '';
 
 ini_set('display_errors', 1);
@@ -34,7 +33,7 @@ if($passwlen > 7) {
     }
     if (password_verify($password, $hash)) {
         $_SESSION['user']=$userID;
-        $_SESSION['loggedin'] = TRUE; 
+        $_SESSION['loggedin'] = TRUE;
         header('Location:../index.php');
 
 
@@ -55,5 +54,5 @@ else{
     header("location:login.php");
 
 }
-  
+
 ?>
