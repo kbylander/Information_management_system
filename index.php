@@ -1,4 +1,8 @@
-<?php session_start() ?>
+<?php //Initiating session and making sure the user gets tagged as not logged in.
+session_start();
+if(!isset($_SESSION['loggedin'])) {
+  $_SESSION['loggedin'] = False;
+} ?>
 <!DOCTYPE html>
 <html>
 <style>
