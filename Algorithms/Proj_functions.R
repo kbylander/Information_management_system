@@ -77,7 +77,7 @@ Matchstates <- function(fasta1, fasta2, pw = TRUE, conseq = FALSE) {
   return(d)
 }
 
-Hamming <- function(fasta1, fasta2){
+Daredevil <- function(fasta1, fasta2){
   
   # Read fasta-files
   fastaFile1 <- readDNAStringSet(fasta1)
@@ -113,9 +113,9 @@ Hamming <- function(fasta1, fasta2){
 mean_dist <- function(fasta1, fasta2){
   Gen <- Genpofad(fasta1, fasta2)
   Match <- Matchstates(fasta1, fasta2)
-  Ham <- Hamming(fasta1, fasta2)
+  DD <- Daredevil(fasta1, fasta2)
   
-  tot <- sum(Ham,Gen,Match)
+  tot <- sum(DD,Gen,Match)
   mean <- tot/3
   
   return(mean)
