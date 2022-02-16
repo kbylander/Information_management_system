@@ -16,9 +16,9 @@
                 <img src="wolf_icon.png" class="logo">
                 <ul>
                     <li><a href="#">Home</a></li>
-                    <li><a href="About.php">About</a></li>
+                    <li><a href="Links/About.php">About</a></li>
                     <li><a href="DbInfo.php">Database</a></li>
-                    <li><a href="ContactUs.php">Contact Us</a></li>
+                    <li><a href="Links/ContactUs.php">Contact Us</a></li>
                 </ul>
             </div>
 
@@ -36,8 +36,8 @@
                 <h1>MAKE YOUR MATCH</h1>
                 <p>With Genetic Match.com we find the perfect fit for you!<p>
                 <div>
-                    <button onclick="location.href = 'dblogin.php';" type="button"><span></span>DATABASE LOGIN</button>
-                    <button onclick="location.href = 'member.php';" type="button"><span></span>BECOME A MEMBER</button>
+                    <button onclick="location.href = 'Login/login.php';" type="button"><span></span>DATABASE LOGIN</button>
+                    <button onclick="location.href = 'Registration/registration.php';" type="button"><span></span>BECOME A MEMBER</button>
                 </div>
             </div> 
     </body>
