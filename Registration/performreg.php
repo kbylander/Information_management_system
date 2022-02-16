@@ -23,19 +23,19 @@ if(isset($_POST['captcha_challenge']) && $_POST['captcha_challenge'] == $_SESSIO
   else{
     $_SESSION['RegistrationErrors'] = "Registration unsuccessful"."<br><br>"; //Adds an error message according to the error at hand
   //If statement to check if the username and email are unique. Returned from duplicateentrycheck.php
-    if($uniqueuser != True){
+    if(!$uniqueuser){
     $_SESSION['RegistrationErrors'] = $_SESSION['RegistrationErrors'] . 'Email or username already taken. '."<br>";//Adds an error message according to the error at hand
     }
   //If statement to check if the email is the correct. Returned from emailsecurity.php
-    if($isemail != True){
+    if(!$isemail){
       $_SESSION['RegistrationErrors'] = $_SESSION['RegistrationErrors'] . 'Email address is not the correct format. '."<br>";//Adds an error message according to the error at hand
     }
   //If statement to check if the password meet the set requirements. Returned from passwordsecurity.php
-    if($strongpassword != True){
+    if(!$strongpassword){
       $_SESSION['RegistrationErrors'] = $_SESSION['RegistrationErrors'] . 'Password should be at least 8 characters in length and should include at least one upper case letter and one number. '."<br>";
     }
   //If statement to check if the fields for passwords are matching. Returned from password security.php
-    if($matchingpasswords != True){
+    if(!$matchingpasswords){
       $_SESSION['RegistrationErrors'] = $_SESSION['RegistrationErrors'] . 'Passwords entered were not matching. '."<br>";//Adds an error message according to the error at hand
     }
     header("Location:registration.php"); //Registration was unsuccessful. The user is redirected back to the registration form
