@@ -24,7 +24,7 @@ if(!isset($_SESSION['loggedin'])) {
                     <li><a href="DbInfo.php">Database</a></li>
                     <?php }
                     else{ //If not logged in, take the user to the login page?>
-                    <li><a href="Login/login.php">Database</a></li>
+                    <li><a href="../Login/login.php">Database</a></li>
                     <?php } ?>
                     <li><a href="#">Contact Us</a></li>
                 </ul>
