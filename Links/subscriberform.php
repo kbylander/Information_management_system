@@ -6,7 +6,7 @@
 <body>
     <?php
     if($_POST["message"]){
-        mail("paula.camargo.romera@gmail.com", "Contact", $_POST["message"]. $_POST["email"]);
+        mail("daredevilwolves@gmail.com", "Contact", "Name: ". $_POST["name"]. "\n". "Email: ". $_POST["email"]. "\n". "Message: ". $_POST["message"]);
         echo "Email sended successfully.";
     } else {
         echo "Error";

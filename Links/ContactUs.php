@@ -41,7 +41,7 @@ if(!isset($_SESSION['loggedin'])) {
             </div>
 <main>
 <div class = "contact">
-    <h1 id= "B1"> Conctact Us </h1>
+    <h1 id= "B1"> Contact Us </h1>
     <div class = "info">
         <div class = "r0">
             <p style= "margin: 25px" >Genetic Match.dom</p>
@@ -62,7 +62,7 @@ if(!isset($_SESSION['loggedin'])) {
             <label for="email">Email:</label><br>
             <input type="text" id="email" name="email"><br>
             <label for="message">Message:</label><br>
-            <input type="text" id="message" name="message" style="height:150px; width: 500px;"><br>
+            <textarea rows="2" cols="25" placeholder="This is the default text" id="message" name="message" style="height:150px; width: 500px;"></textarea><br>
             <input type="submit" value="Submit">
         </form>
     </div>
