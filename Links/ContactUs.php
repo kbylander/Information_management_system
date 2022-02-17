@@ -55,19 +55,21 @@ if(!isset($_SESSION['loggedin'])) {
         </div>
     </div>
     <div class = "form">
+        <h1 id= "C1"> Form </h1>
         <form action="subscriberform.php" method="POST">
             <label for="name">Name:</label><br>
             <input type="text" id="name" name="name"><br>
             <label for="email">Email:</label><br>
             <input type="text" id="email" name="email"><br>
             <label for="message">Message:</label><br>
-            <input type="text" id="message" name="message"><br>
+            <input type="text" id="message" name="message" style="height:150px; width: 500px;"><br>
             <input type="submit" value="Submit">
         </form>
     </div>
 </div>
 <div class = "maps">
-    <iframe title="Google Map" src="https://maps.google.com/maps?q=polacksbacken&t=&z=13&ie=UTF8&iwloc=&output=embed" width="600" height="450" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+    <h1 id= "D1"> Localization </h1>
+    <iframe title="Google Map" src="https://maps.google.com/maps?q=polacksbacken&t=&z=13&ie=UTF8&iwloc=&output=embed" width="1000" height="600" frameborder="0" style="border:0" allowfullscreen=""></iframe>
 </div>
 </main>
 <footer>
