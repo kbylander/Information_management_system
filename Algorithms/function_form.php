@@ -10,6 +10,5 @@
     <! --- drop down menu to chose which measurement method to use or consensus --->
     <input type="submit" name="submit">
 </form>
-
 </body>
 </html
