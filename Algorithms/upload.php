@@ -1,5 +1,5 @@
 <?php
-
+//Load files
 $fasta1 = $_POST['fastafile1'];
 $fasta2 = $_POST['fastafile2'];
 
@@ -24,7 +24,12 @@ $filename2 = "input/$header2.fasta";
 file_put_contents($filename1, $document1);
 file_put_contents($filename2, $document2);
 //echo "Your files were uploaded successfully";
+
+//go through each file in a folder, and run the exe
+
+
 exec('C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Function_call.R');
+
 
 // After all fasta files are run (after the loop), then create table with the output below. 
 //exec('C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Table.R');
@@ -32,9 +37,12 @@ exec('C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Function_call.R');
 exec('C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Create_table.R');
 
 $outputtable = "output/table.php";
+
 $outputtable = file_get_contents($outputtable);
 echo $outputtable;
+
 ?>
+
 
 
     
