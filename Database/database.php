@@ -44,7 +44,7 @@ include '../disconnectDB';
       </table>
 
 
-<button onclick="window.location.href='Entryhandling/insertDB.php'">New entry</button>
+<button onclick="window.location.href='../Entryhandling/insertDB.php'">UPLOAD SEQUENCES</button>
 
 <!-- Script to real time filter the able -->
 <script>
