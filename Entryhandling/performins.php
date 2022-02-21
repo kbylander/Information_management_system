@@ -29,7 +29,7 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Upload')
     if (in_array($fileExtension, $allowedfileExtensions))
     {
       // directory in which the uploaded file will be moved
-      $uploadFileDir = 'C:\MAMP\htdocs\ims_daredevil\IMS-Daredevil\Entryhandling\uploadedfiles/';
+      $uploadFileDir = '.\uploadedfiles/';
       $dest_path = $uploadFileDir . $newFileName;
  
       if(move_uploaded_file($fileTmpPath, $dest_path)) 
