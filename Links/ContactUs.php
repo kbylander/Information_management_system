@@ -16,7 +16,7 @@ if(!isset($_SESSION['loggedin'])) {
 <body>
 <div class="banner">
             <div class="navbar">
-                <img src="../wolf_icon.png" class="logo">
+                <a href= "../index.php"><img src="../wolf_icon.png" class="logo"></a>
                 <ul>
                     <li><a href="../index.php">Home</a></li>
                     <li><a href="About.php">About</a></li>
@@ -73,7 +73,7 @@ if(!isset($_SESSION['loggedin'])) {
 </div>
 </main>
 <footer>
-    <p>©Copyright 2022 by Daredevils. All rights reversed.</p>
+    <p>©Copyright 2022 by Daredevils. All rights reserved.</p>
 </footer>
 </body>
 </html>
