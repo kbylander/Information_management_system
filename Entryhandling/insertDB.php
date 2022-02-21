@@ -1,5 +1,11 @@
 <?php session_start();
-echo $_SESSION['UploadError']; ?>
+echo $_SESSION['UploadError'];
+session_start();
+if(empty($_SESSION['loggedin'])){
+    header('Location:../index.php');
+}
+?>
+
 
 <!DOCTYPE html>
 <html>
