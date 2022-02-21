@@ -17,7 +17,7 @@ if(!isset($_SESSION['loggedin'])) {
 <body>
 <div class="banner">
             <div class="navbar">
-                <img src="../wolf_icon.png" class="logo">
+                <a href= "../index.php"><img src="../wolf_icon.png" class="logo"></a>
                 <ul>
                     <li><a href="../index.php">Home</a></li>
                     <li><a href="#">About</a></li>
