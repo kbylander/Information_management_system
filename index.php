@@ -48,6 +48,7 @@ if(!isset($_SESSION['loggedin'])) {
                 <p>Welcome <?php echo $_SESSION['user']?>!<p>
                 <div>
                 <button onclick="location.href = 'DbInfo.php';" type="button"><span></span>DATABASE</button>
+                <button onclick="location.href = 'Login/SessionDestroy.php';" type="button"><span></span>LOG OUT</button>
               <?php }
               else{ ?>
                 <p>With Genetic Match.com we find the perfect fit for you!<p>
