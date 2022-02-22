@@ -23,7 +23,7 @@ if(!isset($_SESSION['loggedin'])) {
                     <li><a href="#">Home</a></li>
                     <li><a href="Links/About.php">About</a></li>
                     <?php if ($_SESSION['loggedin']) { //If logged in, take the user to the database?>
-                    <li><a href="Database/database.php">Database</a></li>
+                    <li><a href="Database/databasemenu.php">Database</a></li>
                     <?php }
                     else{ //If not logged in, take the user to the login page?>
                     <li><a href="Login/login.php">Database</a></li>
@@ -47,7 +47,7 @@ if(!isset($_SESSION['loggedin'])) {
               <?php if ($_SESSION['loggedin']) { //?>
                 <p>Welcome <?php echo $_SESSION['user']?>!<p>
                 <div>
-                <button onclick="location.href = 'Database/database.php';" type="button"><span></span>DATABASE</button>
+                <button onclick="location.href = 'Database/databasemenu.php';" type="button"><span></span>DATABASE</button>
                 <button onclick="location.href = 'Login/sessiondestroy.php';" type="button"><span></span>LOG OUT</button>
               <?php }
               else{ ?>

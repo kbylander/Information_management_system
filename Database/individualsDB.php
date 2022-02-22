@@ -43,8 +43,8 @@ include '../disconnectDB';
         <?php endwhile;?>
       </table>
 
-
-<button onclick="window.location.href='../Entryhandling/insertDB.php'">UPLOAD SEQUENCES</button>
+<button onclick="window.location.href='sequencesDB.php'">ALL SEQUENCES</button>
+<button onclick="window.location.href='../Entryhandling/insertform.php'">UPLOAD</button>
 
 <!-- Script to real time filter the able -->
 <script>
