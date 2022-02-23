@@ -10,7 +10,7 @@ if ($_SESSION['loggedin'] == False) {
 }
 else{
 $individualID = $_GET['ID'];
-$query = "SELECT seqID, genename, seq FROM sequence WHERE entryID LIKE '$individualID'";
+$query = "SELECT seqID, genename FROM sequence WHERE entryID LIKE '$individualID'";
 include '../connectDB.php';
 $result = mysqli_query($link, $query);
 include '../disconnectDB';
@@ -26,7 +26,6 @@ include '../disconnectDB';
         <tr>
             <th>ID</th>
             <th>Gene</th>
-            <th>Sequence</th>
         </tr>
 
 <!-- populate table from mysql database -->
@@ -34,7 +33,6 @@ include '../disconnectDB';
       <tr>
         <td><a href="sequence.php?seqID=<?php echo $row[0] ?>"><?php echo $row[0];?></td>
         <td><?php echo $row[1];?></td>
-        <td><?php echo $row[2];?></td>
       </tr>
         <?php endwhile;?>
       </table>

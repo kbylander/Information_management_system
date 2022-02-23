@@ -26,6 +26,7 @@ include '../disconnectDB';
   <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search in database">
     <table id="entryTable">
         <tr>
+            <th></th>
             <th>ID</th>
             <th>Gene name</th>
             <th>Species</th>
@@ -36,6 +37,7 @@ include '../disconnectDB';
 <!-- populate table from mysql database -->
     <?php while($row = mysqli_fetch_array($result)):?>
       <tr>
+        <td><input type=checkbox></td>
         <td><a href="sequence.php?seqID=<?php echo $row[0] ?>"><?php echo $row[0];?></td>
         <td><?php echo $row[1];?></td>
         <td><?php echo $row[2];?></td>
