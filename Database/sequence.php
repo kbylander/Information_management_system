@@ -24,9 +24,9 @@ include '../disconnectDB';
   <h1>Sequence <?php echo $seqID ?></h1>
 
     <?php while($row = mysqli_fetch_array($result)):?>
-    <?php if($_SESSION['user'] != $row[5]){header('Location: ../index.php');}?>
+    <?php if($_SESSION['user'] != $row[5]){header('Location: ../index.php');} //Check to see if person has access to this sequence?>
     <p>Gene, <?php echo $row[1];?></p>
-    <p>Sequenced from, <?php echo $row[3];?>, <?php echo $row[6]?>,
+    <p>Sequenced from, <a href="individual.php?ID=<?php echo $row[3];?>"><?php echo $row[3];?></a>, <?php echo $row[6];?>,
     <?php if(isset($row[4])){echo $row[4];}
     else{echo 'gender unknown';}
     ?></p>
@@ -35,6 +35,7 @@ include '../disconnectDB';
     <p>Added by, <?php echo $row[5];?></p>
     <?php endwhile;?>
 
+<p><a href="download.php?file=<?php echo $seqID?>">Download fasta file</a></p>
 
 <button onclick="window.location.href='sequencesDB.php'">BACK TO ALL SEQUENCES</button>
 
