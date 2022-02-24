@@ -1,4 +1,12 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+$header = array();
+$seq = array();
+$fastanumber =- 1;
+
 foreach($fasta as $key => $value) { 
     if (str_contains($value, '>')) {
         $fastanumber += 1;

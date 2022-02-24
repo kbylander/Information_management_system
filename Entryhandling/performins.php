@@ -4,6 +4,8 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 session_start();
+require __DIR__ . '/checkcharacters.php';
+
 $_SESSION['UploadError'] = '';
 
 
@@ -43,14 +45,33 @@ if(!empty($fileSize)){
     }else {
         $_SESSION['UploadError'] = $_SESSION['UploadError'] . '<br>' . 'Only .fasta fileformats allowed';
     }
+    echo $ffile;
+    if (ValidCharacters($ffile)){
+    
+        //header('Location:./insertform.php');
+         echo 'nej';
+    }
+    else{
+        include 'filefastahandler.php';
+    }
+    print_r($header);
+    print_r($seq);
 
-    include 'filefastahandler.php';
 }
 
 //This section will handle text inputs
 if(!empty($_POST['fastatext'])){
     $ftext = $_POST['fastatext'];
-    include 'textfastahandler.php';
+
+    if (ValidCharacters($ftext)){
+        include 'textfastahandler.php';
+    }
+    else{
+        header('Location:./insertform.php');
+    }
+    echo '<br><br>';
+    print_r($header);
+    print_r($seq);
 }
 elseif(empty($ftext) && empty($fileSize)){
     $_SESSION['UploadError'] = $_SESSION['UploadError'] . '<br>' . 'Empty submission';
@@ -59,14 +80,8 @@ elseif(empty($ftext) && empty($fileSize)){
 //If there was an error, bring it back to the upload page and display the error. 
 if (!empty($_SESSION['UploadError'])){
     $_SESSION['UploadError'] ='File Upload Error: ' . $_SESSION['UploadError'];
+    
     header('Location:./insertform.php');
 }
-
-include 'fastadivider.php';
-print_r($header);
-echo '<br><br>';
-print_r($seq);
-include 'headerhandler.php';
-
 ?>
 

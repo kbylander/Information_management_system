@@ -27,10 +27,4 @@ foreach ($fastas as $key => $value){
     }
 }
 include 'fastadivider.php'; //insert a full header into a separate array, same with sequences. 
-
-print_r($header);
-echo '<br><br>';
-print_r($seq);
-
-
 ?>

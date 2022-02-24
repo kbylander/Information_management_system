@@ -19,13 +19,6 @@ $fastanumber =- 1;
 $fastas=$fasta[0];
 $fasta=$fastas;
 
-print_r($fasta);
-
 include 'fastadivider.php';
-
-//print_r($header);
-echo '<br><br>';
-//print_r($seq);
-
-
 ?>
+
