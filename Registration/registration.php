@@ -3,16 +3,29 @@
 <html>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&display=swap%27');
-</style>
-<style>
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap%27');
 </style>
 <head>
-<link rel="stylesheet" href="style_reg.css">
+<link rel="stylesheet" href="sreg.css">
 </head>
 <body>
+<div class="banner">
+            <div class="navbar">
+                <a href= "../index.php"><img src="../wolf_icon.png" class="logo"></a>
+                <ul>
+                    <li><a href="../index.php">Home</a></li>
+                    <li><a href="../Links/About.php">About</a></li>
+                    <?php if ($_SESSION['loggedin']) { //If logged in, take the user to the database?>
+                    <li><a href="DbInfo.php">Database</a></li>
+                    <?php }
+                    else{ //If not logged in, take the user to the login page?>
+                    <li><a href="../Login/login.php">Database</a></li>
+                    <?php } ?>
+                    <li><a href="../Links/ContactUs.php">Contact Us</a></li>
+                </ul>
+            </div>
 
-<div class="LanguageToggle">
+            <div class="LanguageToggle">
                     <div class="GoogleTranslate">
                         <div id="google_translate_element" style="text:right;"></div><script type="text/javascript">
                         function googleTranslateElementInit() {
@@ -20,7 +33,9 @@
                         }
                         </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
                     </div>
-                    </div>
+            </div>
+</div>
+<main>
 <form action="performreg.php" method='POST'>
 
 <div class="sign-up-form">
@@ -36,8 +51,7 @@
     <input type="text" class="input-box" placeholder="Enter Email" name="useremail" required>
     <input type="password" class="input-box" placeholder="Enter Password" name="userpassword" required>
     <input type="password" class="input-box" placeholder="Confirm Password" name="confirmpassword" required>
-    <input type="text" class="input-box"  placeholder="Enter your affiliation" name="affiliation">
-
+    <hr>
     <label for="captcha">Please Enter the Captcha Text</label>
     <img src="captcha.php" alt="CAPTCHA" class="captcha-image"><i class="fas fa-redo refresh-captcha"></i>
     <br>
@@ -54,6 +68,7 @@
     <button id = "b5" onclick="location.href = '../index.php';" type="button" class="cancel">Cancel</button>
 </div>
 </form>
+</main>
 <footer>
     <p>©Copyright 2022 by Daredevils. All rights reversed.</p>
 </footer>
