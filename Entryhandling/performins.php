@@ -4,8 +4,6 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 session_start();
-require __DIR__ . '/checkcharacters.php';
-
 $_SESSION['UploadError'] = '';
 
 
@@ -45,34 +43,16 @@ if(!empty($fileSize)){
     }else {
         $_SESSION['UploadError'] = $_SESSION['UploadError'] . '<br>' . 'Only .fasta fileformats allowed';
     }
-    echo $ffile;
-    if (ValidCharacters($ffile)){
-    
-        //header('Location:./insertform.php');
-         echo 'nej';
-    }
-    else{
-        include 'filefastahandler.php';
-    }
-    print_r($header);
-    print_r($seq);
 
+    include 'filefastahandler.php';
 }
 
 //This section will handle text inputs
 if(!empty($_POST['fastatext'])){
     $ftext = $_POST['fastatext'];
-
-    if (ValidCharacters($ftext)){
-        include 'textfastahandler.php';
-    }
-    else{
-        header('Location:./insertform.php');
-    }
-    echo '<br><br>';
-    print_r($header);
-    print_r($seq);
+    include 'textfastahandler.php';
 }
+
 elseif(empty($ftext) && empty($fileSize)){
     $_SESSION['UploadError'] = $_SESSION['UploadError'] . '<br>' . 'Empty submission';
 }

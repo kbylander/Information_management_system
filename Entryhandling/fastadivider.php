@@ -28,4 +28,25 @@ foreach($fasta as $key => $value) {
         }
     }
 }
+
+require __DIR__ . '/checktextcharacters.php';
+foreach ($header as $key => $value){
+    if ((ValidtextCharacters($seq[$key])) && (ValidTextCharacters($value))){
+        echo 'texten funka';
+    }
+    else{
+        header('Location:./insertform.php');
+    }
+}
+
+require __DIR__ . '/checkfilecharacters.php';
+foreach ($header as $key => $value){
+    if ((ValidFileCharacters($seq[$key])) && (ValidFileCharacters($value))){
+        echo 'filen funka';
+    }
+    else{
+        header('Location:./insertform.php');
+    }
+}
+    
 ?>
