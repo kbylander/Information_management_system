@@ -33,11 +33,13 @@ include '../disconnectDB';
             <th>Individual ID</th>
             <th>Gender</th>
         </tr>
-
+    <!--</table>-->
+    <form action="download.php" method="post">
 <!-- populate table from mysql database -->
+  <!--<table id="entryTable"> -->
     <?php while($row = mysqli_fetch_array($result)):?>
       <tr>
-        <td><input type=checkbox></td>
+        <td><input type="checkbox" name="selected[]" value="<?php echo $row[0]?>"></td>
         <td><a href="sequence.php?seqID=<?php echo $row[0] ?>"><?php echo $row[0];?></td>
         <td><?php echo $row[1];?></td>
         <td><?php echo $row[2];?></td>
@@ -49,6 +51,7 @@ include '../disconnectDB';
 
 <button onclick="window.location.href='individualsDB.php'">ALL INDIVIDUALS</button>
 <button onclick="window.location.href='../Entryhandling/insertform.php'">UPLOAD</button>
+<input type="submit" name="submit_multiple" value="Download selected fasta"/>
 
 <!-- Script to real time filter the able -->
 <script>
@@ -58,7 +61,7 @@ function searchFunction() {
     filter = input.value.toUpperCase();
     table = document.getElementById("entryTable");
     tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
+    for (i = 1; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td");
         for (j = 0; j < td.length; j++) {
             if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
@@ -73,6 +76,14 @@ function searchFunction() {
         }
     }
 }
+/*function getselected(){
+  var array = []
+  var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+
+  for (var i = 0; i < checkboxes.length; i++) {
+    array.push(checkboxes[i].value)
+  }
+}*/
 </script>
 </body>
 </html>
