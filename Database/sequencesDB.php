@@ -15,7 +15,7 @@ $userID = $_SESSION['user'];
 $query = "SELECT sequence.seqID, sequence.genename, entries.species, entries.entryID, entries.gender FROM sequence LEFT JOIN entries ON sequence.entryID = entries.entryID WHERE addedby LIKE '$userID'";
 include '../connectDB.php';
 $result = mysqli_query($link, $query);
-include '../disconnectDB';
+include '../disconnectDB.php';
 }
 ?>
 
@@ -23,6 +23,8 @@ include '../disconnectDB';
 <html>
 <body>
   <h1>Sequences in database</h1>
+  <button onclick="window.location.href='individualsDB.php'">ALL INDIVIDUALS</button>
+  <button onclick="window.location.href='../Entryhandling/insertform.php'">UPLOAD</button>
   <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search in database">
     <table id="entryTable">
         <tr>
@@ -49,11 +51,10 @@ include '../disconnectDB';
         <?php endwhile;?>
       </table>
 
-<button onclick="window.location.href='individualsDB.php'">ALL INDIVIDUALS</button>
-<button onclick="window.location.href='../Entryhandling/insertform.php'">UPLOAD</button>
 <input type="submit" name="submit_multiple" value="Download selected fasta"/>
 
-<!-- Script to real time filter the able -->
+
+<!-- Script to real time filter the table -->
 <script>
 function searchFunction() {
     var input, filter, found, table, tr, td, i, j;
@@ -76,14 +77,6 @@ function searchFunction() {
         }
     }
 }
-/*function getselected(){
-  var array = []
-  var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
-
-  for (var i = 0; i < checkboxes.length; i++) {
-    array.push(checkboxes[i].value)
-  }
-}*/
 </script>
 </body>
 </html>

@@ -14,7 +14,7 @@ $seqID = $_GET['seqID']; //Define variable from clicked link on page before, use
 $query = "SELECT sequence.seqID, sequence.genename, sequence.seq, sequence.entryID, entries.gender, entries.addedby, entries.species FROM sequence LEFT JOIN entries ON sequence.entryID = entries.entryID WHERE seqID LIKE '$seqID'";
 include '../connectDB.php';
 $result = mysqli_query($link, $query);
-include '../disconnectDB';
+include '../disconnectDB.php';
 }
 ?>
 

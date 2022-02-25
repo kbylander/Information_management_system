@@ -6,7 +6,7 @@ $username = $_POST['username'];
 $password = $_POST['userpassword'];
 $confirmpassword = $_POST['confirmpassword'];
 $email = $_POST['useremail'];
-//$affiliation = $_POST['affiliation'];
+//$affiliation = $_POST['affiliation']; //Right now this is disabled but might want to reenable this if we want to get info on affiliation
 
 /* Running all the required scripts to check if login information in sufficient */
 include 'passwordsecurity.php'; //This script does all password security checks

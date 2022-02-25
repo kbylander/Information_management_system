@@ -1,9 +1,6 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 session_start();
+
 if(isset($_GET['file']) && $_SESSION['loggedin']){
   $seqID = $_GET['file'];
 
@@ -33,7 +30,7 @@ if(isset($_GET['file']) && $_SESSION['loggedin']){
 
   unlink("TempFastaFiles/" . $file);
 }
-elseif(isset($_POST['submit_multiple'])){
+elseif(isset($_POST['submit_multiple'])){ //Check if "submit" is empty aswell
 
     $selected = $_POST['selected'];
     $seqIDs = "('".join("','",$selected)."')";
