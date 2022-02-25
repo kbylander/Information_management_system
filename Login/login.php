@@ -44,7 +44,7 @@
 <?PHP if(isset($_SESSION['LoginError'])): ?>
 <div class='form-errors'>
 <p> <?php echo $_SESSION['LoginError'] ?> </p>
-<?PHP $_SESSION['LoginError'] = ''; ?> 
+<?PHP $_SESSION['LoginError'] = ''; ?> </p>
 </div>
 <?php endif; ?>
 
