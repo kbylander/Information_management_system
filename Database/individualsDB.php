@@ -15,7 +15,7 @@ $userID = $_SESSION['user'];
 $query = "SELECT entryID, gender, species, date FROM entries WHERE addedby LIKE '$userID'";
 include '../connectDB.php';
 $result = mysqli_query($link, $query);
-include '../disconnectDB';
+include '../disconnectDB.php';
 }
 ?>
 
@@ -54,7 +54,7 @@ function searchFunction() {
     filter = input.value.toUpperCase();
     table = document.getElementById("entryTable");
     tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
+    for (i = 1; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td");
         for (j = 0; j < td.length; j++) {
             if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
