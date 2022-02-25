@@ -6,21 +6,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap%27');
 </style>
 <head>
-    <link rel="stylesheet" href="style_login.css">
+    <link rel="stylesheet" href="slog.css">
 </head>
 <body>
-<section class="header">
-        <nav>
-            <div class ="nav-links">
+<div class="banner">
+            <div class="navbar">
+                <a href= "../index.php"><img src="../wolf_icon.png" class="logo"></a>
                 <ul>
                     <li><a href="../index.php">Home</a></li>
                     <li><a href="../Links/About.php">About</a></li>
-                    <li><a href="#">Database</a></li>
+                    <?php if ($_SESSION['loggedin']) { //If logged in, take the user to the database?>
+                    <li><a href="DbInfo.php">Database</a></li>
+                    <?php }
+                    else{ //If not logged in, take the user to the login page?>
+                    <li><a href="../Login/login.php">Database</a></li>
+                    <?php } ?>
                     <li><a href="../Links/ContactUs.php">Contact Us</a></li>
                 </ul>
             </div>
-        </nav>
-    <div class="LanguageToggle">
+
+            <div class="LanguageToggle">
                     <div class="GoogleTranslate">
                         <div id="google_translate_element" style="text:right;"></div><script type="text/javascript">
                         function googleTranslateElementInit() {
@@ -28,9 +33,9 @@
                         }
                         </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
                     </div>
-    </div>
-</section>
-
+            </div>
+</div>
+<main>
 <form action="conflogin.php" method='POST'>
 <div class="log-in-form">
 <img align="left" src="login.png">
@@ -54,8 +59,9 @@
 </div>
 </div>
 </form>
+</main>
 <footer>
-    <p>©Copyright 2022 by Daredevils. All rights reversed.</p>
+    <p>©Copyright 2022 by Daredevils. All rights reserved.</p>
 </footer>
 </body>
 </html>
