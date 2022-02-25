@@ -63,7 +63,7 @@
 
 .sign-up-form{
     position: absolute;
-    top: 59%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -40%);
     border-radius: 10px;
@@ -156,9 +156,9 @@ hr{
 }
 
 img{
-    width: 10px;
+    width: 5px;
     margin-top: 2px;
-    padding-left: 3%;
+    padding-left: 50%;
 }
 label {
   color: #BAD2FF;
