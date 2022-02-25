@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap%27');
 </style>
 <head>
-<link rel="stylesheet" href="sreg.css">
+<link rel="stylesheet" href="ssss.css">
 </head>
 <body>
 <div class="banner">
@@ -39,7 +39,6 @@
 <form action="performreg.php" method='POST'>
 
 <div class="sign-up-form">
-    <img src="user_färg.png">
     <h1> Please fill in the registration form </h1>
     <?php if (isset($_SESSION['RegistrationErrors'])): ?>
       <div class="form-errors">
@@ -63,8 +62,6 @@
     }
     </script>
     <button type="submit" class="register">Register</button>
-    <hr>
-    <p class=or>OR</p>
     <button id = "b5" onclick="location.href = '../index.php';" type="button" class="cancel">Cancel</button>
 </div>
 </form>
