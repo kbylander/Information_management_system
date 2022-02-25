@@ -46,8 +46,8 @@ $outputtable = "output/table.php";
 $outputtable = file_get_contents($outputtable);
 echo $outputtable;
 
-unlink('output/output.php');
-unlink('output/seqname.php');
+//unlink('output/output.php');
+//unlink('output/seqname.php');
 unlink('output/table.php');
 ?>
 
