@@ -4,8 +4,8 @@
     <title></title>
 </head>
 <body>
-<form action="upload.php" method="POST">
-    <input type="file" name = "fastafile1"> 
+<form action="upload.php" method="POST" >
+    <input type="file" name = "fastafile1" > 
     <input type="file" name = "fastafile2"> 
     <select name="Method" id="Method">
 	    <option value="">--- Choose a Genetic distance measurement ---</option>
