@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap%27');
 </style>
 <head>
-<link rel="stylesheet" href="ssss.css">
+<link rel="stylesheet" href="registration_style.css">
 </head>
 <body>
 <div class="banner">

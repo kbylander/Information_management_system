@@ -21,20 +21,50 @@ include '../disconnectDB.php';
 
 <!DOCTYPE html>
 <html>
-<body>
-  <h1>Sequences in database</h1>
-  <button onclick="window.location.href='individualsDB.php'">ALL INDIVIDUALS</button>
-  <button onclick="window.location.href='../Entryhandling/insertform.php'">UPLOAD</button>
-  <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search in database">
-    <table id="entryTable">
-        <tr>
-            <th></th>
-            <th>ID</th>
-            <th>Gene name</th>
-            <th>Species</th>
-            <th>Individual ID</th>
-            <th>Gender</th>
-        </tr>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&display=swap%27');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap%27');
+</style>
+  <head>
+    <link rel="stylesheet" href="individ2.css">
+  </head>
+  <body>
+    <div class="banner">
+            <div class="navbar">
+                <a href= "../index.php"><img src="../wolf_icon.png" class="logo"></a>
+                <ul>
+                    <li><a href="../index.php">Home</a></li>
+                    <li><a href="../Links/About.php">About</a></li>
+                    <?php if ($_SESSION['loggedin']) { //If logged in, take the user to the database?>
+                    <li><a href="DbInfo.php">Database</a></li>
+                    <?php }
+                    else{ //If not logged in, take the user to the login page?>
+                    <li><a href="../Login/login.php">Database</a></li>
+                    <?php } ?>
+                    <li><a href="../Links/ContactUs.php">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="LanguageToggle">
+                    <div class="GoogleTranslate">
+                        <div id="google_translate_element" style="text:right;"></div><script type="text/javascript">
+                        function googleTranslateElementInit() {
+                          new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,de,en,es,it,ja,pt,ru,zh-CN,zh-TW', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                        }
+                        </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                    </div>
+            </div>
+            <div class="search">
+            <h1>Sequences in database</h1>
+            <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search in database">
+            <table id="entryTable">
+          <tr>
+              <th>ID</th>
+              <th>Gene name</th>
+              <th>Species</th>
+              <th>Individual ID</th>
+              <th>Gender</th>
+          </tr>
     <!--</table>-->
     <form action="download.php" method="post">
 <!-- populate table from mysql database -->
@@ -51,7 +81,11 @@ include '../disconnectDB.php';
         <?php endwhile;?>
       </table>
 
-<input type="submit" name="submit_multiple" value="Download selected fasta"/>
+<input type="submit" name="submit_multiple" value="DOWNLOAD SELECTED FASTA"/>
+<button onclick="window.location.href='individualsDB.php'"><span></span>ALL INDIVIDUALS</button>
+<button onclick="window.location.href='../Entryhandling/insertform.php'"><span></span>UPLOAD</button>
+  </div>
+</div>
 
 
 <!-- Script to real time filter the table -->
