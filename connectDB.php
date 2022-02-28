@@ -1,6 +1,6 @@
 <?php
 $user = 'root';
-$password = 'root';
+$password = '';
 $db = 'geneticmatch';
 $host = 'localhost';
 $port = 3306;
