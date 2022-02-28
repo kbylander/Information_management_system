@@ -19,36 +19,27 @@ file_put_contents($filename2, $document2);
 
 if ($Method == "Genpofad") {
     exec('C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Methods/Genpofad.R');
-    echo "Genpofad selected";
 } 
 
 if ($Method == "Matchstates") {
     exec('C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Methods/Matchstates.R');
-    echo "Matchstates selected";
 } 
 
 if ($Method == "Daredevil") {
     exec('C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Methods/Daredevil.R');
-    echo "Daredevil selected";
 }
 
 if ($Method == "Consensus") {
     exec('C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Methods/Consensus.R');
-    echo "Consensus selected";
 }
 
 
-exec('C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Create_table.R');
+include 'Table.php';
 
-
-$outputtable = "output/table.php";
-
-$outputtable = file_get_contents($outputtable);
-echo $outputtable;
-
-//unlink('output/output.php');
-//unlink('output/seqname.php');
-unlink('output/table.php');
+unlink('output/output.php');
+unlink('output/seqname.php');
+unlink('input/Fasta1.fasta');
+unlink('input/Fasta2.fasta');
 ?>
 
 
