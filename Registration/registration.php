@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap%27');
 </style>
 <head>
-<link rel="stylesheet" href="registration_style.css">
+<link rel="stylesheet" href="registration_styles.css">
 </head>
 <body>
 <div class="banner">
@@ -61,8 +61,8 @@
     document.querySelector('.captcha-image').src = 'captcha.php?' + Date.now();
     }
     </script>
-    <button type="submit" class="register">Register</button>
-    <button id = "b5" onclick="location.href = '../index.php';" type="button" class="cancel">Cancel</button>
+    <button type="submit" class="register"><span></span>REGISTER</button>
+    <button id = "b5" onclick="location.href = '../index.php';" type="button" class="cancel"><span></span>CANCEL</button>
 </div>
 </form>
 </main>

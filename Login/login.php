@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap%27');
 </style>
 <head>
-    <link rel="stylesheet" href="slog.css">
+    <link rel="stylesheet" href="login_style.css">
 </head>
 <body>
 <div class="banner">
@@ -50,10 +50,10 @@
 
 <input type="text" class="input-box" placeholder="Enter Username" name="username" required>
 <input type="password" class="input-box" placeholder="Enter Password" name="userpassword" required>
-<button type="submit" class="login">Login</button>
+<button type="submit" class="login"><span></span>LOGIN</button>
 <hr>
 <p class=or>OR</p>
-<button onclick="location.href = '../index.php';" type="button" class="cancel">Cancel</button>
+<button onclick="location.href = '../index.php';" type="button" class="cancel"><span></span>CANCEL</button>
 <div class="signup_link">
     Not a member? <a href="../Registration/registration.php">Signup</a>
 </div>
