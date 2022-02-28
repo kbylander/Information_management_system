@@ -12,7 +12,7 @@ if ($_SESSION['loggedin'] == False) {
 //We therefor create a query to get the data from the database
 else{
 $userID = $_SESSION['user'];
-$query = "SELECT entryID, gender, species, date FROM entries WHERE addedby LIKE '$userID'";
+$query = "SELECT entryID, female, species, date FROM entries WHERE addedby LIKE '$userID'";
 include '../connectDB.php';
 $result = mysqli_query($link, $query);
 include '../disconnectDB.php';
@@ -69,7 +69,9 @@ include '../disconnectDB.php';
     <?php while($row = mysqli_fetch_array($result)):?>
       <tr>
         <td><a href="individual.php?ID=<?php echo $row[0] ?>"><?php echo $row[0];?></td>
-        <td><?php echo $row[1];?></td>
+        <td><?php if(is_null($row[1])){echo "Unknown";}
+        elseif ($row[1]){echo "Female";}
+        else{echo "male";}?></td>
         <td><?php echo $row[2];?></td>
         <td><?php echo $row[3];?></td>
       </tr>

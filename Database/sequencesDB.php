@@ -12,7 +12,7 @@ if ($_SESSION['loggedin'] == False) {
 //We therefor create a query to get the data from the database
 else{
 $userID = $_SESSION['user'];
-$query = "SELECT sequence.seqID, sequence.genename, entries.species, entries.entryID, entries.gender FROM sequence LEFT JOIN entries ON sequence.entryID = entries.entryID WHERE addedby LIKE '$userID'";
+$query = "SELECT sequence.seqID, sequence.genename, entries.species, entries.entryID, entries.female FROM sequence LEFT JOIN entries ON sequence.entryID = entries.entryID WHERE addedby LIKE '$userID'";
 include '../connectDB.php';
 $result = mysqli_query($link, $query);
 include '../disconnectDB.php';
@@ -59,6 +59,7 @@ include '../disconnectDB.php';
             <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search in database">
             <table id="entryTable">
           <tr>
+              <th></th>
               <th>ID</th>
               <th>Gene name</th>
               <th>Species</th>
@@ -76,7 +77,9 @@ include '../disconnectDB.php';
         <td><?php echo $row[1];?></td>
         <td><?php echo $row[2];?></td>
         <td><a href="individual.php?ID=<?php echo $row[3] ?>"><?php echo $row[3];?></td>
-        <td><?php echo $row[4];?></td>
+        <td><?php if(is_null($row[4])){echo "Unknown";}
+        elseif ($row[4]){echo "Female";}
+        else{echo "male";}?></td>
       </tr>
         <?php endwhile;?>
       </table>
