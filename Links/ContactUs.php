@@ -44,14 +44,14 @@ if(!isset($_SESSION['loggedin'])) {
     <h1 id= "B1"> Contact Us </h1>
     <div class = "info">
         <div class = "r0">
-            <p style= "margin: 25px" >Genetic Match.dom</p>
+            <p style= "margin: 25px" >Genetic Match.com</p>
             <p style= "margin: 25px" >Informationsteknologiskt centrum (ITC),</p>
             <p style= "margin: 25px" >Lägerhyddsvägen 2, 752 37 Uppsala</p>
         </div>
         <div class = "r1">
             <p style= "margin: 25px" >Tel: (879) 769-0684</p>
             <p style= "margin: 25px" >Fax: (879) 769-1267</p>
-            <p style= "margin: 25px" >Email: geneticmatch@geneticmatch.org </p>
+            <p style= "margin: 25px" >Email: daredevilwolves@gmail.com </p>
         </div>
     </div>
     <div class = "form">

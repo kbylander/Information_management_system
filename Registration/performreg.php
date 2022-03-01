@@ -3,7 +3,7 @@ session_start();
 $_SESSION['RegistrationErrors'] = ''; //Session variable to display any errors when trying to register
 /* Defining and storing variables from the registration form */
 $username = $_POST['username'];
-$password = $_POST['userpassword'];
+$passw = $_POST['userpassword'];
 $confirmpassword = $_POST['confirmpassword'];
 $email = $_POST['useremail'];
 $userpsswd = $password;
