@@ -8,10 +8,10 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-$password = $_POST['userpassword'];
+$passw = $_POST['userpassword'];
 $user = $_POST['username'];
 $userID=$user;
-$passwlen = strlen($password);
+$passwlen = strlen($passw);
 
 if($passwlen > 7) {
     echo 'password is long enough';
@@ -35,7 +35,7 @@ if($passwlen > 7) {
         $hash=$row['hash'];
         echo $hash;
     }
-    if (password_verify($password, $hash)) {
+    if (password_verify($passw, $hash)) {
         $_SESSION['user']=$userID;
         $_SESSION['loggedin'] = TRUE;
         header('Location:../index.php');
