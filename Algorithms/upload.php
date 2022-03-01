@@ -40,6 +40,7 @@ unlink('output/output.php');
 unlink('output/seqname.php');
 unlink('input/Fasta1.fasta');
 unlink('input/Fasta2.fasta');
+unlink('output_file/fastafile.php');
 
 ?>
 
