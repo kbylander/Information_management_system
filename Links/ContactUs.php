@@ -44,7 +44,7 @@ if(!isset($_SESSION['loggedin'])) {
     <h1 id= "B1"> Contact Us </h1>
     <div class = "info">
         <div class = "r0">
-            <p style= "margin: 25px" >Genetic Match.dom</p>
+            <p style= "margin: 25px" >Genetic Match.com</p>
             <p style= "margin: 25px" >Informationsteknologiskt centrum (ITC),</p>
             <p style= "margin: 25px" >Lägerhyddsvägen 2, 752 37 Uppsala</p>
         </div>
