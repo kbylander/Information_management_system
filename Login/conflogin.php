@@ -29,6 +29,7 @@ if($passwlen > 7) {
         if (!$act){
             $_SESSION['LoginError'] = $_SESSION['LoginError'] . 'Account not activated' . '<br>';
             header("location:login.php");
+            exit;
         }
         $hash=$row['hash'];
         echo $hash;
