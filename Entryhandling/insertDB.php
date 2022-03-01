@@ -30,24 +30,31 @@ foreach ($header as $key => $value){
     $currentuser= $_SESSION['user'];
     $currentseq = $seq[$key];
 
-    $fetchinfo = "SELECT * FROM entries, sequence WHERE entryID LIKE $entryid";
-    $select=mysqli_query($link,$fetchinfo);
-    //$num_entries = mysqli_num_rows($select);
+    //to check if entry id already exists
+    $fetchinfo = "SELECT * FROM entries, sequence WHERE entryID LIKE $entryid and seqaddedby LIKE $currentuser and entryaddedby LIKE $currentuser";
+    $results=mysqli_query($link,$fetchinfo);
 
-    if (!empty($select)){
-        $sql_stmt2= "INSERT INTO sequence (genename, entryID, seq, priv) VALUES ('$genename', '$entryid', '$currentseq',$priv)";
+    //to insert unique seqID
+    $fetchnumber = "SELECT count(seqID) FROM sequence";
+    $numberrows = mysqli_query($link,$fetchnumber);
+    $row = mysqli_fetch_array($numberrows);
+    $resnumberofrows = $row[0]+1;
+    $seqid = $entryid . '_' . $genename .'_S' . $resnumberofrows;
+
+    echo $seqid; echo gettype($seqid);
+
+    if (!empty($results)){
+        
+        $sql_stmt2= "INSERT INTO sequence (seqID, genename, entryID, seq, seqaddedby, priv) VALUES ('$seqid', '$genename', '$entryid', '$currentseq', '$currentuser', $priv)";
         mysqli_query($link,$sql_stmt2);
     }
     else{
-        $sql_stmt= "INSERT INTO entries (entryID, addedby, species, priv) VALUES ('$entryid', '$currentuser', '$species',$priv)";
-        $sql_stmt2= "INSERT INTO sequence (genename, entryID, seq, priv) VALUES ('$genename', '$entryid', '$currentseq',$priv)";
+        $sql_stmt= "INSERT INTO entries (entryID, species, entryaddedby, priv) VALUES ('$entryid', '$species', '$currentuser', $priv)";
+        $sql_stmt2= "INSERT INTO sequence (seqID, genename, entryID, seq, seqaddedby, priv) VALUES ('$seqid','$genename', '$entryid', '$currentseq', '$currentuser', $priv)";
      
         mysqli_query($link,$sql_stmt);
         mysqli_query($link,$sql_stmt2);
     }
     include '../disconnectDB.php';
 }
-//    $sql_stmt= "INSERT INTO entries.entryID, entries.female, entries.addedby, entries.species, entries.priv, sequence.genename, sequence.entryID, sequence.seq, sequence.priv VALUES $entryid, $female, $_SESSION['user'], $species, $private, $genename, $entryid, $seq[$key], $private;";
-
-//>GM1_S2| gene=FOXP2 os=Canis lupus CCACGCGTCCGCCCTGACCGTGCCAAGGGTAGAGCCGCGGCCTCGGCCGGTCAGCTCCCCCTCCGCCGCT TCGGGGCCTGCGGGGTTCTGGCCTCGCGTCTCGGAACCCTTCGGAGGGGGAGGCCGGAGGAGGCCGCGGC AGCTCCGGGAACTCCGCCGGCCGAGCCGGGGGAGCTTCCGTATCCTAAACCTTAGGAAGTTCCCAGCGTT GCTCGGGGTCTGCGGCCCGCTAACGGCCCCGCAGAATAGGTGCTGCCCCGAGATGGACGCGCCGCCCGCG AAGCTTGAGGTTCCGAGAGGCGAACCTCTTCCGCAGCCGCCTAAGTGACCGAGCCGGGACGCGAACCCCG TGACCACCCTTGTGCCGCCTCCCACCTGCCCCAGCAGAGGTGTATGTGGACGTGAATGTAGGGCCCCGAA GTGTGACGGGCAGTTCAAGAACCTCATGTGTCAGTAATTAACACTGTGGACACCTCCCATGAGGATATGA GGGTTCATCTTTCACCCGCCTGGCAACCTGCTCCTCAGACAGGTCCGTCAAA
 ?>
