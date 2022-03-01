@@ -19,7 +19,6 @@ if($passwlen > 7) {
     $query = "SELECT * FROM users WHERE username LIKE '$userID'";
     $result = mysqli_query($link, $query);
     $number_of_entries = mysqli_num_rows($result);
-
     include '../disconnectDB.php';
 
     if ($number_of_entries != 0){
@@ -28,7 +27,7 @@ if($passwlen > 7) {
 
         $act = $row['active']; //if not a user active, don't let to go inside
         if (!$act){
-            $_SESSION['LoginError'] = $_SESSION['LoginError'] . 'Login failed' . '<br>';
+            $_SESSION['LoginError'] = $_SESSION['LoginError'] . 'Account not activated' . '<br>';
             header("location:login.php");
         }
         $hash=$row['hash'];
@@ -45,16 +44,6 @@ if($passwlen > 7) {
             header("location:login.php");
 
         }
-
-        if (password_verify($passw, $hash)) {
-            $_SESSION['user']=$userID;
-            $_SESSION['loggedin'] = TRUE;
-            header('Location:../index.php');
-        } 
-        else {
-                $_SESSION['LoginError'] = $_SESSION['LoginError'] . 'Login failed' . '<br>';
-                header("location:login.php");
-            }
     } else{
         $_SESSION['LoginError'] = $_SESSION['LoginError'] . 'Login failed' . '<br>';
         header("location:login.php");
