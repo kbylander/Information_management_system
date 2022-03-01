@@ -31,11 +31,13 @@ if($passwlen > 7) {
             header("location:login.php");
         }
         $hash=$row['hash'];
-        echo $hash;
+        $admin=$row['admin'];
+
     }
     if (password_verify($passw, $hash)) {
         $_SESSION['user']=$userID;
         $_SESSION['loggedin'] = TRUE;
+        $_SESSION['admin']=$admin;
         header('Location:../index.php');
 
 

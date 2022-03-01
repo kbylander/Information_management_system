@@ -49,7 +49,11 @@ if(!isset($_SESSION['loggedin'])) {
                 <div>
                 <button onclick="location.href = 'Database/databasemenu.php';" type="button"><span></span>DATABASE</button>
                 <button onclick="location.href = 'Login/sessiondestroy.php';" type="button"><span></span>LOG OUT</button>
+                <?php if($_SESSION['admin']){?>
+                  <div>
+                  <button onclick="location.href = 'Admin/admin.php';" type="button"><span></span>ADMIN</button>
               <?php }
+                  }
               else{ ?>
                 <p>With Genetic Match.com we find the perfect fit for you!<p>
                 <div>
