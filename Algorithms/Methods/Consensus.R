@@ -14,14 +14,14 @@ length <- length(fasta2)
 for (i in 1:length)
 {
   # Create file with 1 fasta sequence
-  sink("C:/MAMP/htdocs/IMS-Daredevil/Algorithms/Test/rand.php")
+  sink("C:/MAMP/htdocs/IMS-Daredevil/Algorithms/output_file/fastafile.php")
   name <- names(fasta2)[i]
   cat(paste0(">",name))
   cat("\n")
   seq <- paste(fasta2)[i]
   cat(seq)
   sink()
-  fasta3 <- "C:/MAMP/htdocs/IMS-Daredevil/Algorithms/Test/rand.php"
+  fasta3 <- "C:/MAMP/htdocs/IMS-Daredevil/Algorithms/output_file/fastafile.php"
   
   # Store output in array, append after each iteration. 
   sink("C:/MAMP/htdocs/IMS-Daredevil/Algorithms/output/output.php", append = TRUE)
