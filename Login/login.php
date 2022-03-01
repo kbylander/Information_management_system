@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap%27');
 </style>
 <head>
-    <link rel="stylesheet" href="login_style.css">
+    <link rel="stylesheet" href="loginstyle.css">
 </head>
 <body>
 <div class="banner">
