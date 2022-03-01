@@ -30,8 +30,8 @@ foreach ($header as $key => $value){
     $currentuser= $_SESSION['user'];
     $currentseq = $seq[$key];
 
-    //to check if entry id already exists
-    $fetchinfo = "SELECT * FROM entries, sequence WHERE entryID LIKE $entryid and seqaddedby LIKE $currentuser and entryaddedby LIKE $currentuser";
+    //to check if entry id already exists for specific user
+    $fetchinfo = "SELECT * FROM entries, sequence WHERE entryID LIKE $entryid and seqaddedby LIKE $currentuser and addedby LIKE $currentuser";
     $results=mysqli_query($link,$fetchinfo);
 
     //to insert unique seqID
@@ -41,20 +41,21 @@ foreach ($header as $key => $value){
     $resnumberofrows = $row[0]+1;
     $seqid = $entryid . '_' . $genename .'_S' . $resnumberofrows;
 
-    echo $seqid; echo gettype($seqid);
+    echo $seqid;
+
+    $sql_entry = "INSERT INTO entries (entryID, species, addedby) VALUES ('$entryid', '$species', '$currentuser')";
+    $sql_seq = "INSERT INTO sequence (seqID, genename, entryID, seq, seqaddedby) VALUES ('$seqid', '$genename', '$entryid', '$currentseq', '$currentuser')";
+
 
     if (!empty($results)){
-        
-        $sql_stmt2= "INSERT INTO sequence (seqID, genename, entryID, seq, seqaddedby, priv) VALUES ('$seqid', '$genename', '$entryid', '$currentseq', '$currentuser', $priv)";
-        mysqli_query($link,$sql_stmt2);
+        mysqli_query($link,$sql_seq);
     }
     else{
-        $sql_stmt= "INSERT INTO entries (entryID, species, entryaddedby, priv) VALUES ('$entryid', '$species', '$currentuser', $priv)";
-        $sql_stmt2= "INSERT INTO sequence (seqID, genename, entryID, seq, seqaddedby, priv) VALUES ('$seqid','$genename', '$entryid', '$currentseq', '$currentuser', $priv)";
-     
-        mysqli_query($link,$sql_stmt);
-        mysqli_query($link,$sql_stmt2);
+        mysqli_query($link,$sql_entry);
+        mysqli_query($link,$sql_seq);
     }
     include '../disconnectDB.php';
 }
+header('Location:../Database/sequencesDB.php');    
+
 ?>
