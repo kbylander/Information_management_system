@@ -4,8 +4,8 @@ session_start();
 if(empty($_SESSION['loggedin'])){
     header('Location:../index.php');
 }
+echo $_SESSION['HeaderError'];
 ?>
-
 
 <!DOCTYPE html>
 <html>

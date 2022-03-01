@@ -1,10 +1,11 @@
 <?php
 function ValidFileCharacters($str){
-    $chararray = str_split($str);
-    foreach($chararray as $letter){
-        if (preg_match('/[^>A-Za-z0-9_-| ,.()]/', $letter)){
-            return false;        
-        }
+    $pattern='/[^¨>A-Za-z0-9_-| ,.()]/';
+    $replacement = '';
+    preg_replace($pattern, $replacement, $str, $count);
+    echo $count;
+    if ($count != 0){
+        return false;
     }
     return true;
 }
