@@ -2,32 +2,48 @@ library("pofadinr")
 library("devtools")
 library("Biostrings")
 require(ape)
-source("Proj_functions.R")
-
-fasta1 <- "C:/MAMP/htdocs/IMS-Daredevil/Algorithms/input/Test1.fasta"
-fasta2 <- "C:/MAMP/htdocs/IMS-Daredevil/Algorithms/input/Test2.fasta"
+source("C:/MAMP/htdocs/IMS-Daredevil/Algorithms/Proj_functions.R")
 
 
-# name of output file should be different for each loop. Remove the create table from here! 
-# Store output in array, append after each iteration. 
+fasta1 <- "C:/MAMP/htdocs/IMS-Daredevil/Algorithms/input/Fasta1.fasta"
+fasta2 <- readDNAStringSet("C:/MAMP/htdocs/IMS-Daredevil/Algorithms/input/Fasta2.fasta")
 
-sink("output/output.php", append = TRUE)
-result <- mean_dist(fasta1, fasta2)
-cat(result)
-sink()
+length <- length(fasta2) 
 
-sink("output/output.php", append = TRUE)
-cat("\n")
-sink()
 
-sink("output/seqname.php", append = TRUE)
-fastaFile2 <- readDNAStringSet(fasta2)
-seq_name2 = names(fastaFile2)
-cat(seq_name2)
-sink()
+for (i in 1:length)
+{
+  # Create file with 1 fasta sequence
+  sink("C:/MAMP/htdocs/IMS-Daredevil/Algorithms/Test/rand.php")
+  name <- names(fasta2)[i]
+  cat(paste0(">",name))
+  cat("\n")
+  seq <- paste(fasta2)[i]
+  cat(seq)
+  sink()
+  fasta3 <- "C:/MAMP/htdocs/IMS-Daredevil/Algorithms/Test/rand.php"
+  
+  # Store output in array, append after each iteration. 
+  sink("C:/MAMP/htdocs/IMS-Daredevil/Algorithms/output/output.php", append = TRUE)
+  result <- mean_dist(fasta1, fasta3)
+  cat(result)
+  sink()
+  
+  sink("C:/MAMP/htdocs/IMS-Daredevil/Algorithms/output/output.php", append = TRUE)
+  cat("\n")
+  sink()
+  
+  sink("C:/MAMP/htdocs/IMS-Daredevil/Algorithms/output/seqname.php", append = TRUE)
+  fastaFile2 <- readDNAStringSet(fasta3)
+  seq_name2 = names(fastaFile2)
+  cat(seq_name2)
+  sink()
+  
+  sink("C:/MAMP/htdocs/IMS-Daredevil/Algorithms/output/seqname.php", append = TRUE)
+  cat("\n")
+  sink()
+  
+}
 
-sink("output/seqname.php", append = TRUE)
-cat("\n")
-sink()
 
 
