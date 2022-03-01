@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
+<style> 
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
@@ -17,10 +17,22 @@ $ExplodeFasta1 = explode("\n",$Fasta1);
 $header_fasta1 = $ExplodeFasta1[0];
 
 echo "<h1>Genetic distance</h1>";
-echo "<tr>";
-echo "Focal sequence: <b>$header_fasta1</b>";
-echo "</tr>";
 ?>
+<table>
+  <tr>
+    <th>Focal sequence</th>
+    <th>Method</th>
+  </tr>
+  <?php
+  echo '<tr>';
+    echo '<td>';
+      echo "$header_fasta1";
+    echo '</td>';
+    echo '<td>';
+      echo "$Method";
+    echo '</td>';
+  ?>
+</table>
 
 <table>
   <tr>
@@ -65,7 +77,6 @@ echo "</tr>";
             echo '</td>';
         echo '</tr>';
         }
-            
         ?>
 </table>
 
