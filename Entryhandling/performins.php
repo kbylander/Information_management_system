@@ -43,8 +43,7 @@ if(!empty($fileSize)){
     }else {
         $_SESSION['UploadError'] = $_SESSION['UploadError'] . '<br>' . 'Only .fasta fileformats allowed';
     }
-    echo $ffile;
-    echo '<br><br>';
+
     include 'filefastahandler.php';
 }
 

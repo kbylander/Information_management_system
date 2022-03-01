@@ -68,7 +68,6 @@ h1{
     padding-left: 2%;
     font-size: 20px;
 }
-
 #searchInput{
     width: 20%;
     padding: 8px;
@@ -149,9 +148,9 @@ input[type="file"] {
     font-family: 'Open Sans', sans-serif;
     position: relative;
     text-align: center;
-    font-size: 2em;
+    font-size: 10px;
     font-weight: 700;
-    color: white;
+    color: #BAD2FF;
 
 }
 
