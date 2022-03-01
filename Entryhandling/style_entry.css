@@ -60,53 +60,25 @@
     right:0;
 }
 
-h1{
-    color: #CEC5FF ;
+p{
+    font-family: 'Open Sans', sans-serif;
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+    font-size: 10px;
+
 }
+
 
 .upload{
     padding-left: 2%;
     font-size: 20px;
 }
+
 #searchInput{
     width: 20%;
     padding: 8px;
     border:2px #BAD2FF solid;
-}
-
-#file-upload{
-    width: 20%;
-    padding: 8px;
-    border:2px #BAD2FF solid;
-}
-
-
-button{
-    font-family: 'Open Sans', sans-serif;
-    width: 100px;
-    padding: 15px 0;
-    text-align: center;
-    margin: 20px 10px;
-    font-weight: bold;
-    border: 2px solid #CEC5FF ;
-    background: transparent;
-    color: #fff ;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-}
-
-span{
-    font-family: 'Open Sans', sans-serif;
-    background: #CEC5FF ;
-    height: 100%;
-    width: 0;
-    border-radius: 25px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    z-index: -1;
-    transition: 0.5s;
 }
 
 button:hover span{
@@ -114,15 +86,25 @@ button:hover span{
 }
 
 button:hover{
+    border: 40%;
+}
+
+input:hover span{
+    width: 100%;
+}
+
+input:hover{
     border: none;
 }
 
+/*upload button */
 input{
     font-family: 'Open Sans', sans-serif;
-    width: 150px;
+    width: 200px;
     padding: 15px 0;
     text-align: center;
     margin: 20px 10px;
+    border-radius: 25px;
     font-weight: bold;
     border: 2px solid #CEC5FF ;
     background: transparent;
@@ -130,7 +112,6 @@ input{
     cursor: pointer;
     position: relative;
     overflow: hidden;
-
 }
 
 input[type="file"] {
@@ -142,7 +123,7 @@ input[type="file"] {
     border: 2px solid #CEC5FF;
     width: 100px;
     text-align: center;
-    display: inline-block;
+    display: inline;
     padding: 12px 90px;
     cursor: pointer;
     font-family: 'Open Sans', sans-serif;
@@ -151,14 +132,6 @@ input[type="file"] {
     font-size: 10px;
     font-weight: 700;
     color: #BAD2FF;
-
 }
 
 
-input:hover span{
-    width: 100%;
-}
-
-input:hover{
-    border: none;
-}
