@@ -1,6 +1,9 @@
 <?php
 session_start();
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+//From sequence.php
 if(isset($_GET['file']) && $_SESSION['loggedin']){
   $seqID = $_GET['file'];
 
@@ -30,8 +33,9 @@ if(isset($_GET['file']) && $_SESSION['loggedin']){
 
   unlink("TempFastaFiles/" . $file);
 }
+//Multiple sequences, from sequences.DB
 elseif(isset($_POST['submit_multiple'])){ //Check if "submit" is empty aswell
-
+  if(isset($_POST['selected'])){
     $selected = $_POST['selected'];
     $seqIDs = "('".join("','",$selected)."')";
     $query = "SELECT sequence.genename, sequence.seq, entries.species FROM sequence LEFT JOIN entries ON sequence.entryID = entries.entryID WHERE seqID IN $seqIDs";
@@ -65,6 +69,10 @@ elseif(isset($_POST['submit_multiple'])){ //Check if "submit" is empty aswell
     readfile("TempFastaFiles/" . $file);
 
     unlink("TempFastaFiles/" . $file);
+  }
+  else{
+    header('Location: sequencesDB.php');
+  }
 
 }
 else{
