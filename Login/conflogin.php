@@ -16,7 +16,7 @@ $passwlen = strlen($passw);
 if($passwlen > 7) {
 
     include '../connectDB.php';
-    $query = "SELECT hash FROM users WHERE username LIKE '$userID'";
+    $query = "SELECT * FROM users WHERE username LIKE '$userID'";
     $result = mysqli_query($link, $query);
     $number_of_entries = mysqli_num_rows($result);
 
@@ -26,8 +26,24 @@ if($passwlen > 7) {
 
         while($row = mysqli_fetch_array($result)) {
 
+        $act = $row['active']; //if not a user active, don't let to go inside
+        if (!$act){
+            $_SESSION['LoginError'] = $_SESSION['LoginError'] . 'Login failed' . '<br>';
+            header("location:login.php");
+        }
+        $hash=$row['hash'];
+        echo $hash;
+    }
+    if (password_verify($passw, $hash)) {
+        $_SESSION['user']=$userID;
+        $_SESSION['loggedin'] = TRUE;
+        header('Location:../index.php');
 
-            $hash=$row['hash'];
+
+        } else {
+            $_SESSION['LoginError'] = $_SESSION['LoginError'] . 'Login failed' . '<br>';
+            header("location:login.php");
+
         }
 
         if (password_verify($passw, $hash)) {

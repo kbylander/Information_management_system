@@ -58,7 +58,7 @@ echo "</tr>";
             }
             echo "<tr bgcolor=$backgroundcolor>";
             echo '<td>';
-                echo $key;
+                echo "<i>$key</i>";
             echo '</td>';
             echo '<td>';
                 echo $value;

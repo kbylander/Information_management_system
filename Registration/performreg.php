@@ -6,6 +6,7 @@ $username = $_POST['username'];
 $passw = $_POST['userpassword'];
 $confirmpassword = $_POST['confirmpassword'];
 $email = $_POST['useremail'];
+$userpsswd = $password;
 //$affiliation = $_POST['affiliation']; //Right now this is disabled but might want to reenable this if we want to get info on affiliation
 
 /* Running all the required scripts to check if login information in sufficient */
@@ -18,7 +19,26 @@ if(isset($_POST['captcha_challenge']) && $_POST['captcha_challenge'] == $_SESSIO
   if($strongpassword && $isemail && $uniqueuser){
     include 'passwordhash.php'; //Hashes the password
     include 'userentry.php'; //Saves user info to database
-    header("Location:../Login/login.php"); //Redirects user to login page if the registration is successful
+    $to      = $email; 
+    $subject = 'Verification of Genetic Mach email';
+    $message = '
+      
+    Thanks for signing up!
+    Your account has been created, you can login with the following credentials after you have activated your account by pressing the url below.
+      
+    ------------------------
+    Username: '.$username.'
+    Password: '.$userpsswd.'
+    ------------------------
+      
+    Please click this link to activate your account:
+    http://localhost/IMS-Daredevil/Registration/verify.php?email='.$email.'&hash='.$hash.'
+      
+    ';
+                          
+    $headers = 'From: daredevilwolves@gmail.com' . "\r\n";
+    mail($to, $subject, $message, $headers);
+    header("Location: lookemail.php");
   }
   else{
     $_SESSION['RegistrationErrors'] = "Registration unsuccessful"."<br><br>"; //Adds an error message according to the error at hand
@@ -40,6 +60,7 @@ if(isset($_POST['captcha_challenge']) && $_POST['captcha_challenge'] == $_SESSIO
     }
     header("Location:registration.php"); //Registration was unsuccessful. The user is redirected back to the registration form
   }
+    
 }
  else { // Capthca was not correctly entered
   $_SESSION['RegistrationErrors'] = "Registration unsuccessful<br><br>CAPTCHA not correctly entered";
