@@ -43,7 +43,7 @@ if(!isset($_SESSION['loggedin'])) {
 <main>
 <div class = "about">
     <h1 id= "A1"> About </h1>
-    <p id= "t1" style= "margin: 25px"  >We are a group of 7 students who are coursing "Information Management Systems", which allows us to create a project to improve our society.
+    <p id= "t1" style= "margin: 25px"  >We are a group of 7 students who are coursing "Information Management Systems" at Uppsala University, which allows us to create a project to improve our society.
         There exists an important problem in the Scandinavian wolf population: inbreeding.
         As the Scandinavian wolf population was founded in the 1980s by only two individuals, this population has grown in isolation, which has led to genetic problems through generations and is considered a long-term threat to the population.
         There are a limited number of available systems for calculating genetic distances. And those available are often limited to genetic distances between populations, such as the online calculator made by John Brzustowski, rather than between individuals

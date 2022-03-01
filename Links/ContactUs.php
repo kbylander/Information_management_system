@@ -51,7 +51,7 @@ if(!isset($_SESSION['loggedin'])) {
         <div class = "r1">
             <p style= "margin: 25px" >Tel: (879) 769-0684</p>
             <p style= "margin: 25px" >Fax: (879) 769-1267</p>
-            <p style= "margin: 25px" >Email: geneticmatch@geneticmatch.org </p>
+            <p style= "margin: 25px" >Email: daredevilwolves@gmail.com </p>
         </div>
     </div>
     <div class = "form">
