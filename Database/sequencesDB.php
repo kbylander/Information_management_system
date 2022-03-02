@@ -85,8 +85,8 @@ include '../disconnectDB.php';
       </table>
 
 <input type="submit" name="submit_multiple" value="DOWNLOAD SELECTED FASTA"/>
-<button onclick="window.location.href='individualsDB.php'"><span></span>ALL INDIVIDUALS</button>
-<button onclick="window.location.href='../Entryhandling/insertform.php'"><span></span>UPLOAD</button>
+<button onclick="location.href = 'individualsDB.php';" type="button"><span></span>ALL INDIVIDUALS</button>
+<button onclick="location.href = '../Entryhandling/insertform.php';" type="button"><span></span>UPLOAD</button>
   </div>
 </div>
 
