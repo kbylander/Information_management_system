@@ -5,8 +5,10 @@
 </head>
 <body>
 <form action="upload.php" method="POST" >
-    <input type="file" name = "fastafile1" > 
-    <input type="file" name = "fastafile2"> 
+    <textarea name="fastasequence1" cols="50" rows="5" 
+    placeholder ="Enter nucleotide sequence in FASTA format here"></textarea>
+    <textarea name="fastasequence2" cols="50" rows="5" 
+    placeholder ="Enter nucleotide sequences, in FASTA format, you wish to compare"></textarea>
     <select name="Method" id="Method">
 	    <option value="">--- Choose a Genetic distance measurement ---</option>
 	    <option value="Genpofad">Genpofad</option>

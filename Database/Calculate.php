@@ -43,27 +43,33 @@ if(!isset($_SESSION['loggedin'])) {
             </div>
             <div class="input">
                 <h2>Choose your algorithm:</h2>
-                <form>
-                    <select id="country" name="country">
-                    <option value="au">Option1</option>
-                    <option value="ca">Option2</option>
-                    <option value="usa">Option3</option>
+                <form action="../Algorithms/upload.php" method="POST">
+                    <select name="Method" id="Method">
+                    <option value="Genpofad">Genpofad</option>
+                    <option value="Matchstates">Matchstates</option>
+                    <option value="Daredevil">Daredevil</option>
+                    <option value="Consensus">Consensus score</option>
                     </select>
-                </form>
-            <div class="sequence">
+                    <input type="submit" name="submit" value ="Calculate genetic distance">
+
+                    <div class="sequence">
                 <div class="container">
                     <div>
                         <label>Sequence 1</label>
-                        <input type="text" class="textarea" />
+                        <<textarea name="fastasequence1" cols="50" rows="5" 
+                        placeholder ="Enter nucleotide sequence in FASTA format here"></textarea>/>
                     </div>
                 </div>
                 <div class="container">
                     <div>
                         <label>Sequence 2</label>
-                        <input type="text" class="textarea" />
+                        <textarea name="fastasequence2" cols="50" rows="5" 
+                        placeholder ="Enter nucleotide sequences, in FASTA format, you wish to compare"></textarea>
                     </div>
                 </div>
             </div>
+            
+                </form>
             
     </body>
 </html>
