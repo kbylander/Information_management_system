@@ -13,7 +13,7 @@ if(empty($_SESSION['loggedin'])){
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap%27');
 </style>
 <head>
-<link rel="stylesheet" href="style_entry.css">
+<link rel="stylesheet" href="style__entry.css">
     <title>Insert Sequences to Database</title>
 </head>
 <body>
@@ -40,13 +40,14 @@ if(empty($_SESSION['loggedin'])){
 <form method="POST" action="performins.php" enctype="multipart/form-data">
       <span class="file-name"> </span>
       <label class="file-upload">File upload fasta here<input type="file" id="file-upload" name="uploadedFile"></label>
-    </div>
+    <br>
     <br>
     <input type="text", id=searchInput class="input-box" placeholder="Paste fasta texts here" name="fastatext" >
     <br>
     <input type="submit" name="Upload" value="UPLOAD", id=uploadbutton />
 </form>
-<p> preferred header format: >Individual identifier| gene= genename os= speciesname = male/female (voluntary) </p>
+</div>
+<p> preferred header format: >Individual identifier | gene= genename os= speciesname = male/female (voluntary) </p>
 </main>
 </body>
 </html
