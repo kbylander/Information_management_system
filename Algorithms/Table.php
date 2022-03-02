@@ -26,7 +26,7 @@ echo "<h1>Genetic distance</h1>";
   <?php
   echo '<tr>';
     echo '<td>';
-      echo "$header_fasta1";
+      echo "<i>$header_fasta1</i>";
     echo '</td>';
     echo '<td>';
       echo "$Method";
