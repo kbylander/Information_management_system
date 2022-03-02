@@ -123,6 +123,16 @@ input[type=text] {
     margin: 10px auto;
 }
 
+#A1{
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+}
+
+#A2{
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+}
+
 select {
     font-family: 'Open Sans', sans-serif;
     width: 10%;
@@ -131,3 +141,59 @@ select {
     border-radius: 4px;
     background-color: #fff;
   }
+
+  h1{
+    color: #CEC5FF ;
+}
+
+.search{
+    padding-left: 2%;
+    font-size: 20px;
+}
+
+#searchInput{
+    width: 20%;
+    padding: 8px;
+    border:2px #BAD2FF solid;
+}
+
+.search2{
+    padding-left: 50%;
+    font-size: 20px;
+    padding-top: 0%;
+}
+
+#searchInput2{
+    width: 20%;
+    padding: 8px;
+    border:2px #BAD2FF solid;
+}
+
+th{
+    color: #CEC5FF;
+}
+
+input{
+    font-family: 'Open Sans', sans-serif;
+    width: 220px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    font-weight: bold;
+    border: 2px solid #CEC5FF ;
+    background: transparent;
+    color: #fff ;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+
+}
+
+
+input:hover span{
+    width: 100%;
+}
+
+input:hover{
+    border: none;
+}
