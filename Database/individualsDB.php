@@ -57,15 +57,16 @@ include '../disconnectDB.php';
             <div class="search">
             <h1>Individuals in database</h1>
             <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search in database">
-            <table id="entryTable">
-        <tr>
+        <table id="entryTable" class="scrolltable">
+        <thead><tr>
             <th>ID</th>
             <th>Gender</th>
             <th>Species</th>
             <th>Date added</th>
-        </tr>
+        </tr></thead>
 
 <!-- populate table from mysql database -->
+    <tbody>
     <?php while($row = mysqli_fetch_array($result)):?>
       <tr>
         <td><a href="individual.php?ID=<?php echo $row[0] ?>"><?php echo $row[0];?></td>
@@ -76,7 +77,7 @@ include '../disconnectDB.php';
         <td><?php echo $row[3];?></td>
       </tr>
         <?php endwhile;?>
-      </table>
+      </tbody></table>
 
 <button onclick="window.location.href='sequencesDB.php'" type="button"><span></span>SEQUENCES</button>
 <button onclick="window.location.href='../Entryhandling/insertform.php'"type="button"><span></span>UPLOAD</button>

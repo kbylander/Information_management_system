@@ -75,8 +75,37 @@ h1{
     border:2px #BAD2FF solid;
 }
 
-th{
-    color: #CEC5FF;
+.scrolltable{
+    width: 50%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.scrolltable tbody{
+  display: block;
+  width: 100%;
+  overflow: auto;
+  height: 300px;
+}
+
+.scrolltable thead tr {
+   display:block;
+}
+
+.scrolltable thead {
+  border:2px #CEC5FF solid;
+}
+
+.scrolltable th {
+  padding: 5px;
+  text-align: center;
+  width: 200px;
+  color: #CEC5FF;
+}
+.scrolltable td {
+  padding: 0px;
+  text-align: center;
+  width: 200px;
 }
 
 

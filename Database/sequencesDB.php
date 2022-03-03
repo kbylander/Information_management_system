@@ -57,22 +57,24 @@ include '../disconnectDB.php';
             <div class="search">
             <h1>Sequences in database</h1>
             <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search in database">
-            <table id="entryTable">
-          <tr>
-              <th></th>
+            <button onclick="location.href = '../Entryhandling/insertform.php';" type="button"><span></span>UPLOAD</button>
+            <table id="entryTable" class="scrolltable">
+              <thead><tr>
+              <th style="width:16%"></th>
               <th>ID</th>
               <th>Gene name</th>
               <th>Species</th>
               <th>Individual ID</th>
               <th>Gender</th>
-          </tr>
+          </tr></thead>
     <!--</table>-->
     <form action="download.php" method="post">
 <!-- populate table from mysql database -->
   <!--<table id="entryTable"> -->
+  <tbody>
     <?php while($row = mysqli_fetch_array($result)):?>
-      <tr>
-        <td><input type="checkbox" name="selected[]" value="<?php echo $row[0]?>"></td>
+    <tr>
+        <td><input type="checkbox" name="selected[]" value="<?php echo $row[0]?>" style="width:20%"></td>
         <td><a href="sequence.php?seqID=<?php echo $row[0] ?>"><?php echo $row[0];?></td>
         <td><?php echo $row[1];?></td>
         <td><?php echo $row[2];?></td>
@@ -82,11 +84,10 @@ include '../disconnectDB.php';
         else{echo "male";}?></td>
       </tr>
         <?php endwhile;?>
-      </table>
+      </tbody></table>
 
 <input type="submit" name="submit_multiple" value="DOWNLOAD SELECTED FASTA"/>
-<button onclick="location.href = 'individualsDB.php';" type="button"><span></span>ALL INDIVIDUALS</button>
-<button onclick="location.href = '../Entryhandling/insertform.php';" type="button"><span></span>UPLOAD</button>
+<button onclick="location.href = 'individualsDB.php';" type="button"><span></span>INDIVIDUALS</button>
   </div>
 </div>
 
