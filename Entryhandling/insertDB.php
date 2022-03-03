@@ -48,7 +48,8 @@ foreach ($header as $key => $value){
     $results=mysqli_query($link,$fetchinfo);
 
     //to insert unique seqID
-    $fetchnumber = "SELECT count(seqID) FROM sequence";
+    $fetchnumberseq = "SELECT count(seqID) FROM sequence";
+    $fetchnumberentry = "SELECT count(entryID) FROM entries";
     $numberrows = mysqli_query($link,$fetchnumber);
     $row = mysqli_fetch_array($numberrows);
     $resnumberofrows = $row[0]+1;
