@@ -100,10 +100,6 @@ if(!isset($_SESSION['loggedin'])) {
                     <!-- populate table from mysql database -->
                     <!--<table id="entryTable"> -->
                         <?php while($row = mysqli_fetch_array($result)):?>
-                        <?php foreach($row as $value){
-                            //Print the element out.
-                            echo $value, '<br>';
-                        }?>
                         <tr>
                             <td><input type="checkbox" name="selected[]" value="<?php echo $row[0]?>"></td>
                             <td><a href="sequence.php?seqID=<?php echo $row[0] ?>"><?php echo $row[0];?></td>
@@ -126,7 +122,6 @@ if(!isset($_SESSION['loggedin'])) {
                         <th>Individual ID</th>
                         <th>Gender</th>
                     </tr>
-                    <?php echo 'holi'?>
                     <!--</table>-->
                     <!-- populate table from mysql database -->
                     <!--<table id="entryTable"> -->
@@ -143,7 +138,6 @@ if(!isset($_SESSION['loggedin'])) {
                         </tr>
                             <?php endwhile;?>
                         </table>
-                        <?php echo 'holi'?>
                         <input type="submit" name="comparation" value="CALCULATE"/>
 
                         </form>
