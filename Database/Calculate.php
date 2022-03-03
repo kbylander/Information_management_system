@@ -68,20 +68,17 @@ if(!isset($_SESSION['loggedin'])) {
                     <input type="submit" name="submit" value ="Calculate genetic distance">
 
                     <div class="sequence">
-                <div class="container">
                     <div>
-                        <label>Sequence 1</label>
-                        <<textarea name="fastasequence1" cols="50" rows="5" 
-                        placeholder ="Enter nucleotide sequence in FASTA format here"></textarea>/>
+                        <h3 id= "A1"> Sequence 1 </h3>
+                        <textarea name="fastasequence1" cols="80" rows="8" 
+                        placeholder ="Enter nucleotide sequence in FASTA format here"></textarea>
                     </div>
-                </div>
-                <div class="container">
                     <div>
-                        <label>Sequence 2</label>
-                        <textarea name="fastasequence2" cols="50" rows="5" 
-                        placeholder ="Enter nucleotide sequences, in FASTA format, you wish to compare"></textarea>
+                        <h3 id= "A1"> Sequence 2 </h3>
+                        <textarea name="fastasequence2" cols="80" rows="8" 
+                        placeholder ="Enter nucleotide sequence in FASTA format here"></textarea>
                     </div>
-                </div>
+               
             </div>
             
                 </form>
@@ -89,6 +86,7 @@ if(!isset($_SESSION['loggedin'])) {
                     <h1 id= "A2"> Option 2: Select two sequences from db to compare </h1>
                     <div class="search">
                     <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search in database">
+                    <form action="preparecomparation.php" method="post">
                     <table id="entryTable">
                     <tr>
                         <th></th>
@@ -99,7 +97,37 @@ if(!isset($_SESSION['loggedin'])) {
                         <th>Gender</th>
                     </tr>
                     <!--</table>-->
-                        <form action="preparecomparation.php" method="post">
+                    <!-- populate table from mysql database -->
+                    <!--<table id="entryTable"> -->
+                        <?php while($row = mysqli_fetch_array($result)):?>
+                        <?php foreach($row as $value){
+                            //Print the element out.
+                            echo $value, '<br>';
+                        }?>
+                        <tr>
+                            <td><input type="checkbox" name="selected[]" value="<?php echo $row[0]?>"></td>
+                            <td><a href="sequence.php?seqID=<?php echo $row[0] ?>"><?php echo $row[0];?></td>
+                            <td><?php echo $row[1];?></td>
+                            <td><?php echo $row[2];?></td>
+                            <td><a href="individual.php?ID=<?php echo $row[3] ?>"><?php echo $row[3];?></td>
+                            <td><?php if(is_null($row[4])){echo "Unknown";}
+                            elseif ($row[4]){echo "Female";}
+                            else{echo "male";}?></td>
+                        </tr>
+                            <?php endwhile;?>
+                        </table>
+                    <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search in database">
+                    <table id="entryTable">
+                    <tr>
+                        <th></th>
+                        <th>ID</th>
+                        <th>Gene name</th>
+                        <th>Species</th>
+                        <th>Individual ID</th>
+                        <th>Gender</th>
+                    </tr>
+                    <?php echo 'holi'?>
+                    <!--</table>-->
                     <!-- populate table from mysql database -->
                     <!--<table id="entryTable"> -->
                         <?php while($row = mysqli_fetch_array($result)):?>
@@ -115,44 +143,12 @@ if(!isset($_SESSION['loggedin'])) {
                         </tr>
                             <?php endwhile;?>
                         </table>
-                        <input type="submit" name="comparation"/>
+                        <?php echo 'holi'?>
+                        <input type="submit" name="comparation" value="CALCULATE"/>
 
                         </form>
-                        <div class="search2">
-                        <input type="text" id="searchInput2" onkeyup="searchFunction()" placeholder="Search in database">
-                        <table id="entryTable2">
-                        <tr>
-                            <th></th>
-                            <th>ID</th>
-                            <th>Gene name</th>
-                            <th>Species</th>
-                            <th>Individual ID</th>
-                            <th>Gender</th>
-                        </tr>
-                        <!--</table>-->
-                        <form action="preparecomparation2.php" method="post">
-                    <!-- populate table from mysql database -->
-                    <!--<table id="entryTable"> -->
-                        <?php while($row = mysqli_fetch_array($result)):?>
-                        <tr>
-                            <td><input type="checkbox" name="selected[]" value="<?php echo $row[0]?>"></td>
-                            <td><a href="sequence.php?seqID=<?php echo $row[0] ?>"><?php echo $row[0];?></td>
-                            <td><?php echo $row[1];?></td>
-                            <td><?php echo $row[2];?></td>
-                            <td><a href="individual.php?ID=<?php echo $row[3] ?>"><?php echo $row[3];?></td>
-                            <td><?php if(is_null($row[4])){echo "Unknown";}
-                            elseif ($row[4]){echo "Female";}
-                            else{echo "male";}?></td>
-                        </tr>
-                            <?php endwhile;?>
-                        </table>
-                        <input type="submit" name="comparation2"/>
-
-                        </form>
-                        </div>
                         </div>
                     </div>
-        </div>
 
         <!-- Script to real time filter the table -->
 <script>
