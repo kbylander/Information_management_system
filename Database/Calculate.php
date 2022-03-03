@@ -14,6 +14,7 @@ if(!isset($_SESSION['loggedin'])) {
   $query = "SELECT sequence.seqID, sequence.genename, entries.species, entries.entryID, entries.female FROM sequence LEFT JOIN entries ON sequence.entryID = entries.entryID WHERE addedby LIKE '$userID'";
   include '../connectDB.php';
   $result = mysqli_query($link, $query);
+  $result2 = mysqli_query($link,$query);
   include '../disconnectDB.php';
   }
 ?>
@@ -60,10 +61,10 @@ if(!isset($_SESSION['loggedin'])) {
                 <h2>Choose your algorithm:</h2>
                 <form action="../Algorithms/upload.php" method="POST">
                     <select name="Method" id="Method">
-                    <option value="Genpofad">Genpofad</option>
-                    <option value="Matchstates">Matchstates</option>
-                    <option value="Daredevil">Daredevil</option>
-                    <option value="Consensus">Consensus score</option>
+                    <option value="Genpofad" style="color:black">Genpofad</option>
+                    <option value="Matchstates" style="color:black">Matchstates</option>
+                    <option value="Daredevil" style="color:black">Daredevil</option>
+                    <option value="Consensus" style="color:black">Consensus score</option>
                     </select>
                     <input type="submit" name="submit" value ="Calculate genetic distance">
 
@@ -82,11 +83,19 @@ if(!isset($_SESSION['loggedin'])) {
             </div>
             
                 </form>
+            </div>
                 <div class="option2">
                     <h1 id= "A2"> Option 2: Select two sequences from db to compare </h1>
                     <div class="search">
-                    <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search in database">
+                    <h2>Choose your algorithm:</h2>
                     <form action="preparecomparation.php" method="post">
+                    <select name="Method" id="Method">
+                    <option value="Genpofad" style="color:black">Genpofad</option>
+                    <option value="Matchstates" style="color:black">Matchstates</option>
+                    <option value="Daredevil" style="color:black">Daredevil</option>
+                    <option value="Consensus" style="color:black">Consensus score</option>
+                    </select><br>
+                    <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search in database">
                     <table id="entryTable">
                     <tr>
                         <th></th>
@@ -110,7 +119,7 @@ if(!isset($_SESSION['loggedin'])) {
                             elseif ($row[4]){echo "Female";}
                             else{echo "male";}?></td>
                         </tr>
-                            <?php endwhile;?>
+                         <?php endwhile;?>
                         </table>
                     <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search in database">
                     <table id="entryTable">
@@ -125,7 +134,7 @@ if(!isset($_SESSION['loggedin'])) {
                     <!--</table>-->
                     <!-- populate table from mysql database -->
                     <!--<table id="entryTable"> -->
-                        <?php while($row = mysqli_fetch_array($result)):?>
+                        <?php while($row = mysqli_fetch_array($result2)):?>
                         <tr>
                             <td><input type="checkbox" name="selected[]" value="<?php echo $row[0]?>"></td>
                             <td><a href="sequence.php?seqID=<?php echo $row[0] ?>"><?php echo $row[0];?></td>

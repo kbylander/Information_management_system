@@ -111,6 +111,17 @@ input[type=text] {
     margin: 10px auto;
 }
 
+.option2{
+    position:relative; 
+    left:80px; 
+    top:2px; 
+}
+
+#Method{
+    margin: 30px auto;
+    color:rgba(0, 0, 0, 0.75);
+}
+
 #A1{
     font-family: 'Open Sans', sans-serif;
     color: #fff;

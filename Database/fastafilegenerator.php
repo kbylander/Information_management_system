@@ -2,7 +2,6 @@
 //FASTA header format: >SeqID| gene= os=
 function fastagensingle($ID, $seq, $gene, $species){
   $filename = $ID . "_fasta.fasta";
-  echo $filename;
   $file = fopen("TempFastaFiles/" . $filename, "w");
   fwrite($file,">" . $ID . "| gene=" . $gene . " os=" . $species . "\n" . $seq);
   fclose($file);
@@ -10,7 +9,7 @@ function fastagensingle($ID, $seq, $gene, $species){
 }
 
 function fastamultiplegen($IDs,$seqs,$genes,$species){
-  $filename = $IDs[0]."_am_fasta.fasta";
+  $filename = "multiplefasta_am_fasta.fasta";
   $file = fopen("TempFastaFiles/" . $filename, "w");
 
   for ($i = 0; $i < count($seqs); $i++)  {

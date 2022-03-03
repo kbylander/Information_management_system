@@ -25,17 +25,58 @@ if(isset($_POST['comparation'])){ //Check if "submit" is empty
 
     $seqIDs = explode(",",$seqIDs);
     $seqIDs = str_replace(array('(',')',"'"), '',$seqIDs);
-    $seqIDs = implode("", $seqIDs);
+    $seqID1 = $seqIDs[0];
+    $seq1 = $seqs[0];
+    $gene1 = $genes[0];
+    $species1 = $species[0];
+    #first sequence
     require 'fastafilegenerator.php';
-    $file1 = fastagensingle($seqIDs,$seqs,$genes,$species);
-    
-  }
-  else{
+    $file1 = fastagensingle($seqID1,$seq1,$gene1,$species1);
+    #remove first sequence
+    array_shift($seqIDs);
+    array_shift($seqs);
+    array_shift($genes);
+    array_shift($species);
+    #rest of sequences
+    $file2 = fastamultiplegen($seqIDs,$seqs,$genes,$species);
+
+    //Load method of choice
+    $Method = $_POST['Method'];
+
+    //go through each file in a folder, and run the exe
+
+    if ($Method == "Genpofad") {
+        exec('C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Methods/Genpofad.R');
+    } 
+
+    if ($Method == "Matchstates") {
+        exec('C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Methods/Matchstates.R');
+    } 
+
+    if ($Method == "Daredevil") {
+        exec('C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Methods/Daredevil.R');
+    }
+
+    if ($Method == "Consensus") {
+        exec('C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Methods/Consensus.R');
+    }
+
+
+    include 'Table.php';
+
+    unlink('output/output.php');
+    unlink('output/seqname.php');
+    unlink('input/Fasta1.fasta');
+    unlink('input/Fasta2.fasta');
+    unlink('output_file/fastafile.php');
+        
+}
+else{
     header('Location: Calculate.php');
-  }
+}
 
 }
 else{
-  header('Location: ../index.php');
+header('Location: ../index.php');
 }
 ?>
