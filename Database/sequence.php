@@ -11,7 +11,7 @@ if ($_SESSION['loggedin'] == False) {
 else{ //If permited to be on this site
 $seqID = $_GET['seqID']; //Define variable from clicked link on page before, used in SQL query
 //$query = "SELECT seqID, genename, seq, entryID FROM sequence WHERE seqID LIKE '$seqID'";
-$query = "SELECT sequence.seqID, sequence.genename, sequence.seq, sequence.entryID, entries.female, entries.addedby, entries.species, sequence.private FROM sequence LEFT JOIN entries ON sequence.entryID = entries.entryID WHERE seqID LIKE '$seqID'";
+$query = "SELECT sequence.seqID, sequence.genename, sequence.seq, sequence.entryID, entries.female, entries.addedby, entries.species, sequence.priv FROM sequence LEFT JOIN entries ON sequence.entryID = entries.entryID WHERE seqID LIKE '$seqID'";
 include '../connectDB.php';
 $result = mysqli_query($link, $query);
 include '../disconnectDB.php';
@@ -32,7 +32,7 @@ include '../disconnectDB.php';
     else{echo "male";}?></p>
     <p>Sequence,<br> <?php echo $row[2];?></p> <!-- prints the sequence -->
     <p>Length, <?php echo strlen($row[2]);?> bp</p> <!-- calculates and prints the sequence length-->
-    <p>Added by, <?php echo $row[5];?>, URL is: <?php if($row[7]){echo "private";}else{echo "shareable";}?></p> <!-- prints the user who uploaded the sequence and if set to private or not -->
+    <p>Added by, <?php echo $row[5];?>, URL is: <?php if($row[7]){echo "priv";}else{echo "shareable";}?></p> <!-- prints the user who uploaded the sequence and if set to private or not -->
     <?php $addedby = $row[5]; //Specifies who added the seqence
     $access = $row[7]; //Defines if private or not
     endwhile;?>
