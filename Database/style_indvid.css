@@ -1,0 +1,187 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.banner{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(../natur.jpg) no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
+}
+.navbar{
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 120px;
+    cursor: pointer;
+}
+
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+
+.navbar ul li a{
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+.navbar ul li::after{
+    content:'';
+    height: 3px;
+    width: 0;
+    background: #BAD2FF;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+.navbar ul li:hover::after{
+    width: 100%;
+}
+
+.seq{
+    text-align: justify;
+    width:100%;
+    height: fill;
+    font-size: 20px;
+    background: linear-gradient(120deg,  #def4dd, #B0D8FF, #BAD2FF, #CEC5FF, #E2B8FF );
+    background-size: cover;
+    padding-top: 3%;
+}
+
+.seq h1{
+    padding-top: 2%;
+    padding-bottom: 0.5%;
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Bebas Neue', sans-serif;
+    text-transform: uppercase; 
+}
+
+
+#searchInput{
+    width: 30%;
+    padding: 8px;
+    border:2px #BAD2FF solid;
+    display: block;
+    margin-top: 2%;
+}
+.box{
+    text-align: left;
+    width: 600px;
+    border: 4px solid white;
+    padding: 40px;
+    margin: auto;
+    border-radius: 25px;
+    background: #CEC5FF;
+}
+
+.box p1{
+    padding-top: 0.9%;
+    padding-bottom: 0.9%;
+    font-size: 20px;
+    text-align: left;
+    font-weight: bolder;
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-transform: uppercase; 
+}
+
+.box p{
+    padding-top: 2%;
+    font-size: 16px;
+    text-align: left;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.scrolltable tbody{
+    display: block;
+    width: 100%;
+    overflow: auto;
+    height: 100px;
+  }
+
+.scrolltable{
+    width: 33%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin-top: 2%;
+}
+
+
+.scrolltable thead {
+  border:2px #fff solid;
+}
+
+.scrolltable thead tr {
+    display:block;
+ }
+ 
+
+.scrolltable th {
+  padding: 5px;
+  text-align: center;
+  width: 200px;
+  color: #fff;
+}
+.scrolltable td {
+  padding: 0px;
+  text-align: center;
+  width: 200px;
+}
+
+button{
+    font-family: 'Open Sans', sans-serif;
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 4px solid white ;
+    background: transparent;
+    color: black ;
+    cursor: pointer;
+    position: center;
+    overflow: hidden;
+}
+
+span{
+    font-family: 'Open Sans', sans-serif;
+    background: #CEC5FF ;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+button:hover span{
+    width: 0%;
+}
+
+button:hover{
+    border: none;
+}
+
+.content{
+    transform: translateY(-50%);
+    text-align: center;
+    padding-top: 10%;
+}

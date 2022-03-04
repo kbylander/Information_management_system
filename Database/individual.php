@@ -30,35 +30,62 @@ if($addedby == $_SESSION['user']){
 
 <!DOCTYPE html>
 <html>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&display=swap%27');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap%27');
+</style>
 <body>
+<link rel="stylesheet" href="style_indvid.css">
+<div class="banner">
+            <div class="navbar">
+                <a href= "../index.php"><img src="../wolf_icon.png" class="logo"></a>
+                <ul>
+                    <li><a href="../index.php">Home</a></li>
+                    <li><a href="../Links/About.php">About</a></li>
+                    <?php if ($_SESSION['loggedin']) { //If logged in, take the user to the database?>
+                    <li><a href="DbInfo.php">Database</a></li>
+                    <?php }
+                    else{ //If not logged in, take the user to the login page?>
+                    <li><a href="../Login/login.php">Database</a></li>
+                    <?php } ?>
+                    <li><a href="../Links/ContactUs.php">Contact Us</a></li>
+                </ul>
+            </div>
+  </div>
+  <div class="seq">
   <h1>Sequences uploaded for <?php echo $individualID ?></h1>
-  <p><?php echo "$species, ";
+  <div class="box">
+  <p1><?php echo "$species, ";
   if(!isset($gender)){
     echo "gender unknown";
   }elseif($gender){
     echo "female";
   }else{
     echo "male";
-  }?></p>
+  }?></p1>
   <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search among sequences">
-    <table id="entryTable">
-        <tr>
-            <th>ID</th>
-            <th>Gene</th>
-        </tr>
+  <table id="entryTable" class="scrolltable">
+    <thead><tr>
+        <th>ID</th>
+        <th>Gene</th>
+    </tr></thead>
 
 <!-- populate table from mysql database -->
+    <tbody>
     <?php while($row = mysqli_fetch_array($result)):?>
       <tr>
         <td><a href="sequence.php?seqID=<?php echo $row[0] ?>"><?php echo $row[0];?></td>
         <td><?php echo $row[1];?></td>
       </tr>
         <?php endwhile;?>
-      </table>
+    </tbody></table>
 <p>Added by: <?php echo "$addedby, $date"?></p>
 
-<button onclick="window.location.href='individualsDB.php'">BACK TO ALL INDIVIDUALS</button>
-
+</div>
+<div class="content">
+<button onclick="window.location.href='individualsDB.php'" type="button"><span></span>BACK TO ALL INDIVIDUALS</button>
+</div>
+</div>
 <!-- Script to real time filter the able -->
 <script>
 function searchFunction() {
