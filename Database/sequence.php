@@ -21,8 +21,27 @@ include '../disconnectDB.php';
 <!DOCTYPE html>
 <html>
 <body>
-  <h1>Sequence <?php echo $seqID ?></h1>
+  <link rel="stylesheet" href="style_sequence.css">
+  <div class="banner">
+            <div class="navbar">
+                <a href= "../index.php"><img src="../wolf_icon.png" class="logo"></a>
+                <ul>
+                    <li><a href="../index.php">Home</a></li>
+                    <li><a href="../Links/About.php">About</a></li>
+                    <?php if ($_SESSION['loggedin']) { //If logged in, take the user to the database?>
+                    <li><a href="DbInfo.php">Database</a></li>
+                    <?php }
+                    else{ //If not logged in, take the user to the login page?>
+                    <li><a href="../Login/login.php">Database</a></li>
+                    <?php } ?>
+                    <li><a href="../Links/ContactUs.php">Contact Us</a></li>
+                </ul>
+            </div>
+  </div>
 
+  <div class = "context">
+  <h1>Sequence <?php echo $seqID ?></h1>
+    <div class="box">
     <?php while($row = mysqli_fetch_array($result)):?>
     <?php if($_SESSION['user'] != $row[5] && $row[7] == 1){header('Location: sequencesDB.php');} //Check to see if person has access to this sequence?>
     <p>Gene, <?php echo $row[1];?></p> <!-- echos and prints genename -->
@@ -43,6 +62,7 @@ include '../disconnectDB.php';
 <?php }else{ ?> | <a href="privacy.php?seqID=<?php echo $seqID?>">Make private</a><?php } } ?></p>
 
 <p><button onclick="window.location.href='sequencesDB.php'">BACK TO ALL SEQUENCES</button></p>
-
+    </div> 
+  </div>
 </body>
 </html>
