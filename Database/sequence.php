@@ -21,10 +21,8 @@ include '../disconnectDB.php';
 <!DOCTYPE html>
 <html>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&display=swap%27);
-</style> 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap%27);
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&display=swap%27');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap%27');
 </style>
 <body>
   <link rel="stylesheet" href="style_sequence.css">
