@@ -72,12 +72,12 @@ if(!isset($_SESSION['loggedin'])) {
                     <div>
                         <h3 id= "A1"> Sequence 1 </h3>
                         <textarea name="fastasequence1" cols="80" rows="8" 
-                        placeholder ="Enter nucleotide sequence in FASTA format here"></textarea>
+                        placeholder ="Enter nucleotide sequence in FASTA format here" style="color:black"></textarea>
                     </div>
                     <div>
                         <h3 id= "A1"> Sequence 2 </h3>
                         <textarea name="fastasequence2" cols="80" rows="8" 
-                        placeholder ="Enter nucleotide sequence in FASTA format here"></textarea>
+                        placeholder ="Enter nucleotide sequence in FASTA format here" style="color:black"></textarea>
                     </div>
                
             </div>
