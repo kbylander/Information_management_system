@@ -29,7 +29,9 @@ foreach ($header as $key => $value){
         $_SESSION['HeaderError']= 'Header: ' . $value . ' is in incorrect format';
         header('Location:./insertform.php'); 
     }
-    include 'insertdb.php';
+    else{
+      include 'insertdb.php';
+    }
 }
 
 ?>

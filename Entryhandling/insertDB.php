@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['HeaderError']= '';
 
 //creates atribute names from header.
 $entryid=substr($value,1,$entryIDend-1);
@@ -13,8 +14,13 @@ if (!empty(strpos($value,'gender='))){
     if (strtoupper($gender)=='MALE'){
         $gender = 0;
     }
-    else{
+    elseif(strtoupper($gender == 'FEMALE')){
         $gender = 1;
+    }
+    else{
+        $_SESSION['HeaderError']= 'Header: ' . $value . ' is in incorrect format';
+        header('Location:./insertform.php'); 
+
     }
 }
 else{
@@ -51,7 +57,6 @@ $noentryidUser = $var2[0];
 //if gender exists in the header, manipulate query accordingly 
 if ($gender<0){
     $sql_entry = "INSERT INTO entries (entryID, species, addedby) VALUES ('$entryid_unique', '$species', '$currentuser')";
-
 }
 else {
     $sql_entry = "INSERT INTO entries (entryID, species, addedby, female) VALUES ('$entryid_unique', '$species', '$currentuser', '$gender')";
@@ -63,12 +68,19 @@ $sql_seq = "INSERT INTO sequence (seqID, genename, entryID, seq, seqaddedby) VAL
 //if entryID already exists, it will insert to sequence table, without creating a new record in the entries table. 
 if ($noentryidUser == $currentuser){
     dbtransactions($sql_seq);
+    if (!$query){
+        header('Location:insertform.php');    
+    }
+
 }
 else{
     dbtransactions($sql_entry);
     dbtransactions($sql_seq);
-}
+    if (!$query){
+        header('Location:insertform.php');    
+    }
 
+}
 
 //redirect to sequences table of specific user.
 header('Location:../Database/sequencesDB.php');    

@@ -31,10 +31,11 @@ foreach($splitfastas as $key => $value) {
 
 require 'checktextcharacters.php';
 foreach ($header as $key => $value){
-    if ((validcharachters($seq[$key])) && (validcharachters($value))){
+    if ((validseq($seq[$key])) && (validcharachters($value))){
         include 'headercheck.php';    
     }
     else{
+        $_SESSION['UploadError'] = 'Fasta contained illegal characters.';
         header('Location:./insertform.php');
     }
 }
