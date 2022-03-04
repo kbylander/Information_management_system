@@ -43,7 +43,7 @@ if(isset($_POST['comparation'])){ //Check if "submit" is empty
     //Load method of choice
     $Method = $_POST['Method'];
 
-    //go through each file in a folder, and run the exe
+//go through each file in a folder, and run the exe
 
     if ($Method == "Genpofad") {
         exec('C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Methods/Genpofad.R');
@@ -61,13 +61,12 @@ if(isset($_POST['comparation'])){ //Check if "submit" is empty
         exec('C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Methods/Consensus.R');
     }
 
-
-    include 'Table.php';
+    include '../Algorithms/Table.php';
 
     unlink('output/output.php');
     unlink('output/seqname.php');
-    unlink('input/Fasta1.fasta');
-    unlink('input/Fasta2.fasta');
+    unlink('../Database/TempFastaFiles/singlefasta_fasta.fasta');
+    unlink('../Database/TempFastaFiles/multiplefasta_am_fasta.fasta');
     unlink('output_file/fastafile.php');
         
 }

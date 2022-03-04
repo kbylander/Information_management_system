@@ -12,7 +12,7 @@ table, th, td {
 
 <?php 
 //Header of focal sequence
-$Fasta1 = file_get_contents("input/Fasta1.fasta");
+$Fasta1 = file_get_contents("../Database/TempFastaFiles/singlefasta_fasta.fasta");
 $ExplodeFasta1 = explode("\n",$Fasta1);
 $header_fasta1 = $ExplodeFasta1[0];
 

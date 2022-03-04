@@ -1,7 +1,7 @@
 <?php
 //FASTA header format: >SeqID| gene= os=
 function fastagensingle($ID, $seq, $gene, $species){
-  $filename = $ID . "_fasta.fasta";
+  $filename = "singlefasta_fasta.fasta";
   $file = fopen("TempFastaFiles/" . $filename, "w");
   fwrite($file,">" . $ID . "| gene=" . $gene . " os=" . $species . "\n" . $seq);
   fclose($file);

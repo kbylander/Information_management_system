@@ -5,8 +5,8 @@ require(ape)
 source("C:/MAMP/htdocs/IMS-Daredevil/Algorithms/Proj_functions.R")
 
 
-fasta1 <- "C:/MAMP/htdocs/IMS-Daredevil/Algorithms/input/Fasta1.fasta"
-fasta2 <- readDNAStringSet("C:/MAMP/htdocs/IMS-Daredevil/Algorithms/input/Fasta2.fasta")
+fasta1 <- "C:/MAMP/htdocs/IMS-Daredevil/Database/TempFastaFiles/singlefasta_fasta.fasta"
+fasta2 <- readDNAStringSet("C:/MAMP/htdocs/IMS-Daredevil/Database/TempFastaFiles/multiplefasta_am_fasta.fasta")
 
 length <- length(fasta2) 
 
