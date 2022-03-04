@@ -7,7 +7,7 @@ $header = array();
 $seq = array();
 $fastanumber =- 1;
 
-foreach($splitfastas as $key => $value) { 
+foreach($fasta as $key => $value) { 
     if (str_contains($value, '>')) {
         $fastanumber += 1;
     } 
@@ -29,14 +29,27 @@ foreach($splitfastas as $key => $value) {
     }
 }
 
-require 'checktextcharacters.php';
+require __DIR__ . '/checktextcharacters.php';
 foreach ($header as $key => $value){
-    if ((validcharachters($seq[$key])) && (validcharachters($value))){
-        include 'headercheck.php';    
+    if ((ValidTextCharacters($seq[$key])) && (ValidTextCharacters($value))){
+        echo 'texten funka';
     }
     else{
-        header('Location:./insertform.php');
+        //header('Location:./insertform.php');
     }
 }
 
+include 'test.php';
+
+
+//require __DIR__ . '/checkfilecharacters.php';
+//foreach ($header as $key => $value){
+//    if ((ValidFileCharacters($seq[$key])) && (ValidFileCharacters($value))){
+//        echo 'filen funka';
+//   }
+//    else{
+//        header('Location:./insertform.php');
+//    }
+//}
+    
 ?>

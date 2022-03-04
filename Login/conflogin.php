@@ -15,11 +15,10 @@ $passwlen = strlen($passw);
 
 if($passwlen > 7) {
 
-    include '../connectDB.php';
     $query = "SELECT * FROM users WHERE username LIKE '$userID'";
-    $result = mysqli_query($link, $query);
+    require '../transactions.php';
+    $result = dbtransactions($query);
     $number_of_entries = mysqli_num_rows($result);
-    include '../disconnectDB.php';
 
     if ($number_of_entries != 0){
 

@@ -5,19 +5,7 @@ error_reporting(E_ALL);
 
 $fasta=array();
 
-$splitfastas= explode('\n', $ftext);
-
-foreach($splitfastas as $index){
-    $test=explode(' ',$index);
-    array_push($fasta, $test);
-}
-
-$header = array();
-$seq = array();
-$fastanumber =- 1;
-
-$fastas=$fasta[0];
-$fasta=$fastas;
+$splitfastas= explode(' ', $f);
 
 include 'fastadivider.php';
 ?>

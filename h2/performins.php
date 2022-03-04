@@ -6,6 +6,7 @@ error_reporting(E_ALL);
 session_start();
 $_SESSION['UploadError'] = '';
 
+
 //This section will handle file uploads
 
 // get details of the uploaded file
@@ -33,7 +34,7 @@ if(!empty($fileSize)){
     //if upload was succesful, fetch it as a string and then remove it. 
         if(move_uploaded_file($fileTmpPath, $dest_path)) 
         {
-            $f = file_get_contents($dest_path);
+            $ffile = file_get_contents($dest_path);
             unlink($dest_path);
             include 'textfastahandler.php';
         }else
@@ -47,8 +48,8 @@ if(!empty($fileSize)){
 
 //This section will handle text inputs
 if(!empty($_POST['fastatext'])){
-    $f = $_POST['fastatext'];
-    require 'textfastahandler.php';
+    $ftext = $_POST['fastatext'];
+    include 'textfastahandler.php';
 }
 
 elseif(empty($ftext) && empty($fileSize)){
