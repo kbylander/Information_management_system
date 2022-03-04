@@ -122,8 +122,8 @@ if(!isset($_SESSION['loggedin'])) {
                         </tr>
                          <?php endwhile;?>
                         </table>
-                    <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search in database">
-                    <table id="entryTable">
+                    <input type="text" id="searchInput2" onkeyup="searchFunction2()" placeholder="Search in database">
+                    <table id="entryTable2">
                     <tr>
                         <th></th>
                         <th>ID</th>
@@ -168,8 +168,8 @@ if(!isset($_SESSION['loggedin'])) {
                         <textarea name="fastasequence1" cols="80" rows="8" 
                         placeholder ="Enter nucleotide sequence in FASTA format here" style="color:black"></textarea>
                     </div><br><br>
-                    <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search in database">
-                    <table id="entryTable">
+                    <input type="text" id="searchInput3" onkeyup="searchFunction3()" placeholder="Search in database">
+                    <table id="entryTable3">
                     <tr>
                         <th></th>
                         <th>ID</th>
@@ -207,6 +207,50 @@ function searchFunction() {
     input = document.getElementById("searchInput");
     filter = input.value.toUpperCase();
     table = document.getElementById("entryTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 1; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td");
+        for (j = 0; j < td.length; j++) {
+            if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                found = true;
+            }
+        }
+        if (found) {
+            tr[i].style.display = "";
+            found = false;
+        } else {
+            tr[i].style.display = "none";
+        }
+    }
+}
+
+function searchFunction2() {
+    var input, filter, found, table, tr, td, i, j;
+    input = document.getElementById("searchInput2");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("entryTable2");
+    tr = table.getElementsByTagName("tr");
+    for (i = 1; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td");
+        for (j = 0; j < td.length; j++) {
+            if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                found = true;
+            }
+        }
+        if (found) {
+            tr[i].style.display = "";
+            found = false;
+        } else {
+            tr[i].style.display = "none";
+        }
+    }
+}
+
+function searchFunction3() {
+    var input, filter, found, table, tr, td, i, j;
+    input = document.getElementById("searchInput3");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("entryTable3");
     tr = table.getElementsByTagName("tr");
     for (i = 1; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td");

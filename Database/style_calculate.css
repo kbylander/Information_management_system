@@ -164,6 +164,20 @@ select {
 
 }
 
+#searchInput2{
+    width: 20%;
+    padding: 8px;
+    border:2px #BAD2FF solid;
+
+}
+
+#searchInput3{
+    width: 20%;
+    padding: 8px;
+    border:2px #BAD2FF solid;
+
+}
+
 
 th{
     color: #CEC5FF;
