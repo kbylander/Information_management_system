@@ -43,7 +43,7 @@ if($addedby == $_SESSION['user']){
                     <li><a href="../index.php">Home</a></li>
                     <li><a href="../Links/About.php">About</a></li>
                     <?php if ($_SESSION['loggedin']) { //If logged in, take the user to the database?>
-                    <li><a href="DbInfo.php">Database</a></li>
+                    <li><a href="databasemenu.php">Database</a></li>
                     <?php }
                     else{ //If not logged in, take the user to the login page?>
                     <li><a href="../Login/login.php">Database</a></li>
@@ -78,7 +78,7 @@ if($addedby == $_SESSION['user']){
         <td><?php echo $row[1];?></td>
       </tr>
         <?php endwhile;?>
-    </tbody></table>
+      </tbody></table>
 <p>Added by: <?php echo "$addedby, $date"?></p>
 
 </div>
