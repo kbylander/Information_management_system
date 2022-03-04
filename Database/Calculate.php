@@ -88,7 +88,7 @@ if(!isset($_SESSION['loggedin'])) {
                     <h1 id= "A2"> Option 2: Select two sequences from db to compare </h1>
                     <div class="search">
                     <h2>Choose your algorithm:</h2>
-                    <form action="preparecomparation.php" method="post">
+                    <form action="preparecomparation.php" method="POST">
                     <select name="Method" id="Method">
                     <option value="Genpofad" style="color:black">Genpofad</option>
                     <option value="Matchstates" style="color:black">Matchstates</option>

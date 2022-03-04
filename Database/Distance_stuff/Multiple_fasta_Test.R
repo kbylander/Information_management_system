@@ -5,8 +5,8 @@ require(ape)
 source("C:/MAMP/htdocs/IMS-Daredevil/Algorithms/Proj_functions.R")
 
 
-fasta1 <- "C:/MAMP/htdocs/IMS-Daredevil/Database/TempFastaFiles/singlefasta_fasta.fasta"
-fasta2 <- readDNAStringSet("C:/MAMP/htdocs/IMS-Daredevil/Database/TempFastaFiles/multiplefasta_am_fasta.fasta")
+fasta1 <- "C:/MAMP/htdocs/IMS-Daredevil/Algorithms/input/Test1.fasta"
+fasta2 <- readDNAStringSet("C:/MAMP/htdocs/IMS-Daredevil/Algorithms/input/Multi.fasta")
 
 length <- length(fasta2) 
 
@@ -14,18 +14,18 @@ length <- length(fasta2)
 for (i in 1:length)
 {
   # Create file with 1 fasta sequence
-  sink("C:/MAMP/htdocs/IMS-Daredevil/Algorithms/output_file/fastafile.php")
+  sink("C:/MAMP/htdocs/IMS-Daredevil/Algorithms/Test/rand.php")
   name <- names(fasta2)[i]
   cat(paste0(">",name))
   cat("\n")
   seq <- paste(fasta2)[i]
   cat(seq)
   sink()
-  fasta3 <- "C:/MAMP/htdocs/IMS-Daredevil/Algorithms/output_file/fastafile.php"
+  fasta3 <- "C:/MAMP/htdocs/IMS-Daredevil/Algorithms/Test/rand.php"
   
   # Store output in array, append after each iteration. 
   sink("C:/MAMP/htdocs/IMS-Daredevil/Algorithms/output/output.php", append = TRUE)
-  result <- Matchstates(fasta1, fasta3)
+  result <- Genpofad(fasta1, fasta3)
   cat(result)
   sink()
   

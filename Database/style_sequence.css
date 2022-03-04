@@ -1,13 +1,13 @@
 *{
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     font-family: sans-serif;
 }
 
 .banner{
     width: 100%;
-    height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(../varrrg.jpg) no-repeat center center fixed;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(../natur.jpg) no-repeat center center fixed;
     background-size: cover;
     background-position: center;
 }
@@ -53,26 +53,56 @@
     width: 100%;
 }
 
+.context{
+    text-align: justify;
+    width:100%;
+    height: fill;
+    font-size: 20px;
+    background: linear-gradient(120deg,  #def4dd, #B0D8FF, #BAD2FF, #CEC5FF, #E2B8FF );
+    background-size: cover;
+    padding-top: 3%;
+}
+
+.context h1{
+    padding-top: 2%;
+    padding-bottom: 0.5%;
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Bebas Neue', sans-serif;
+    text-transform: uppercase; 
+}
+
+.box{
+    text-align: left;
+    width: 600px;
+    border: 4px solid white;
+    padding: 40px;
+    margin: auto;
+    border-radius: 25px;
+    background: #CEC5FF;
+}
+
+.box p1{
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    font-size: 12px;
+    text-align: left;
+    font-weight: bolder;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.box p{
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    font-size: 12px;
+    text-align: left;
+    font-family: 'Open Sans', sans-serif;
+}
+
 .content{
-    width: 100%;
-    position: absolute;
-    top: 50%;
     transform: translateY(-50%);
     text-align: center;
-    color: #fff ;
-}
-
-.content h1{
-    font-family: 'Righteous', cursive;
-    font-size: 70px;
-    margin-top: 80px;
-}
-
-.content p{
-    font-family: 'Open Sans', sans-serif;
-    margin: 20px auto;
-    font-weight: 100;
-    line-height: 25px;
+    padding-top: 10%;
 }
 
 button{
@@ -83,11 +113,11 @@ button{
     margin: 20px 10px;
     border-radius: 25px;
     font-weight: bold;
-    border: 2px solid #CEC5FF ;
+    border: 4px solid white ;
     background: transparent;
-    color: #fff ;
+    color: black ;
     cursor: pointer;
-    position: relative;
+    position: center;
     overflow: hidden;
 }
 
@@ -105,15 +135,9 @@ span{
 }
 
 button:hover span{
-    width: 100%;
+    width: 0%;
 }
 
 button:hover{
     border: none;
-}
-
-.GoogleTranslate{
-    position:absolute;
-    top:0;
-    right:0;
 }

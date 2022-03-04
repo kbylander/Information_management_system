@@ -4,26 +4,12 @@ $_SESSION['HeaderError']= '';
 
 
 //Load files
-//$fasta1 = $_POST['fastafile1'];
-//$fasta2 = $_POST['fastafile2'];
 $fastaseq1 = $_POST['fastasequence1'];
 $fastaseq2 = $_POST['fastasequence2'];
 
-//if (isset($fasta1)) {
-//    $document1 = file_get_contents("Fasta_test/$fasta1");
-//    $document2 = file_get_contents("Fasta_test/$fasta2");
-
-
-//    $filename1 = "input/Fasta1.fasta";
-//    $filename2 = "input/Fasta2.fasta";
-
-//    file_put_contents($filename1, $document1);
-//    file_put_contents($filename2, $document2);
-//} 
-
 if (isset($fastaseq1) and isset($fastaseq2)) {
-    $filepath1 = "input/Fasta1.fasta";
-    $filepath2 = "input/Fasta2.fasta";
+    $filepath1 = "../Database/TempFastaFiles/singlefasta_fasta.fasta";
+    $filepath2 = "../Database/TempFastaFiles/multiplefasta_am_fasta.fasta";
     file_put_contents($filepath1, $fastaseq1);
     file_put_contents($filepath2, $fastaseq2);
 } else {
@@ -51,14 +37,15 @@ if ($Method == "Consensus") {
     exec('C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Methods/Consensus.R');
 }
 
-
 include 'Table.php';
 
 unlink('output/output.php');
 unlink('output/seqname.php');
-unlink('input/Fasta1.fasta');
-unlink('input/Fasta2.fasta');
+unlink('../Database/TempFastaFiles/singlefasta_fasta.fasta');
+unlink('../Database/TempFastaFiles/multiplefasta_am_fasta.fasta');
 unlink('output_file/fastafile.php');
+
+
 
 ?>
 

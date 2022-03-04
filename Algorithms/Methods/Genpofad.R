@@ -5,15 +5,15 @@ require(ape)
 source("C:/MAMP/htdocs/IMS-Daredevil/Algorithms/Proj_functions.R")
 
 
-fasta1 <- "C:/MAMP/htdocs/IMS-Daredevil/Algorithms/input/Fasta1.fasta"
-fasta2 <- readDNAStringSet("C:/MAMP/htdocs/IMS-Daredevil/Algorithms/input/Fasta2.fasta")
+fasta1 <- "C:/MAMP/htdocs/IMS-Daredevil/Database/TempFastaFiles/singlefasta_fasta.fasta"
+fasta2 <- readDNAStringSet("C:/MAMP/htdocs/IMS-Daredevil/Database/TempFastaFiles/multiplefasta_am_fasta.fasta")
 
 length <- length(fasta2) 
 
 
 for (i in 1:length)
 {
- # Create file with 1 fasta sequence
+  # Create file with 1 fasta sequence
   sink("C:/MAMP/htdocs/IMS-Daredevil/Algorithms/output_file/fastafile.php")
   name <- names(fasta2)[i]
   cat(paste0(">",name))
@@ -44,6 +44,4 @@ for (i in 1:length)
   sink()
   
 }
-
-
 
