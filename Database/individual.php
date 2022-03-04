@@ -63,7 +63,6 @@ if($addedby == $_SESSION['user']){
   }else{
     echo "male";
   }?></p1>
-  <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search among sequences">
   <table id="entryTable" class="scrolltable">
     <thead><tr>
         <th>ID</th>
@@ -84,6 +83,7 @@ if($addedby == $_SESSION['user']){
 </div>
 <div class="content">
 <button onclick="window.location.href='individualsDB.php'" type="button"><span></span>BACK TO ALL INDIVIDUALS</button>
+<input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search among sequences">
 </div>
 </div>
 <!-- Script to real time filter the able -->
