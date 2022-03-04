@@ -15,6 +15,7 @@ if(!isset($_SESSION['loggedin'])) {
   include '../connectDB.php';
   $result = mysqli_query($link, $query);
   $result2 = mysqli_query($link,$query);
+  $result3 = mysqli_query($link,$query);
   include '../disconnectDB.php';
   }
 ?>
@@ -121,8 +122,8 @@ if(!isset($_SESSION['loggedin'])) {
                         </tr>
                          <?php endwhile;?>
                         </table>
-                    <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search in database">
-                    <table id="entryTable">
+                    <input type="text" id="searchInput2" onkeyup="searchFunction2()" placeholder="Search in database">
+                    <table id="entryTable2">
                     <tr>
                         <th></th>
                         <th>ID</th>
@@ -152,6 +153,52 @@ if(!isset($_SESSION['loggedin'])) {
                         </form>
                         </div>
                     </div>
+                    <div class="option3">
+                    <h1 id= "A2"> Option 3: Insert one sequence and compare with db </h1>
+                    <h2>Choose your algorithm:</h2>
+                    <form action="preparecomparation.php" method="POST">
+                    <select name="Method" id="Method">
+                    <option value="Genpofad" style="color:black">Genpofad</option>
+                    <option value="Matchstates" style="color:black">Matchstates</option>
+                    <option value="Daredevil" style="color:black">Daredevil</option>
+                    <option value="Consensus" style="color:black">Consensus score</option>
+                    </select><br>
+                    <div>
+                        <h3 id= "A1"> Sequence </h3>
+                        <textarea name="fastasequence1" cols="80" rows="8" 
+                        placeholder ="Enter nucleotide sequence in FASTA format here" style="color:black"></textarea>
+                    </div><br><br>
+                    <input type="text" id="searchInput3" onkeyup="searchFunction3()" placeholder="Search in database">
+                    <table id="entryTable3">
+                    <tr>
+                        <th></th>
+                        <th>ID</th>
+                        <th>Gene name</th>
+                        <th>Species</th>
+                        <th>Individual ID</th>
+                        <th>Gender</th>
+                    </tr>
+                    <!--</table>-->
+                    <!-- populate table from mysql database -->
+                    <!--<table id="entryTable"> -->
+                        <?php while($row = mysqli_fetch_array($result3)):?>
+                        <tr>
+                            <td><input type="checkbox" name="selected[]" value="<?php echo $row[0]?>"></td>
+                            <td><a href="sequence.php?seqID=<?php echo $row[0] ?>"><?php echo $row[0];?></td>
+                            <td><?php echo $row[1];?></td>
+                            <td><?php echo $row[2];?></td>
+                            <td><a href="individual.php?ID=<?php echo $row[3] ?>"><?php echo $row[3];?></td>
+                            <td><?php if(is_null($row[4])){echo "Unknown";}
+                            elseif ($row[4]){echo "Female";}
+                            else{echo "male";}?></td>
+                        </tr>
+                            <?php endwhile;?>
+                        </table>
+                        <input type="submit" name="comparation2" value="CALCULATE"/>
+
+                        </form>
+                        </div>
+                    </div>
 
         <!-- Script to real time filter the table -->
 <script>
@@ -160,6 +207,50 @@ function searchFunction() {
     input = document.getElementById("searchInput");
     filter = input.value.toUpperCase();
     table = document.getElementById("entryTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 1; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td");
+        for (j = 0; j < td.length; j++) {
+            if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                found = true;
+            }
+        }
+        if (found) {
+            tr[i].style.display = "";
+            found = false;
+        } else {
+            tr[i].style.display = "none";
+        }
+    }
+}
+
+function searchFunction2() {
+    var input, filter, found, table, tr, td, i, j;
+    input = document.getElementById("searchInput2");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("entryTable2");
+    tr = table.getElementsByTagName("tr");
+    for (i = 1; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td");
+        for (j = 0; j < td.length; j++) {
+            if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                found = true;
+            }
+        }
+        if (found) {
+            tr[i].style.display = "";
+            found = false;
+        } else {
+            tr[i].style.display = "none";
+        }
+    }
+}
+
+function searchFunction3() {
+    var input, filter, found, table, tr, td, i, j;
+    input = document.getElementById("searchInput3");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("entryTable3");
     tr = table.getElementsByTagName("tr");
     for (i = 1; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td");

@@ -117,6 +117,11 @@ input[type=text] {
     top:2px; 
 }
 
+.option3{
+    position:relative; 
+    left:80px; 
+    top:2px; 
+}
 #Method{
     margin: 30px auto;
     color:rgba(0, 0, 0, 0.75);
@@ -153,6 +158,20 @@ select {
 }
 
 #searchInput{
+    width: 20%;
+    padding: 8px;
+    border:2px #BAD2FF solid;
+
+}
+
+#searchInput2{
+    width: 20%;
+    padding: 8px;
+    border:2px #BAD2FF solid;
+
+}
+
+#searchInput3{
     width: 20%;
     padding: 8px;
     border:2px #BAD2FF solid;
