@@ -16,6 +16,7 @@ for (i in 1:length)
  # Create file with 1 fasta sequence
   sink("C:/MAMP/htdocs/IMS-Daredevil/Database/Distance_stuff/output_file/fastafile.php")
   name <- names(fasta2)[i]
+  name <- gsub(" ", "", name)
   cat(paste0(">",name))
   cat("\n")
   seq <- paste(fasta2)[i]
