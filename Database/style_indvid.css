@@ -56,11 +56,12 @@
 .seq{
     text-align: justify;
     width:100%;
-    height: fill;
+    height: auto;
     font-size: 20px;
     background: linear-gradient(120deg,  #def4dd, #B0D8FF, #BAD2FF, #CEC5FF, #E2B8FF );
     background-size: cover;
     padding-top: 3%;
+    padding-bottom: 10%;
 }
 
 .seq h1{
@@ -69,7 +70,7 @@
     font-size: 30px;
     text-align: center;
     font-family: 'Bebas Neue', sans-serif;
-    text-transform: uppercase; 
+    text-transform: uppercase;
 }
 
 
@@ -90,7 +91,7 @@
     text-align: left;
     font-weight: bolder;
     font-family: 'Open Sans Condensed', sans-serif;
-    text-transform: uppercase; 
+    text-transform: uppercase;
 }
 
 .box p{
@@ -122,16 +123,14 @@
 .scrolltable thead tr {
     display:block;
  }
- 
+
 
 .scrolltable th {
-  padding: 5px;
   text-align: center;
   width: 200px;
   color: #fff;
 }
 .scrolltable td {
-  padding: 0px;
   text-align: center;
   width: 200px;
 }
@@ -189,9 +188,8 @@ button:hover{
 }
 
 .content{
-    transform: translateY(-50%);
     text-align: center;
-    padding-top: 10%;
+    padding-top: 0%;
 }
 
 input:hover span{

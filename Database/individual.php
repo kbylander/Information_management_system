@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 session_start();
 
 //Check so the user is logged in, and has access to the database
@@ -79,6 +83,28 @@ if($addedby == $_SESSION['user']){
         <?php endwhile;?>
       </tbody></table>
 <p>Added by: <?php echo "$addedby, $date"?></p>
+<form action="editgender.php" method="POST">
+<p>Edit gender:
+<?php if(!isset($gender)){?>
+  <select name="gender">
+  <option value="F">Female</option>
+  <option value="M">Male</option>
+  </select>
+<?php }elseif($gender){?>
+  <select name="gender">
+  <option value="M">Male</option>
+  <option value="U">Unknown</option>
+  </select>
+<?php }else{ ?>
+  <select name="gender">
+  <option value="F">Female</option>
+  <option value="U">Unknown</option>
+  </select>
+<?php } ?>
+<input type='hidden' name='indID' value='<?php echo $individualID;?>'/>
+<input type="submit" value="set">
+</p>
+</form>
 
 </div>
 <div class="content">
