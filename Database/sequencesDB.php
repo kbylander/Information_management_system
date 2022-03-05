@@ -85,6 +85,7 @@ include '../disconnectDB.php';
       </tr>
         <?php endwhile;?>
       </tbody></table>
+      <input type="submit" name="submit_multiple" value="DOWNLOAD SELECTED FASTA"/>
   </div>
 </div>
 

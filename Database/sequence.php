@@ -53,22 +53,22 @@ include '../disconnectDB.php';
       <?php if(is_null($row[1])){echo "Unknown";} //Checks what gender should be printed
       elseif ($row[1]){echo "Female";}
       else{echo "male";}?></p>
-      <p>Sequence,<br> <?php echo $row[2];?></p> <!-- prints the sequence -->
+      <p>Sequence,<br><?php echo $row[2];?></p> <!-- prints the sequence -->
       <p>Length, <?php echo strlen($row[2]);?> bp</p> <!-- calculates and prints the sequence length-->
       <p>Added by, <?php echo $row[5];?>, URL is: <?php if($row[7]){echo "private";}else{echo "shareable";}?></p> <!-- prints the user who uploaded the sequence and if set to private or not -->
       <?php $addedby = $row[5]; //Specifies who added the seqence
       $access = $row[7]; //Defines if private or not
       endwhile;?>
-
-  <p><a href="download.php?file=<?php echo $seqID?>">Download fasta file</a>
-    <?php if($addedby == $_SESSION['user']){ ?> | <a href="delete.php?seqID=<?php echo $seqID?>">Delete sequence</a>
-  <?php if($access){?> | <a href="privacy.php?seqID=<?php echo $seqID?>">Make shareable</a>
-  <?php }else{ ?> | <a href="privacy.php?seqID=<?php echo $seqID?>">Make private</a><?php } } ?></p>
-      </div> 
+      <p><a href="download.php?file=<?php echo $seqID?>">Download fasta file</a>
+      <?php if($addedby == $_SESSION['user']){ ?> | <a href="delete.php?seqID=<?php echo $seqID?>">Delete sequence</a>
+      <?php if($access){?> | <a href="privacy.php?seqID=<?php echo $seqID?>">Make shareable</a>
+      <?php }else{ ?> | <a href="privacy.php?seqID=<?php echo $seqID?>">Make private</a><?php } } ?></p>
+      </div>
     <div class="content">
       <div>
         <button onclick="window.location.href='sequencesDB.php'" type="button"><span></span>BACK TO ALL SEQUENCES</button>
       </div>
-  </div> 
+  </div>
+</div>
 </body>
 </html>
