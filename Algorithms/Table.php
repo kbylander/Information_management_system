@@ -80,5 +80,8 @@ echo "<h1>Genetic distance</h1>";
         ?>
 </table>
 
+<div class = "buton">
+        <button id = "b7" onclick="location.href = '../Database/Calculate.php';" type="button">Go back</button>
+</div>
 </body>
 </html>

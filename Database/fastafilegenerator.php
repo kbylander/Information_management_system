@@ -11,9 +11,12 @@ function fastagensingle($ID, $seq, $gene, $species){
 function fastamultiplegen($IDs,$seqs,$genes,$species){
   $filename = "multiplefasta_am_fasta.fasta";
   $file = fopen("TempFastaFiles/" . $filename, "w");
-
   for ($i = 0; $i < count($seqs); $i++)  {
-    fwrite($file,">" . $IDs[$i] . "|gene=" . $genes[$i] . "|os=" . $species[$i] . "\n" . $seqs[$i] . "\n\n");
+    $IDs[$i] = rtrim($IDs[$i]);
+    $genes[$i] = rtrim($genes[$i]);
+    $species[$i] = rtrim($species[$i]);
+    $seqs[$i] = rtrim($seqs[$i]);
+    fwrite($file,">" . $IDs[$i] . "|gene=" . $genes[$i] . "|os=" . $species[$i] . "\n" . $seqs[$i] . "\n" );
   }
   fclose($file);
   return ($filename);

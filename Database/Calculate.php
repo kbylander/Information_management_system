@@ -156,7 +156,7 @@ if(!isset($_SESSION['loggedin'])) {
                     <div class="option3">
                     <h1 id= "A2"> Option 3: Insert one sequence and compare with db </h1>
                     <h2>Choose your algorithm:</h2>
-                    <form action="preparecomparation.php" method="POST">
+                    <form action="preparecomparation2.php" method="POST">
                     <select name="Method" id="Method">
                     <option value="Genpofad" style="color:black">Genpofad</option>
                     <option value="Matchstates" style="color:black">Matchstates</option>
