@@ -99,6 +99,7 @@ if(!isset($_SESSION['loggedin'])) {
                     <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search in database">
                     <table id="entryTable" class="scrolltable">
                     <thead><tr>
+                    <th style="width:16%"></th>
                         <th>ID</th>
                         <th>Gene name</th>
                         <th>Species</th>
@@ -111,7 +112,7 @@ if(!isset($_SESSION['loggedin'])) {
                         <tbody>
                         <?php while($row = mysqli_fetch_array($result)):?>
                         <tr>
-                            <td><input type="checkbox" name="selected[]" value="<?php echo $row[0]?>"></td>
+                            <td><input type="checkbox" name="selected[]" value="<?php echo $row[0]?>" style="width:20%"></td>
                             <td><a href="sequence.php?seqID=<?php echo $row[0] ?>"><?php echo $row[0];?></td>
                             <td><?php echo $row[1];?></td>
                             <td><?php echo $row[2];?></td>
@@ -125,6 +126,7 @@ if(!isset($_SESSION['loggedin'])) {
                     <input type="text" id="searchInput2" onkeyup="searchFunction2()" placeholder="Search in database">
                     <table id="entryTable2" class="scrolltable">
                     <thead><tr>
+                    <th style="width:16%"></th>
                         <th>ID</th>
                         <th>Gene name</th>
                         <th>Species</th>
@@ -137,7 +139,7 @@ if(!isset($_SESSION['loggedin'])) {
                         <tbody>
                         <?php while($row = mysqli_fetch_array($result2)):?>
                         <tr>
-                            <td><input type="checkbox" name="selected[]" value="<?php echo $row[0]?>"></td>
+                            <td><input type="checkbox" name="selected[]" value="<?php echo $row[0]?>" style="width:20%"></td>
                             <td><a href="sequence.php?seqID=<?php echo $row[0] ?>"><?php echo $row[0];?></td>
                             <td><?php echo $row[1];?></td>
                             <td><?php echo $row[2];?></td>
@@ -171,6 +173,7 @@ if(!isset($_SESSION['loggedin'])) {
                     <input type="text" id="searchInput3" onkeyup="searchFunction3()" placeholder="Search in database">
                     <table id="entryTable3" class="scrolltable">
                     <thead><tr>
+                    <th style="width:16%"></th>
                         <th>ID</th>
                         <th>Gene name</th>
                         <th>Species</th>
@@ -183,7 +186,7 @@ if(!isset($_SESSION['loggedin'])) {
                         <tbody>
                         <?php while($row = mysqli_fetch_array($result3)):?>
                         <tr>
-                            <td><input type="checkbox" name="selected[]" value="<?php echo $row[0]?>"></td>
+                            <td><input type="checkbox" name="selected[]" value="<?php echo $row[0]?>" style="width:20%"></td>
                             <td><a href="sequence.php?seqID=<?php echo $row[0] ?>"><?php echo $row[0];?></td>
                             <td><?php echo $row[1];?></td>
                             <td><?php echo $row[2];?></td>
