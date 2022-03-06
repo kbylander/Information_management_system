@@ -1,0 +1,243 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    color: #fff;
+}
+*:after{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+.textarea{
+    display: block;
+    width: 100%;
+    resize: inline;
+    padding: 20px;
+    color: #202020;
+    border: 1.5px solid #b2b2b2;
+    border-radius: 5px;
+}
+
+.sequence{
+    position: relative;
+    left: 0px;
+    top: 5px;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    box-sizing: border-box;
+  }
+
+
+.sequence div {
+    display: inline-block;
+}
+
+.sequence div label {
+    display: block;
+}
+
+.banner{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(../natur.jpg) no-repeat center center fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.navbar{
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 120px;
+    cursor: pointer;
+}
+
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+
+.navbar ul li a{
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+.navbar ul li::after{
+    content:'';
+    height: 3px;
+    width: 0;
+    background: #BAD2FF;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+.navbar ul li:hover::after{
+    width: 100%;
+}
+
+.GoogleTranslate{
+    position:absolute;
+    top:0;
+    right:0;
+}
+
+.input{
+    position:relative; 
+    left:80px; 
+    top:2px; 
+}
+
+.input h2{
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+    font-size: 15px;
+    margin: 10px auto;
+}
+
+.option2{
+    position:relative; 
+    left:80px; 
+    top:2px; 
+}
+
+.option3{
+    position:relative; 
+    left:80px; 
+    top:2px; 
+}
+#Method{
+    margin: 30px auto;
+    color:rgba(0, 0, 0, 0.75);
+}
+
+#A1{
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+    margin: 10px auto;
+}
+
+#A2{
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+    margin: 50px auto;
+}
+
+select {
+    font-family: 'Open Sans', sans-serif;
+    width: 10%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #fff;
+  }
+
+  h1{
+    color: #CEC5FF ;
+}
+
+.search{
+    padding-left: 2%;
+    font-size: 20px;
+}
+
+#searchInput{
+    width: 20%;
+    padding: 8px;
+    border:2px #BAD2FF solid;
+
+}
+
+#searchInput2{
+    width: 20%;
+    padding: 8px;
+    border:2px #BAD2FF solid;
+
+}
+
+#searchInput3{
+    width: 20%;
+    padding: 8px;
+    border:2px #BAD2FF solid;
+
+}
+
+
+th{
+    color: #CEC5FF;
+}
+
+input{
+    font-family: 'Open Sans', sans-serif;
+    width: 220px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    font-weight: bold;
+    border: 2px solid #CEC5FF ;
+    background: transparent;
+    color: #fff ;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+
+}
+
+
+input:hover span{
+    width: 100%;
+}
+
+input:hover{
+    border: none;
+}
+
+
+.scrolltable{
+    width: 80%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.scrolltable tbody{
+  display: block;
+  width: 100%;
+  overflow: auto;
+  height: 295px;
+}
+
+.scrolltable thead tr {
+   display:block;
+}
+
+.scrolltable thead {
+  border:2px #CEC5FF solid;
+}
+
+.scrolltable th {
+  padding: 5px;
+  text-align: center;
+  width: 200px;
+  color: #CEC5FF;
+}
+.scrolltable td {
+  padding: 0px;
+  text-align: center;
+  width: 200px;
+}

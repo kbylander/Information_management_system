@@ -21,7 +21,7 @@ if ($_SESSION['loggedin'] == False) {
 </style>
     <head>
         <title>Navigation</title>
-        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="../stylee.css">
     </head>
     <body>
         <div class="banner">

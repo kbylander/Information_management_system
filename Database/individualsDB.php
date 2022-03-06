@@ -26,7 +26,7 @@ include '../disconnectDB.php';
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap%27');
 </style>
   <head>
-    <link rel="stylesheet" href="individ1.css">
+    <link rel="stylesheet" href="individ_1.css">
   </head>
   <body>
     <div class="banner">
@@ -44,7 +44,6 @@ include '../disconnectDB.php';
                     <li><a href="../Links/ContactUs.php">Contact Us</a></li>
                 </ul>
             </div>
-
             <div class="search">
             <h1>Individuals in database</h1>
             <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search in database">

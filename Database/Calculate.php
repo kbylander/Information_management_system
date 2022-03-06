@@ -29,7 +29,7 @@ if(!isset($_SESSION['loggedin'])) {
 </style>
     <head>
         <title>Welcome to Genetic Match.com</title>
-        <link rel="stylesheet" href="style_calculate.css">
+        <link rel="stylesheet" href="style__calculate.css">
     </head>
     <body>
         <div class="banner">
@@ -97,18 +97,18 @@ if(!isset($_SESSION['loggedin'])) {
                     <option value="Consensus" style="color:black">Consensus score</option>
                     </select><br>
                     <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Search in database">
-                    <table id="entryTable">
-                    <tr>
-                        <th></th>
+                    <table id="entryTable" class="scrolltable">
+                    <thead><tr>
                         <th>ID</th>
                         <th>Gene name</th>
                         <th>Species</th>
                         <th>Individual ID</th>
                         <th>Gender</th>
-                    </tr>
+                    </thead></tr>
                     <!--</table>-->
                     <!-- populate table from mysql database -->
                     <!--<table id="entryTable"> -->
+                        <tbody>
                         <?php while($row = mysqli_fetch_array($result)):?>
                         <tr>
                             <td><input type="checkbox" name="selected[]" value="<?php echo $row[0]?>"></td>
@@ -121,20 +121,20 @@ if(!isset($_SESSION['loggedin'])) {
                             else{echo "male";}?></td>
                         </tr>
                          <?php endwhile;?>
-                        </table>
+                        </tbody></table>
                     <input type="text" id="searchInput2" onkeyup="searchFunction2()" placeholder="Search in database">
-                    <table id="entryTable2">
-                    <tr>
-                        <th></th>
+                    <table id="entryTable2" class="scrolltable">
+                    <thead><tr>
                         <th>ID</th>
                         <th>Gene name</th>
                         <th>Species</th>
                         <th>Individual ID</th>
                         <th>Gender</th>
-                    </tr>
+                    </thead></tr>
                     <!--</table>-->
                     <!-- populate table from mysql database -->
                     <!--<table id="entryTable"> -->
+                        <tbody>
                         <?php while($row = mysqli_fetch_array($result2)):?>
                         <tr>
                             <td><input type="checkbox" name="selected[]" value="<?php echo $row[0]?>"></td>
@@ -147,7 +147,7 @@ if(!isset($_SESSION['loggedin'])) {
                             else{echo "male";}?></td>
                         </tr>
                             <?php endwhile;?>
-                        </table>
+                        </tbody></table>
                         <input type="submit" name="comparation" value="CALCULATE"/>
 
                         </form>
@@ -169,18 +169,18 @@ if(!isset($_SESSION['loggedin'])) {
                         placeholder ="Enter nucleotide sequence in FASTA format here" style="color:black"></textarea>
                     </div><br><br>
                     <input type="text" id="searchInput3" onkeyup="searchFunction3()" placeholder="Search in database">
-                    <table id="entryTable3">
-                    <tr>
-                        <th></th>
+                    <table id="entryTable3" class="scrolltable">
+                    <thead><tr>
                         <th>ID</th>
                         <th>Gene name</th>
                         <th>Species</th>
                         <th>Individual ID</th>
                         <th>Gender</th>
-                    </tr>
+                    </thead></tr>
                     <!--</table>-->
                     <!-- populate table from mysql database -->
                     <!--<table id="entryTable"> -->
+                        <tbody>
                         <?php while($row = mysqli_fetch_array($result3)):?>
                         <tr>
                             <td><input type="checkbox" name="selected[]" value="<?php echo $row[0]?>"></td>
@@ -193,7 +193,7 @@ if(!isset($_SESSION['loggedin'])) {
                             else{echo "male";}?></td>
                         </tr>
                             <?php endwhile;?>
-                        </table>
+                        </tbody></table>
                         <input type="submit" name="comparation2" value="CALCULATE"/>
 
                         </form>
