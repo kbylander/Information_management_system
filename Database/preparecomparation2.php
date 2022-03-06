@@ -12,7 +12,7 @@ if (isset($fastaseq1)) {
     echo "No sequence inserted";
 }
 
-if(isset($_POST['comparation'])){ //Check if "submit" is empty
+if(isset($_POST['comparation2'])){ //Check if "submit" is empty
   if(isset($_POST['selected'])){
     $selected = $_POST['selected'];
     $seqIDs = "('".join("','",$selected)."')";
@@ -31,6 +31,7 @@ if(isset($_POST['comparation'])){ //Check if "submit" is empty
       array_push($species, $row[2]);
     endwhile;
 
+    require 'fastafilegenerator.php';
     $seqIDs = explode(",",$seqIDs);
     $seqIDs = str_replace(array('(',')',"'"), '',$seqIDs);
     $file2 = fastamultiplegen($seqIDs,$seqs,$genes,$species);
@@ -58,11 +59,11 @@ if(isset($_POST['comparation'])){ //Check if "submit" is empty
 
     include 'Distance_stuff/Table.php';
 
-   // unlink('Distance_stuff/output/output.php');
-   // unlink('Distance_stuff/output/seqname.php');
-   // unlink('../Database/TempFastaFiles/singlefasta_fasta.fasta');
-   // unlink('../Database/TempFastaFiles/multiplefasta_am_fasta.fasta');
-   // unlink('Distance_stuff/output_file/fastafile.php');
+    unlink('Distance_stuff/output/output.php');
+    unlink('Distance_stuff/output/seqname.php');
+    unlink('../Database/TempFastaFiles/singlefasta_fasta.fasta');
+    unlink('../Database/TempFastaFiles/multiplefasta_am_fasta.fasta');
+    unlink('Distance_stuff/output_file/fastafile.php');
         
 }
 else{
