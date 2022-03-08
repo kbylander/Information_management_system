@@ -5,8 +5,19 @@ require(ape)
 source("C:/MAMP/htdocs/IMS-Daredevil/Algorithms/Proj_functions.R")
 
 
-fasta1 <- "C:/MAMP/htdocs/IMS-Daredevil/Database/TempFastaFiles/singlefasta_fasta.fasta"
+fasta1 <- readDNAStringSet("C:/MAMP/htdocs/IMS-Daredevil/Database/TempFastaFiles/singlefasta_fasta.fasta")
 fasta2 <- readDNAStringSet("C:/MAMP/htdocs/IMS-Daredevil/Database/TempFastaFiles/multiplefasta_am_fasta.fasta")
+
+sink("C:/MAMP/htdocs/IMS-Daredevil/Database/Distance_stuff/output_file/focalfastafile.php")
+name1 <- names(fasta1)
+name1 <- gsub(" ", "", name1)
+cat(paste0(">",name1))
+cat("\n")
+seq1 <- paste(fasta1)
+seq1 <- gsub(" ","", seq1)
+cat(seq1)
+sink()
+fasta1 <- "C:/MAMP/htdocs/IMS-Daredevil/Database/Distance_stuff/output_file/focalfastafile.php"
 
 length <- length(fasta2) 
 

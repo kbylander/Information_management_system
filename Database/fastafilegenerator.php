@@ -3,7 +3,7 @@
 function fastagensingle($ID, $seq, $gene, $species){
   $filename = "singlefasta_fasta.fasta";
   $file = fopen("TempFastaFiles/" . $filename, "w");
-  fwrite($file,">" . $ID . "|gene=" . $gene . "|os=" . $species . "\n" . $seq);
+  fwrite($file,">" . $ID . "|gene=" . $gene . "|os=" . $species . "\n" . chunk_split($seq,80));
   fclose($file);
   return ($filename);
 }
@@ -16,7 +16,7 @@ function fastamultiplegen($IDs,$seqs,$genes,$species){
     $genes[$i] = rtrim($genes[$i]);
     $species[$i] = rtrim($species[$i]);
     $seqs[$i] = rtrim($seqs[$i]);
-    fwrite($file,">" . $IDs[$i] . "|gene=" . $genes[$i] . "|os=" . $species[$i] . "\n" . $seqs[$i] . "\n" );
+    fwrite($file,">" . $IDs[$i] . "|gene=" . $genes[$i] . "|os=" . $species[$i] . "\n" . chunk_split($seqs[$i],80) . "\n" );
   }
   fclose($file);
   return ($filename);
