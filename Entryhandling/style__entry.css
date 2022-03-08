@@ -3,6 +3,7 @@
     padding: 0;
     font-family: 'Bebas Neue', sans-serif;
     color: #fff;
+    text-align: center;
 }
 
 .banner{
@@ -67,18 +68,24 @@ p{
     line-height: 25px;
     font-size: 10px;
     text-align: center;
+}
 
+.header {
+    text-align: center;
+    padding-top: 5%;
+}
+
+.header p{
+    color: red;
+    font-size: 10px;
 }
 
 .upload {
-    text-align: center;
-    padding-top: 5%;
-    
+    text-align: center;    
 }
 
-.upload h1 {
+.header h1 {
     font-size:60px;
-    
 }
 
 
@@ -102,6 +109,7 @@ input:hover{
 input{
     font-family: 'Open Sans', sans-serif;
     width: 200px;
+    height:200px;
     padding: 15px 0;
     text-align: center;
     margin: 20px 10px;

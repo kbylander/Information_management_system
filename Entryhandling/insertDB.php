@@ -3,15 +3,15 @@ session_start();
 $_SESSION['HeaderError']= '';
 
 //creates atribute names from header.
-$entryid=substr($value,1,$entryIDend-1);
+$entryid=substr($value,$firstchar+1,$entryIDend-$firstchar-1);
 $genename = substr($value, $genestart+5, $speciesnamepos-$genestart-5);
 $gender = -1;
 
 if (!empty(strpos($value,'gender='))){
-    $genderpos = strpos($value,'gender=');
+    $genderpos = strtoupper(strpos($value,'gender='));
     $gender = substr($value,$genderpos+7,strlen($value)-1);
     $species=substr($value,$speciesnamepos+3, $genderpos-$speciesnamepos-3);
-    if (strtoupper($gender)=='MALE'){
+    if (str_contains($gender,'MALE')){
         $gender = 0;
     }
     elseif(strtoupper($gender == 'FEMALE')){
@@ -20,7 +20,6 @@ if (!empty(strpos($value,'gender='))){
     else{
         $_SESSION['HeaderError']= 'Header: ' . $value . ' is in incorrect format';
         header('Location:./insertform.php'); 
-
     }
 }
 else{
@@ -51,6 +50,8 @@ include '../disconnectDB.php';
 $resnumberofrows = $no_seq[0]+1;
 $seqid = 'S' . $resnumberofrows;
 
+echo $seqid;
+
 //find if entryID exist in db and for specific user.
 $noentryidUser = $var2[0];
 
@@ -60,15 +61,14 @@ if ($gender<0){
 }
 else {
     $sql_entry = "INSERT INTO entries (entryID, species, addedby, female) VALUES ('$entryid_unique', '$species', '$currentuser', '$gender')";
-
 }
-
 $sql_seq = "INSERT INTO sequence (seqID, genename, entryID, seq, seqaddedby) VALUES ('$seqid', '$genename', '$entryid_unique', '$currentseq', '$currentuser')";
 
 //if entryID already exists, it will insert to sequence table, without creating a new record in the entries table. 
 if ($noentryidUser == $currentuser){
     dbtransactions($sql_seq);
     if (!$query){
+        $_SESSION['HeaderError'] = 'could not complete the transaction: ' . $value; 
         header('Location:insertform.php');    
     }
 
@@ -77,12 +77,12 @@ else{
     dbtransactions($sql_entry);
     dbtransactions($sql_seq);
     if (!$query){
+        $_SESSION['HeaderError'] = 'could not complete the transaction: ' . $value; 
         header('Location:insertform.php');    
     }
-
 }
 
 //redirect to sequences table of specific user.
+$_SESSION['HeaderError'] = '';
 header('Location:../Database/sequencesDB.php');    
-
 ?>

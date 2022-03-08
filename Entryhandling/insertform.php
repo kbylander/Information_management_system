@@ -1,9 +1,14 @@
 <?php session_start();
 echo $_SESSION['UploadError'];
-session_start();
-if(empty($_SESSION['loggedin'])){
-    header('Location:../index.php');
-}
+
+//Check so the user is logged in, and has access to the database
+if(!isset($_SESSION['loggedin'])) {
+    $_SESSION['loggedin'] = False;
+  }
+  if ($_SESSION['loggedin'] == False) {
+    header('Location: ../index.php');
+  }
+  
 ?>
 
 <!DOCTYPE html>
@@ -33,21 +38,23 @@ if(empty($_SESSION['loggedin'])){
                 </ul>
             </div>
 
-<main>
-<div class="upload">
+            <main>
+<div class="header">
 <h1>INSERT YOUR SEQUENCES</h1>
-<br>
+<?PHP if(isset($_SESSION['HeaderError'])): ?>
+<p> <?php echo $_SESSION['HeaderError'] ?> </p>
+<?PHP $_SESSION['HeaderError'] = ''; ?> </p>
+</div>
+<?php endif; ?>
+<div class="upload">
 <form method="POST" action="performins.php" enctype="multipart/form-data">
-      <span class="file-name"> </span>
-      <label class="file-upload">File upload fasta here<input type="file" id="file-upload" name="uploadedFile"></label>
+    <label class="file-upload">File upload fasta here<input type="file" id="fileup" name="uploadedFile"></label>
     <br>
-    <br>
-    <input type="text", id=searchInput class="input-box" placeholder="Paste fasta texts here" name="fastatext" >
-    <br>
-    <input type="submit" name="Upload" value="UPLOAD", id=uploadbutton />
+    <input type="text" class="input-box" placeholder="Paste fasta texts here" name="fastatext" >
+    <input type="submit" name="Upload" value="UPLOAD"/>
 </form>
 </div>
-<p> preferred header format: >Individual identifier | gene= genename os= speciesname = male/female (voluntary) </p>
+<p> Required header format: >Individual identifier | gene= genename os= speciesname = male/female (voluntary) </p>
 </main>
 </body>
 </html
