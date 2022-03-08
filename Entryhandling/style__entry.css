@@ -70,9 +70,9 @@
 .header p{
     color: red;
     font-size: 15px;
-    margin: 20px auto;
-
 }
+
+
 
 .upload {
     text-align: center;    
@@ -99,30 +99,12 @@ input:hover{
     border: none;
 }
 
-
-/*input text button */
-.input-box{
-    font-family: 'Open Sans', sans-serif;
-    width: 400px;
-    height:150px;
-    text-align: center;
-    margin: 10px 10px;
-    border-radius: 25px;
-    font-weight: bold;
-    border: 2px solid #CEC5FF ;
-    background: transparent;
-    color: #fff ;
-    cursor: pointer;
-    overflow: hidden;
-}
-
 /*submit button */
 input[type=submit]{
     font-family: 'Open Sans', sans-serif;
     width: 200px;
     height:50px;
     text-align: center;
-    margin: 20px 10px;
     border-radius: 25px;
     font-weight: bold;
     border: 2px solid #CEC5FF ;
@@ -135,9 +117,23 @@ input[type=file]{
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
     color: #fff ;
-    margin: 20px 10px;
-
-
 }
+
+textarea{
+    max-width: 50%;
+    max-height: 100px;
+    width: 50%;
+    padding: 5px;
+    resize: inline;
+    color: #202020;
+    border: 2px solid #CEC5FF ;
+    border-radius: 5px;
+}
+
+#footer {
+    margin: 10px 10px;
+}
+
+
 
 

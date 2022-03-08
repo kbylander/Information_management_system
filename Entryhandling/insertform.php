@@ -46,15 +46,21 @@ if(!isset($_SESSION['loggedin'])) {
 <?PHP $_SESSION['HeaderError'] = ''; ?> </p>
 </div>
 <?php endif; ?>
+
 <div class="upload">
 <form method="POST" action="performins.php" enctype="multipart/form-data">
-    <input type="text" class="input-box" placeholder="Paste fasta texts here" name="fastatext" cols="100" >
+<div class="sequence">
+    <textarea name="fastatext" cols="80" rows="8" 
+    placeholder ="Enter nucleotide sequence in FASTA format here" style="color:black"></textarea>
+</div>
     <br>
     <input type="file" id="fileup" name="uploadedFile" ></label>
     <input type="submit" id=submit name="Upload" value="UPLOAD"/>
 </form>
 </div>
-<p> Required header format: >Individual identifier| gene=genename os=speciesname =male/female (voluntary) </p>
+<div id="footer">
+  <p>Required header format: >Individual identifier| gene=genename os=speciesname =male/female (voluntary)</p>
+</div>
 </main>
 </body>
 </html
