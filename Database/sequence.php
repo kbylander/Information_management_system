@@ -49,7 +49,7 @@ include '../disconnectDB.php';
       <?php while($row = mysqli_fetch_array($result)):?>
       <?php if($_SESSION['user'] != $row[5] && $row[7] == 1){header('Location: sequencesDB.php');} //Check to see if person has access to this sequence?>
       <p1>Gene, <?php echo $row[1];?></p1> <!-- echos and prints genename -->
-      <p>Sequenced from, <a href="individual.php?ID=<?php echo $row[3];?>"><?php echo $row[3];?></a>, <?php echo $row[6];?>, <!-- links to the individual aswell as prints the ID -->
+      <p>Sequenced from, <a href="individual.php?ID=<?php echo $row[3];?>"><?php $name=explode('_',$row[3]); echo $name[0];?></a>, <?php echo $row[6];?>, <!-- links to the individual aswell as prints the ID -->
       <?php if(is_null($row[4])){echo "Unknown";} //Checks what gender should be printed
       elseif ($row[4]){echo "Female";}
       else{echo "male";}?></p>
