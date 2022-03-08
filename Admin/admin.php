@@ -41,6 +41,7 @@ include '../disconnectDB.php';
                     <li><a href="../Links/ContactUs.php">Contact Us</a></li>
                 </ul>
             </div>
+          </div>
 
             <div class="LanguageToggle">
                     <div class="GoogleTranslate">
@@ -52,6 +53,11 @@ include '../disconnectDB.php';
                     </div>
             </div>
         <h1>Users</h1>
+        <form action="admin.php" method="POST">
+          <input type="text" name="searchvalue" placeholder="Search username"/>
+          <input type='hidden' name='searchtype' value='usr'/>
+          <input type="submit" value="search"/>
+        </form>
         <table id="userTable">
         <tr>
             <th>Username</th>
@@ -71,6 +77,11 @@ include '../disconnectDB.php';
 
           <br>
           <h1>Individuals</h1>
+          <form action="admin.php" method="POST">
+            <input type="text" name="searchvalue" placeholder="Search entry ID"/>
+            <input type='hidden' name='searchtype' value='ind'/>
+            <input type="submit" value="search"/>
+          </form>
           <table id="indTable">
           <tr>
               <th>Individual</th>
@@ -94,6 +105,11 @@ include '../disconnectDB.php';
 
             <br>
             <h1>Sequences</h1>
+            <form action="admin.php" method="POST">
+              <input type="text" name="searchvalue" placeholder="Search sequence ID"/>
+              <input type='hidden' name='searchtype' value='seq'/>
+              <input type="submit" value="search"/>
+            </form>
             <table id="indTable">
             <tr>
                 <th>Sequence ID</th>

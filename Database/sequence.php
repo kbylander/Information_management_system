@@ -50,8 +50,8 @@ include '../disconnectDB.php';
       <?php if($_SESSION['user'] != $row[5] && $row[7] == 1){header('Location: sequencesDB.php');} //Check to see if person has access to this sequence?>
       <p1>Gene, <?php echo $row[1];?></p1> <!-- echos and prints genename -->
       <p>Sequenced from, <a href="individual.php?ID=<?php echo $row[3];?>"><?php echo $row[3];?></a>, <?php echo $row[6];?>, <!-- links to the individual aswell as prints the ID -->
-      <?php if(is_null($row[1])){echo "Unknown";} //Checks what gender should be printed
-      elseif ($row[1]){echo "Female";}
+      <?php if(is_null($row[4])){echo "Unknown";} //Checks what gender should be printed
+      elseif ($row[4]){echo "Female";}
       else{echo "male";}?></p>
       <p>Sequence,<br><?php echo $row[2];?></p> <!-- prints the sequence -->
       <p>Length, <?php echo strlen($row[2]);?> bp</p> <!-- calculates and prints the sequence length-->
