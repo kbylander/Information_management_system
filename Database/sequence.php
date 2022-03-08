@@ -53,7 +53,7 @@ include '../disconnectDB.php';
       <?php if(is_null($row[4])){echo "Unknown";} //Checks what gender should be printed
       elseif ($row[4]){echo "Female";}
       else{echo "male";}?></p>
-      <p>Sequence,<br><?php echo $row[2];?></p> <!-- prints the sequence -->
+      <p>Sequence,<br><?php echo chunk_split($row[2],70);?></p> <!-- prints the sequence -->
       <p>Length, <?php echo strlen($row[2]);?> bp</p> <!-- calculates and prints the sequence length-->
       <p>Added by, <?php echo $row[5];?>, URL is: <?php if($row[7]){echo "private";}else{echo "shareable";}?></p> <!-- prints the user who uploaded the sequence and if set to private or not -->
       <?php $addedby = $row[5]; //Specifies who added the seqence
