@@ -53,15 +53,15 @@ if(isset($_POST['comparation'])){ //Check if "submit" is empty
     } 
 
     if ($Method == "Matchstates") {
-        exec('C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Distance_stuff/Matchstates.R');
+        exec("C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Distance_stuff/Matchstates.R $file1 $file2");
     } 
 
     if ($Method == "Daredevil") {
-        exec('C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Distance_stuff/Daredevil.R');
+        exec("C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Distance_stuff/Daredevil.R $file1 $file2");
     }
 
     if ($Method == "Consensus") {
-        exec('C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Distance_stuff/Consensus.R');
+        exec("C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Distance_stuff/Consensus.R $file1 $file2");
     }
 
     include 'Distance_stuff/Table.php';

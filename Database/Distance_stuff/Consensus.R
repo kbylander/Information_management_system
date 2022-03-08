@@ -5,10 +5,27 @@ require(ape)
 source("C:/MAMP/htdocs/IMS-Daredevil/Algorithms/Proj_functions.R")
 
 
-fasta1 <- readDNAStringSet("C:/MAMP/htdocs/IMS-Daredevil/Database/TempFastaFiles/singlefasta_fasta.fasta")
-fasta2 <- readDNAStringSet("C:/MAMP/htdocs/IMS-Daredevil/Database/TempFastaFiles/multiplefasta_am_fasta.fasta")
+Args <- commandArgs(trailingOnly = TRUE)
+first1 <- Args[1]
+second2 <- Args[2]
 
-sink("C:/MAMP/htdocs/IMS-Daredevil/Database/Distance_stuff/output_file/focalfastafile.php")
+filepath <- "C:/MAMP/htdocs/IMS-Daredevil/Database/TempFastaFiles/"
+
+fasta1path <- paste(filepath,first1)
+fasta1path <- gsub(" ","",fasta1path)
+fasta1 <- readDNAStringSet(fasta1path)
+
+
+fasta2path <- paste(filepath,second2)
+fasta2path <- gsub(" ","",fasta2path)
+fasta2 <- readDNAStringSet(fasta2path)
+
+
+outputpath <- "C:/MAMP/htdocs/IMS-Daredevil/Database/Distance_stuff/output_file/"
+opfile <- paste(outputpath,first1)
+opfile <- gsub(" ","",opfile)
+
+sink(opfile)
 name1 <- names(fasta1)
 name1 <- gsub(" ", "", name1)
 cat(paste0(">",name1))
@@ -17,15 +34,25 @@ seq1 <- paste(fasta1)
 seq1 <- gsub(" ","", seq1)
 cat(seq1)
 sink()
-fasta1 <- "C:/MAMP/htdocs/IMS-Daredevil/Database/Distance_stuff/output_file/focalfastafile.php"
+
+fasta1 <- opfile
+
+ffile <- paste(outputpath,"tempfile",first1)
+ffile <- gsub(" ","",ffile)
+
+DSoppath <- "C:/MAMP/htdocs/IMS-Daredevil/Database/Distance_stuff/output/"
+
+ofile <- paste(DSoppath,"output",first1)
+ofile <- gsub(" ","",ofile)
+
+sfile <- paste(DSoppath,"seqname",first1)
+sfile <- gsub(" ","",sfile)
 
 length <- length(fasta2) 
-
-
 for (i in 1:length)
 {
- # Create file with 1 fasta sequence
-  sink("C:/MAMP/htdocs/IMS-Daredevil/Database/Distance_stuff/output_file/fastafile.php")
+  # Create file with 1 fasta sequence
+  sink(ffile)
   name <- names(fasta2)[i]
   name <- gsub(" ", "", name)
   cat(paste0(">",name))
@@ -34,25 +61,24 @@ for (i in 1:length)
   seq <- gsub(" ", "", seq)
   cat(seq)
   sink()
-  fasta3 <- "C:/MAMP/htdocs/IMS-Daredevil/Database/Distance_stuff/output_file/fastafile.php"
-  
+  fasta3 <- ffile
   # Store output in array, append after each iteration. 
-  sink("C:/MAMP/htdocs/IMS-Daredevil/Database/Distance_stuff/output/output.php", append = TRUE)
+  sink(ofile, append = TRUE)
   result <- mean_dist(fasta1, fasta3)
   cat(result)
   sink()
   
-  sink("C:/MAMP/htdocs/IMS-Daredevil/Database/Distance_stuff/output/output.php", append = TRUE)
+  sink(ofile, append = TRUE)
   cat("\n")
   sink()
   
-  sink("C:/MAMP/htdocs/IMS-Daredevil/Database/Distance_stuff/output/seqname.php", append = TRUE)
+  sink(sfile, append = TRUE)
   fastaFile2 <- readDNAStringSet(fasta3)
   seq_name2 = names(fastaFile2)
   cat(seq_name2)
   sink()
   
-  sink("C:/MAMP/htdocs/IMS-Daredevil/Database/Distance_stuff/output/seqname.php", append = TRUE)
+  sink(sfile, append = TRUE)
   cat("\n")
   sink()
   
