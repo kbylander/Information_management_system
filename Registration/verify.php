@@ -3,7 +3,6 @@
 <body>
 <?php
 include '../connectDB.php';
-include 'passwordhash.php';
         
 if(isset($_GET['email']) and !empty($_GET['email']) and isset($_GET['hash']) and !empty($_GET['hash'])){
     // Verify data

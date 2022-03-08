@@ -28,7 +28,6 @@ if(isset($_POST['captcha_challenge']) && $_POST['captcha_challenge'] == $_SESSIO
       
     ------------------------
     Username: '.$username.'
-    Password: '.$userpsswd.'
     ------------------------
       
     Please click this link to activate your account:

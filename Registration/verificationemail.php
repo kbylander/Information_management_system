@@ -14,7 +14,6 @@ Your account has been created, you can login with the following credentials afte
   
 ------------------------
 Username: '.$username.'
-Password: '.$userpassword.'
 ------------------------
   
 Please click this link to activate your account:
