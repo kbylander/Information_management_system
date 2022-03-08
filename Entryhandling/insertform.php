@@ -48,13 +48,13 @@ if(!isset($_SESSION['loggedin'])) {
 <?php endif; ?>
 <div class="upload">
 <form method="POST" action="performins.php" enctype="multipart/form-data">
-    <label class="file-upload">File upload fasta here<input type="file" id="fileup" name="uploadedFile"></label>
+    <input type="text" class="input-box" placeholder="Paste fasta texts here" name="fastatext" cols="100" >
     <br>
-    <input type="text" class="input-box" placeholder="Paste fasta texts here" name="fastatext" >
-    <input type="submit" name="Upload" value="UPLOAD"/>
+    <input type="file" id="fileup" name="uploadedFile" ></label>
+    <input type="submit" id=submit name="Upload" value="UPLOAD"/>
 </form>
 </div>
-<p> Required header format: >Individual identifier | gene= genename os= speciesname = male/female (voluntary) </p>
+<p> Required header format: >Individual identifier| gene=genename os=speciesname =male/female (voluntary) </p>
 </main>
 </body>
 </html
