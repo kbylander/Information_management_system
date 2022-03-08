@@ -25,6 +25,7 @@ if (!empty(strpos($value,'gender='))){
 else{
     $species=substr($value,$speciesnamepos+3,strlen($value)-1);
 }    
+
 $currentuser= $_SESSION['user'];
 $currentseq = $seq[$key];
 
@@ -49,8 +50,6 @@ include '../disconnectDB.php';
 //assign a name for seqID.
 $resnumberofrows = $no_seq[0]+1;
 $seqid = 'S' . $resnumberofrows;
-
-echo $seqid;
 
 //find if entryID exist in db and for specific user.
 $noentryidUser = $var2[0];

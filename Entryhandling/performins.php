@@ -16,7 +16,7 @@ $fileType = $_FILES['uploadedFile']['type'];
 $fileNameCmps = explode(".", $fileName);
 $fileExtension = strtolower(end($fileNameCmps));
 
-if(!empty($fileSize)){
+if((!empty($fileSize)) && ($fileSize<30000)){
     // Create a new temporary file name. 
     $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
 
@@ -40,21 +40,30 @@ if(!empty($fileSize)){
 
         }else
         {
-            $_SESSION['UploadError'] = $_SESSION['UploadError'] . '<br>' . 'File could not be moved to correct destination';
+            $_SESSION['HeaderError'] = 'File could not be moved to correct destination';
         }
     }else {
-        $_SESSION['UploadError'] = $_SESSION['UploadError'] . '<br>' . 'Only .fasta fileformats allowed';
+        $_SESSION['HeaderError'] = 'Only .fasta fileformats allowed';
     }
 }
+else{
+    $_SESSION['HeaderError'] = 'Filesize too large';
+}
+
 
 //This section will handle text inputs
 if(!empty($_POST['fastatext'])){
     $ftext = $_POST['fastatext'];
-    include 'textfastahandler.php';
+    if (strlen($_POST['fastatext']) <30000){
+        include 'textfastahandler.php';
+    }
+    else{
+        $_SESSION['HeaderError'] = 'Filesize too large';
+    }
 }
 
 elseif(empty($ftext) && empty($fileSize)){
-    $_SESSION['HeaderError'] = $_SESSION['HeaderError'] . '<br>' . 'Empty submission';
+    $_SESSION['HeaderError'] = 'Empty submission';
 }
 
 //If there was an error, bring it back to the upload page and display the error. 
