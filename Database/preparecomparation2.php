@@ -42,19 +42,19 @@ if(isset($_POST['comparation2'])){ //Check if "submit" is empty
 //go through each file in a folder, and run the exe
 
     if ($Method == "Genpofad") {
-        exec('C:/xampp/R/R-4.1.2/bin/Rscript.exe Distance_stuff/Genpofad.R');
+        exec('C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Distance_stuff/Genpofad.R');
     } 
 
     if ($Method == "Matchstates") {
-        exec('C:/xampp/R/R-4.1.2/bin/Rscript.exe Distance_stuff/Matchstates.R');
+        exec('C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Distance_stuff/Matchstates.R');
     } 
 
     if ($Method == "Daredevil") {
-        exec('C:/xampp/R/R-4.1.2/bin/Rscript.exe Distance_stuff/Daredevil.R');
+        exec('C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Distance_stuff/Daredevil.R');
     }
 
     if ($Method == "Consensus") {
-        exec('C:/xampp/R/R-4.1.2/bin/Rscript.exe Distance_stuff/Consensus.R');
+        exec('C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Distance_stuff/Consensus.R');
     }
 
     include 'Distance_stuff/Table.php';
@@ -64,6 +64,7 @@ if(isset($_POST['comparation2'])){ //Check if "submit" is empty
     unlink('../Database/TempFastaFiles/singlefasta_fasta.fasta');
     unlink('../Database/TempFastaFiles/multiplefasta_am_fasta.fasta');
     unlink('Distance_stuff/output_file/fastafile.php');
+    unlink('Distance_stuff/output_file/focalfastafile.php');
         
 }
 else{
