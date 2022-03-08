@@ -54,13 +54,11 @@ if(!empty($_POST['fastatext'])){
 }
 
 elseif(empty($ftext) && empty($fileSize)){
-    $_SESSION['UploadError'] = $_SESSION['UploadError'] . '<br>' . 'Empty submission';
+    $_SESSION['HeaderError'] = $_SESSION['HeaderError'] . '<br>' . 'Empty submission';
 }
 
 //If there was an error, bring it back to the upload page and display the error. 
-if (!empty($_SESSION['UploadError'])){
-    $_SESSION['UploadError'] ='File Upload Error: ' . $_SESSION['UploadError'];
-    
+if (!empty($_SESSION['HeaderError'])){    
     header('Location:./insertform.php');
 }
 
