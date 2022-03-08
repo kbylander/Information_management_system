@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 
 $fasta=array();
 
-$splitfastas= explode(' ', $f);
+$splitfastas= explode(' ', $ftext);
 
 include 'fastadivider.php';
 ?>

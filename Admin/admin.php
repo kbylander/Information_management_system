@@ -3,19 +3,34 @@ session_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-if(!isset($_SESSION['admin']) || $_SESSION['admin'] != 1){
-  header("location:../index.php");
+
+if(!empty($_POST['search']))
+{
+    $valueToSearch = $_POST['searchvalue'];
+    $tableToSearch = $_POST['dbtable']
+    if($valueToSearch=="users"){
+      $query = "SELECT * FROM users WHERE username LIKE '%".$valueToSearch."%'";
+    }elseif($valueToSearch=="entries"){
+      $query = "SELECT * FROM entries WHERE entryID LIKE '%".$valueToSearch."%'";
+    }else{
+      $query = "SELECT * FROM sequence WHERE seqID LIKE '%".$valueToSearch."%'"
+    }
+
+    $search_result = filterTable($query);
+
+}
+else {
+    "SELECT * FROM users WHERE username LIKE '%".$valueToSearch."%'";
+    $search_result = filterTable($query);
 }
 
-$userquery = "SELECT * FROM users LIMIT 5";
-$seqquery = "SELECT seqID,genename,entryID,private,date FROM sequence LIMIT 5";
-$indquery = "SELECT * FROM entries LIMIT 5";
-
+function filterTable($query)
+{
 include '../connectDB.php';
-$userresult = mysqli_query($link, $userquery);
-$seqresult = mysqli_query($link, $seqquery);
-$indresult = mysqli_query($link, $indquery);
+$result = mysqli_query($link, $query);
 include '../disconnectDB.php';
+return $result;
+}
 ?>
 
 <!DOCTYPE html>
@@ -41,6 +56,7 @@ include '../disconnectDB.php';
                     <li><a href="../Links/ContactUs.php">Contact Us</a></li>
                 </ul>
             </div>
+          </div>
 
             <div class="LanguageToggle">
                     <div class="GoogleTranslate">
@@ -51,66 +67,77 @@ include '../disconnectDB.php';
                         </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
                     </div>
             </div>
-        <h1>Users</h1>
-        <table id="userTable">
-        <tr>
-            <th>Username</th>
-            <th>Email</th>
-            <th>Admin</th>
-            <th>Active</th>
-        </tr>
-        <?php while($row = mysqli_fetch_array($userresult)):?>
+        </body>
+        <div class = "content">
+          <form action="admin.php" method="POST">
+            <input type="text" name="searchvalue" placeholder="Search IDs"/>
+            <select name="dbtable">
+              <option value="users">Users database</option>
+              <option value="entries">Individuals</option>
+              <option value="sequence">Sequences</option>
+            <input type="submit" value="search"/>
+          </form>
+          <?php if($tableToSearch == 'users')
+          <h1>Users</h1>
+          <table id="userTable">
           <tr>
-            <td><?php echo $row[0];?></td>
-            <td><?php echo $row[2];?></td>
-            <td><?php echo $row[3];?></td>
-            <td><?php echo $row[4];?></td>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Admin</th>
+              <th>Active</th>
           </tr>
-            <?php endwhile;?>
-          </table>
-
-          <br>
-          <h1>Individuals</h1>
-          <table id="indTable">
-          <tr>
-              <th>Individual</th>
-              <th>Gender</th>
-              <th>Addedby</th>
-              <th>Species</th>
-              <th>Private</th>
-              <th>Date</th>
-          </tr>
-          <?php while($row = mysqli_fetch_array($indresult)):?>
+          <?php while($row = mysqli_fetch_array($search_result)):?>
             <tr>
               <td><?php echo $row[0];?></td>
-              <td><?php echo $row[1];?></td>
               <td><?php echo $row[2];?></td>
               <td><?php echo $row[3];?></td>
               <td><?php echo $row[4];?></td>
-              <td><?php echo $row[5];?></td>
             </tr>
               <?php endwhile;?>
             </table>
 
             <br>
-            <h1>Sequences</h1>
+            <h1>Individuals</h1>
             <table id="indTable">
             <tr>
-                <th>Sequence ID</th>
-                <th>Gene</th>
                 <th>Individual</th>
+                <th>Gender</th>
+                <th>Addedby</th>
+                <th>Species</th>
                 <th>Private</th>
                 <th>Date</th>
             </tr>
-            <?php while($row = mysqli_fetch_array($seqresult)):?>
+            <?php while($row = mysqli_fetch_array($indresult)):?>
               <tr>
                 <td><?php echo $row[0];?></td>
                 <td><?php echo $row[1];?></td>
                 <td><?php echo $row[2];?></td>
                 <td><?php echo $row[3];?></td>
                 <td><?php echo $row[4];?></td>
+                <td><?php echo $row[5];?></td>
               </tr>
                 <?php endwhile;?>
               </table>
-      </body>
+
+              <br>
+              <h1>Sequences</h1>
+              <table id="indTable">
+              <tr>
+                  <th>Sequence ID</th>
+                  <th>Gene</th>
+                  <th>Individual</th>
+                  <th>Private</th>
+                  <th>Date</th>
+              </tr>
+              <?php while($row = mysqli_fetch_array($seqresult)):?>
+                <tr>
+                  <td><?php echo $row[0];?></td>
+                  <td><?php echo $row[1];?></td>
+                  <td><?php echo $row[2];?></td>
+                  <td><?php echo $row[3];?></td>
+                  <td><?php echo $row[4];?></td>
+                </tr>
+                  <?php endwhile;?>
+                </table>
+      </div>
 </html>

@@ -3,10 +3,10 @@ session_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
+$filename = rand();
 $fastaseq1 = $_POST['fastasequence1'];
 if (isset($fastaseq1)) {
-    $filepath1 = "../Database/TempFastaFiles/singlefasta_fasta.fasta";
+    $filepath1 = "../Database/TempFastaFiles/$filename";
     file_put_contents($filepath1, $fastaseq1);
 } else {
     echo "No sequence inserted";
@@ -39,31 +39,35 @@ if(isset($_POST['comparation2'])){ //Check if "submit" is empty
     //Load method of choice
     $Method = $_POST['Method'];
 
-//go through each file in a folder, and run the exe
+    $_SESSION['file1'] = $filename;
 
+//go through each file in a folder, and run the exe
     if ($Method == "Genpofad") {
-        exec('C:/xampp/R/R-4.1.2/bin/Rscript.exe Distance_stuff/Genpofad.R');
+        exec("C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Distance_stuff/Genpofad.R $filename $file2");
     } 
 
     if ($Method == "Matchstates") {
-        exec('C:/xampp/R/R-4.1.2/bin/Rscript.exe Distance_stuff/Matchstates.R');
+        exec("C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Distance_stuff/Matchstates.R $filename $file2");
     } 
 
     if ($Method == "Daredevil") {
-        exec('C:/xampp/R/R-4.1.2/bin/Rscript.exe Distance_stuff/Daredevil.R');
+        exec("C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Distance_stuff/Daredevil.R $filename $file2");
     }
 
     if ($Method == "Consensus") {
-        exec('C:/xampp/R/R-4.1.2/bin/Rscript.exe Distance_stuff/Consensus.R');
+        exec("C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Distance_stuff/Consensus.R $filename $file2");
     }
 
     include 'Distance_stuff/Table.php';
 
-    unlink('Distance_stuff/output/output.php');
-    unlink('Distance_stuff/output/seqname.php');
-    unlink('../Database/TempFastaFiles/singlefasta_fasta.fasta');
-    unlink('../Database/TempFastaFiles/multiplefasta_am_fasta.fasta');
-    unlink('Distance_stuff/output_file/fastafile.php');
+  
+    unlink("Distance_stuff/output/output$filename");
+    unlink("Distance_stuff/output/seqname$filename");
+    unlink("../Database/TempFastaFiles/$filename");
+    unlink("../Database/TempFastaFiles/$file2");
+    unlink("Distance_stuff/output_file/$filename");
+    unlink("Distance_stuff/output_file/tempfile$filename");
+        
         
 }
 else{

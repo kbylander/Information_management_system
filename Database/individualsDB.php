@@ -36,7 +36,7 @@ include '../disconnectDB.php';
                     <li><a href="../index.php">Home</a></li>
                     <li><a href="../Links/About.php">About</a></li>
                     <?php if ($_SESSION['loggedin']) { //If logged in, take the user to the database?>
-                    <li><a href="DbInfo.php">Database</a></li>
+                    <li><a href="databasemenu.php">Database</a></li>
                     <?php }
                     else{ //If not logged in, take the user to the login page?>
                     <li><a href="../Login/login.php">Database</a></li>
@@ -59,7 +59,7 @@ include '../disconnectDB.php';
     <tbody>
     <?php while($row = mysqli_fetch_array($result)):?>
       <tr>
-        <td><a href="individual.php?ID=<?php echo $row[0] ?>"><?php echo $row[0];?></td>
+        <td><a href="individual.php?ID=<?php echo $row[0] ?>"><?php $name=explode('_',$row[0]); echo $name[0];?></td>
         <td><?php if(is_null($row[1])){echo "Unknown";}
         elseif ($row[1]){echo "Female";}
         else{echo "male";}?></td>

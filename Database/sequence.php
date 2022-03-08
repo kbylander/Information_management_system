@@ -33,7 +33,7 @@ include '../disconnectDB.php';
                     <li><a href="../index.php">Home</a></li>
                     <li><a href="../Links/About.php">About</a></li>
                     <?php if ($_SESSION['loggedin']) { //If logged in, take the user to the database?>
-                    <li><a href="../databasemenu.php">Database</a></li>
+                    <li><a href="databasemenu.php">Database</a></li>
                     <?php }
                     else{ //If not logged in, take the user to the login page?>
                     <li><a href="../Login/login.php">Database</a></li>
@@ -49,11 +49,11 @@ include '../disconnectDB.php';
       <?php while($row = mysqli_fetch_array($result)):?>
       <?php if($_SESSION['user'] != $row[5] && $row[7] == 1){header('Location: sequencesDB.php');} //Check to see if person has access to this sequence?>
       <p1>Gene, <?php echo $row[1];?></p1> <!-- echos and prints genename -->
-      <p>Sequenced from, <a href="individual.php?ID=<?php echo $row[3];?>"><?php echo $row[3];?></a>, <?php echo $row[6];?>, <!-- links to the individual aswell as prints the ID -->
-      <?php if(is_null($row[1])){echo "Unknown";} //Checks what gender should be printed
-      elseif ($row[1]){echo "Female";}
+      <p>Sequenced from, <a href="individual.php?ID=<?php echo $row[3];?>"><?php $name=explode('_',$row[3]); echo $name[0];?></a>, <?php echo $row[6];?>, <!-- links to the individual aswell as prints the ID -->
+      <?php if(is_null($row[4])){echo "Unknown";} //Checks what gender should be printed
+      elseif ($row[4]){echo "Female";}
       else{echo "male";}?></p>
-      <p>Sequence,<br><?php echo $row[2];?></p> <!-- prints the sequence -->
+      <p>Sequence,<br><?php echo chunk_split($row[2],70);?></p> <!-- prints the sequence -->
       <p>Length, <?php echo strlen($row[2]);?> bp</p> <!-- calculates and prints the sequence length-->
       <p>Added by, <?php echo $row[5];?>, URL is: <?php if($row[7]){echo "private";}else{echo "shareable";}?></p> <!-- prints the user who uploaded the sequence and if set to private or not -->
       <?php $addedby = $row[5]; //Specifies who added the seqence

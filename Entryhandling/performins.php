@@ -16,7 +16,7 @@ $fileType = $_FILES['uploadedFile']['type'];
 $fileNameCmps = explode(".", $fileName);
 $fileExtension = strtolower(end($fileNameCmps));
 
-if(!empty($fileSize)){
+if((!empty($fileSize)) && ($fileSize<30000)){
     // Create a new temporary file name. 
     $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
 
@@ -33,33 +33,52 @@ if(!empty($fileSize)){
     //if upload was succesful, fetch it as a string and then remove it. 
         if(move_uploaded_file($fileTmpPath, $dest_path)) 
         {
-            $f = file_get_contents($dest_path);
+            $ffile = file_get_contents($dest_path);
             unlink($dest_path);
-            include 'textfastahandler.php';
+            removeUTF8($ffile);
+            include 'filefastahandler.php';
+
         }else
         {
-            $_SESSION['UploadError'] = $_SESSION['UploadError'] . '<br>' . 'File could not be moved to correct destination';
+            $_SESSION['HeaderError'] = 'File could not be moved to correct destination';
         }
     }else {
-        $_SESSION['UploadError'] = $_SESSION['UploadError'] . '<br>' . 'Only .fasta fileformats allowed';
+        $_SESSION['HeaderError'] = 'Only .fasta fileformats allowed';
     }
 }
+else{
+    $_SESSION['HeaderError'] = 'Filesize too large';
+}
+
 
 //This section will handle text inputs
 if(!empty($_POST['fastatext'])){
-    $f = $_POST['fastatext'];
-    require 'textfastahandler.php';
+    $ftext = $_POST['fastatext'];
+    if (strlen($_POST['fastatext']) <30000){
+        include 'textfastahandler.php';
+    }
+    else{
+        $_SESSION['HeaderError'] = 'Filesize too large';
+    }
 }
 
 elseif(empty($ftext) && empty($fileSize)){
-    $_SESSION['UploadError'] = $_SESSION['UploadError'] . '<br>' . 'Empty submission';
+    $_SESSION['HeaderError'] = 'Empty submission';
 }
 
 //If there was an error, bring it back to the upload page and display the error. 
-if (!empty($_SESSION['UploadError'])){
-    $_SESSION['UploadError'] ='File Upload Error: ' . $_SESSION['UploadError'];
-    
+if (!empty($_SESSION['HeaderError'])){    
     header('Location:./insertform.php');
 }
+
+
+function removeUTF8($s){
+  if(substr($s,0,3)==chr(hexdec('EF')).chr(hexdec('BB')).chr(hexdec('BF'))){
+       return substr($s,3);
+   }else{
+       return $s;
+   }
+}
+
 ?>
 

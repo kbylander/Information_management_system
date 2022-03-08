@@ -3,6 +3,7 @@
     padding: 0;
     font-family: 'Bebas Neue', sans-serif;
     color: #fff;
+    text-align: center;
 }
 
 .banner{
@@ -60,25 +61,26 @@
     right:0;
 }
 
-p{
-    font-family: 'Open Sans', sans-serif;
-    margin: 20px auto;
-    font-weight: 100;
-    line-height: 25px;
-    font-size: 10px;
-    text-align: center;
 
-}
-
-.upload {
+.header {
     text-align: center;
     padding-top: 5%;
-    
 }
 
-.upload h1 {
+.header p{
+    color: red;
+    font-size: 15px;
+    margin: 0;
+}
+
+
+
+.upload {
+    text-align: center;    
+}
+
+.header h1 {
     font-size:60px;
-    
 }
 
 
@@ -98,41 +100,42 @@ input:hover{
     border: none;
 }
 
-/*upload button */
-input{
+/*submit button */
+input[type=submit]{
     font-family: 'Open Sans', sans-serif;
     width: 200px;
-    padding: 15px 0;
+    height:50px;
     text-align: center;
-    margin: 20px 10px;
     border-radius: 25px;
     font-weight: bold;
     border: 2px solid #CEC5FF ;
     background: transparent;
     color: #fff ;
     cursor: pointer;
-    position: relative;
     overflow: hidden;
 }
-
-input[type="file"] {
-    display: none;
+input[type=file]{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    color: #fff ;
 }
 
-.file-upload {
-    font-family: 'Open Sans', sans-serif;
-    border: 2px solid #CEC5FF;
-    width: 100px;
-    text-align: center;
-    display: inline;
-    padding: 12px 90px;
-    cursor: pointer;
-    font-family: 'Open Sans', sans-serif;
-    position: relative;
-    text-align: center;
-    font-size: 10px;
-    font-weight: 700;
-    color: #BAD2FF;
+textarea{
+    max-width: 50%;
+    max-height: 100px;
+    width: 50%;
+    padding: 5px;
+    resize: inline;
+    color: #202020;
+    border: 2px solid #CEC5FF ;
+    border-radius: 5px;
 }
+
+#footer {
+    margin: 10px 10px;
+    color: #fff;
+}
+
+
 
 

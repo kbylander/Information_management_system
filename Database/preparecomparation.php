@@ -43,31 +43,35 @@ if(isset($_POST['comparation'])){ //Check if "submit" is empty
     //Load method of choice
     $Method = $_POST['Method'];
 
+    $_SESSION['file1'] = $file1;
+
+
 //go through each file in a folder, and run the exe
 
     if ($Method == "Genpofad") {
-        exec('C:/xampp/R/R-4.1.2/bin/Rscript.exe Distance_stuff/Genpofad.R');
+        exec("C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Distance_stuff/Genpofad.R $file1 $file2");
     } 
 
     if ($Method == "Matchstates") {
-        exec('C:/xampp/R/R-4.1.2/bin/Rscript.exe Distance_stuff/Matchstates.R');
+        exec("C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Distance_stuff/Matchstates.R $file1 $file2");
     } 
 
     if ($Method == "Daredevil") {
-        exec('C:/xampp/R/R-4.1.2/bin/Rscript.exe Distance_stuff/Daredevil.R');
+        exec("C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Distance_stuff/Daredevil.R $file1 $file2");
     }
 
     if ($Method == "Consensus") {
-        exec('C:/xampp/R/R-4.1.2/bin/Rscript.exe Distance_stuff/Consensus.R');
+        exec("C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Distance_stuff/Consensus.R $file1 $file2");
     }
 
     include 'Distance_stuff/Table.php';
 
-    unlink('Distance_stuff/output/output.php');
-    unlink('Distance_stuff/output/seqname.php');
-    unlink('../Database/TempFastaFiles/singlefasta_fasta.fasta');
-    unlink('../Database/TempFastaFiles/multiplefasta_am_fasta.fasta');
-    unlink('Distance_stuff/output_file/fastafile.php');
+    unlink("Distance_stuff/output/output$file1");
+    unlink("Distance_stuff/output/seqname$file1");
+    unlink("../Database/TempFastaFiles/$file1");
+    unlink("../Database/TempFastaFiles/$file2");
+    unlink("Distance_stuff/output_file/$file1");
+    unlink("Distance_stuff/output_file/tempfile$file1");
         
 }
 else{

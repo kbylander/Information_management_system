@@ -13,7 +13,7 @@ if(empty($_SESSION['loggedin'])){
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap%27');
 </style>
 <head>
-<link rel="stylesheet" href="style__entry.css">
+<!--<link rel="stylesheet" href="style__entry.css">-->
     <title>Insert Sequences to Database</title>
 </head>
 <body>

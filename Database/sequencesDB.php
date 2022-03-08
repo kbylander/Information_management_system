@@ -68,7 +68,7 @@ include '../disconnectDB.php';
         <td><a href="sequence.php?seqID=<?php echo $row[0] ?>"><?php echo $row[0];?></td>
         <td><?php echo $row[1];?></td>
         <td><?php echo $row[2];?></td>
-        <td><a href="individual.php?ID=<?php echo $row[3] ?>"><?php echo $row[3];?></td>
+        <td><a href="individual.php?ID=<?php echo $row[3] ?>"><?php $name=explode('_',$row[3]); echo $name[0]; ?></td>
         <td><?php if(is_null($row[4])){echo "Unknown";}
         elseif ($row[4]){echo "Female";}
         else{echo "male";}?></td>
