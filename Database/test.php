@@ -79,7 +79,6 @@ if(!isset($_SESSION['loggedin'])) {
         <option value="Consensus" style="color:black">Consensus score</option>
         </select>
         <input type="submit" name="submit" value ="Calculate genetic distance">
-
         <div class="sequence">
             <div>
                 <h3 id= "A1"> Sequence 1 </h3>
@@ -104,6 +103,7 @@ if(!isset($_SESSION['loggedin'])) {
         <option value="Matchstates" style="color:black">Matchstates</option>
         <option value="Daredevil" style="color:black">Daredevil</option>
         <option value="Consensus" style="color:black">Consensus score</option>
+        <input type="submit" name="comparation" value="CALCULATE"/>
         </select><br>
         <div>
             <h3 id= "A1"> Sequence </h3>
@@ -138,8 +138,6 @@ if(!isset($_SESSION['loggedin'])) {
                 <?php endwhile;?>
             </tbody>
         </table>
-        <input type="submit" name="comparation2" value="CALCULATE"/>
-
     </form>
 </div>
 <div id="option2" class="tabcontent">
@@ -152,6 +150,7 @@ if(!isset($_SESSION['loggedin'])) {
                     <option value="Matchstates" style="color:black">Matchstates</option>
                     <option value="Daredevil" style="color:black">Daredevil</option>
                     <option value="Consensus" style="color:black">Consensus score</option>
+                    <input type="submit" name="comparation" value="CALCULATE"/>
                     </select><br>
                     <input type="text" class="searchInput" onkeyup="searchFunction()" placeholder="Search in database">
                     <table id="entryTable" class="scrolltable">
@@ -207,8 +206,6 @@ if(!isset($_SESSION['loggedin'])) {
                         </tr>
                             <?php endwhile;?>
                         </tbody></table>
-                        <input type="submit" name="comparation" value="CALCULATE"/>
-
                         </form>
                         </div>
                     </div>
