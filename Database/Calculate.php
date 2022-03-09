@@ -63,9 +63,9 @@ if(!isset($_SESSION['loggedin'])) {
 
 
 <div class="tab">
-    <button class="tablinks" onclick="openCity(event, 'input')" id="defaultOpen">PASTE to PASTE</button>
-    <button class="tablinks" onclick="openCity(event, 'option2')">FILE to FILE</button>
-    <button class="tablinks" onclick="openCity(event, 'option3')">PASTE to FILE</button>
+    <button class="tablinks" onclick="opentab(event, 'input')" id="defaultOpen">PASTE to PASTE</button>
+    <button class="tablinks" onclick="opentab(event, 'option2')">FILE to FILE</button>
+    <button class="tablinks" onclick="opentab(event, 'option3')">PASTE to FILE</button>
 </div>
 <!-- Tab content -->
 <div id="input" class="tabcontent">
@@ -81,12 +81,12 @@ if(!isset($_SESSION['loggedin'])) {
         <input type="submit" name="submit" value ="Calculate genetic distance">
         <div class="sequence">
             <div>
-                <h3 id= "A1"> Sequence 1 </h3>
+                <h3 id= "A1"> Focal sequence </h3>
                 <textarea name="fastasequence1" cols="80" rows="8" 
                 placeholder ="Enter nucleotide sequence in FASTA format here" style="color:black"></textarea>
             </div>
             <div>
-                <h3 id= "A1"> Sequence 2 </h3>
+                <h3 id= "A1"> Compared sequences </h3>
                 <textarea name="fastasequence2" cols="80" rows="8" 
                 placeholder ="Enter nucleotide sequence in FASTA format here" style="color:black"></textarea>
             </div>
@@ -106,7 +106,7 @@ if(!isset($_SESSION['loggedin'])) {
         <input type="submit" name="comparation" value="CALCULATE"/>
         </select><br>
         <div>
-            <h3 id= "A1"> Sequence </h3>
+            <h3 id= "A1"> Focal sequence </h3>
             <textarea name="fastasequence1" cols="80" rows="8" 
             placeholder ="Enter nucleotide sequence in FASTA format here" style="color:black"></textarea>
         </div><br><br>
@@ -215,7 +215,8 @@ if(!isset($_SESSION['loggedin'])) {
 
 
 <script>
-function openCity(evt, option) {
+    // creates active class, specifying what tab is active and hides the other.  
+function opentab(evt, option) {
   // Declare all variables
   var i, tabcontent, tablinks;
 
@@ -240,7 +241,7 @@ function openCity(evt, option) {
 </script>
 
 <script>
-// Get the element with id="defaultOpen" and click on it
+//Selects a default active tab. 
 document.getElementById("defaultOpen").click();
 </script>
 
