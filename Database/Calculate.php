@@ -19,7 +19,6 @@ if(!isset($_SESSION['loggedin'])) {
   include '../disconnectDB.php';
   }
 ?>
-
 <!DOCTYPE html>
 <html>
 <style>
@@ -81,7 +80,7 @@ if(!isset($_SESSION['loggedin'])) {
         <input type="submit" name="submit" value ="Calculate genetic distance">
         <div class="sequence">
             <div>
-                <h3 id= "A1"> Sequence 1 </h3>
+                <h3 id= "A1"> Focal sequence </h3>
                 <textarea name="fastasequence1" cols="80" rows="8" 
                 placeholder ="Enter nucleotide sequence in FASTA format here" style="color:black"></textarea>
             </div>
@@ -106,7 +105,7 @@ if(!isset($_SESSION['loggedin'])) {
         <input type="submit" name="comparation" value="CALCULATE"/>
         </select><br>
         <div>
-            <h3 id= "A1"> Sequence </h3>
+            <h3 id= "A1"> Focal sequence </h3>
             <textarea name="fastasequence1" cols="80" rows="8" 
             placeholder ="Enter nucleotide sequence in FASTA format here" style="color:black"></textarea>
         </div><br><br>
