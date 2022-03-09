@@ -71,9 +71,9 @@ if(!isset($_SESSION['loggedin'])) {
             $_SESSION['RegistrationErrors'] = '';?>
             </div>
           </div>
-          <hr>
+          <hr class="hr2"/>
           <div class="delete-user">
-          <h2>Do you want to delete your account? </h2>
+          <h3>Do you want to delete your account? </h3>
           <form action="deleteuser.php" method="POST">
               <select name="delete" id="delete">
               <option value="Yes" style="color:black">Yes</option>

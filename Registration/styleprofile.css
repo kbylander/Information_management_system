@@ -78,6 +78,14 @@
     text-align: center;
     font-family: 'Open Sans', sans-serif;
     color: #fff;
+    text-decoration: underline;
+}
+
+.user-profile h3{
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
 }
 
 
@@ -87,6 +95,7 @@
   border-radius: 20px;
   padding: 10px;
   margin: 15px 0;
+  margin-left: 2%;
   width: 30%;
   border: 2px solid  #def4dd ;
   background: transparent;
@@ -130,6 +139,7 @@ input:hover{
     font-family: 'Open Sans', sans-serif;
     padding: 10px;
     margin: 15px 5;
+    margin-left: 2%;
     text-align: center;
     cursor: pointer;
     position: relative;
@@ -160,7 +170,8 @@ input:hover{
 }
 
 
-hr{
+
+.hr2{
     border : 0;
     height: 1px; 
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #BAD2FF, rgba(0, 0, 0, 0)); 
