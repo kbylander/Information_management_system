@@ -75,6 +75,10 @@
     text-align: center;
 }
 
+.form-errors{
+    color: red;
+}
+
 .log-in-form h1{
     color: #BAD2FF;
     font-size: 60px;
