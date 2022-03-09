@@ -48,6 +48,7 @@ if(!isset($_SESSION['loggedin'])) {
                 <?php } ?>
                 <li><a href="../Links/ContactUs.php">Contact Us</a></li>
                 <li><a href="../Registration/userprofile.php">Profile</a></li>
+                <li><a href="../Registration/userprofile.php">Profile</a></li>
             </ul>
         </div>
 
