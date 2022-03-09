@@ -1,0 +1,274 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+*:after{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+.textarea{
+    display: block;
+    width: 100%;
+    resize: inline;
+    padding: 20px;
+    color: #202020;
+    border: 1.5px solid #b2b2b2;
+    border-radius: 5px;
+}
+
+.sequence{
+    position: relative;
+    left: 0px;
+    top: 5px;
+}
+
+.input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    box-sizing: border-box;
+  }
+
+
+.sequence div {
+    display: inline-block;
+}
+
+.sequence div label {
+    display: block;
+}
+
+.banner{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.navbar{
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 120px;
+    cursor: pointer;
+}
+
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+
+.navbar ul li a{
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+.navbar ul li::after{
+    content:'';
+    height: 3px;
+    width: 0;
+    background: #BAD2FF;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+.navbar ul li:hover::after{
+    width: 100%;
+}
+
+.GoogleTranslate{
+    position:absolute;
+    top:0;
+    right:0;
+}
+
+.input{
+    position:relative; 
+    left:80px; 
+    top:2px; 
+}
+
+.tabcontent h2{
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+    font-size: 15px;
+    margin: 10px auto;
+}
+
+.tabcontent{
+    position:relative; 
+    left:80px; 
+    top:2px; 
+
+}
+
+.tabcontent #Method{
+    margin: 30px auto;
+    color:rgba(0, 0, 0, 0.75);
+}
+
+#A1{
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+    margin: 10px auto;
+}
+
+#A2{
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+    margin: 50px auto;
+}
+
+select {
+    font-family: 'Open Sans', sans-serif;
+    width: 10%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #fff;
+  }
+
+   h1{
+    color: #CEC5FF ;
+}
+
+.search{
+    padding-left: 2%;
+    font-size: 20px;
+}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    text-align: center;
+
+
+}
+  
+  /* Style the buttons that are used to open the tab content */
+  .tab button {
+    font-family: 'Open Sans', sans-serif;
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 2px 2px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #CEC5FF;
+    color: #fff ;
+    background-color: transparent;
+    cursor: pointer;
+    position: 50%;
+    overflow: hidden;
+    margin-left: auto; margin-right: auto;
+
+}
+
+/* Change background color of buttons on hover */
+  .tab button:hover {
+    border: 2px solid #CEC5FF;
+    background-color: #CEC5FF;
+    opacity: 0.5;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: #CEC5FF;
+  }
+  
+  /* Style the tab content */
+  .searchInput{
+    width: 20%;
+    padding: 8px;
+    border:2px #BAD2FF solid;
+
+}
+
+th{
+    color: #CEC5FF;
+}
+
+input{
+    font-family: 'Open Sans', sans-serif;
+    width: 220px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    font-weight: bold;
+    border: 2px solid #CEC5FF ;
+    background: transparent;
+    color: #fff ;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+input:hover span{
+    width: 100%;
+}
+
+input:hover{
+    border: none;
+}
+body{
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(../natur.jpg) no-repeat center center fixed;
+}
+
+
+.tabcontent .scrolltable{
+    width: 80%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.tabcontent .scrolltable tbody{
+  display: block;
+  width: 100%;
+  overflow: auto;
+  height: 295px;
+}
+
+.tabcontent .scrolltable thead tr {
+   display:block;
+}
+
+.tabcontent .scrolltable thead {
+  border:2px #CEC5FF solid;
+}
+
+.tabcontent .scrolltable th {
+  padding: 5px;
+  text-align: center;
+  width: 200px;
+  color: #CEC5FF;
+}
+.tabcontent .scrolltable td {
+  padding: 0px;
+  text-align: center;
+  width: 200px;
+}
+
+.tabcontent {
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+  }
+  
+  /* Go from zero to full opacity */
+  @keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  

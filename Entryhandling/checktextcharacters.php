@@ -11,3 +11,4 @@ function validseq($str){
     return !preg_match('/[^A-Za-z \n]/', $str);
 }
 ?>
+
