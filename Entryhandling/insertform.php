@@ -1,6 +1,4 @@
 <?php session_start();
-echo $_SESSION['UploadError'];
-
 //Check so the user is logged in, and has access to the database
 if(!isset($_SESSION['loggedin'])) {
     $_SESSION['loggedin'] = False;
@@ -8,7 +6,6 @@ if(!isset($_SESSION['loggedin'])) {
   if ($_SESSION['loggedin'] == False) {
     header('Location: ../index.php');
   }
-  
 ?>
 
 <!DOCTYPE html>
