@@ -98,26 +98,26 @@ input[type=text] {
     right:0;
 }
 
-.input{
+.tab.input{
     position:relative; 
     left:80px; 
     top:2px; 
 }
 
-.input h2{
+.tab.input h2{
     font-family: 'Open Sans', sans-serif;
     color: #fff;
     font-size: 15px;
     margin: 10px auto;
 }
 
-.option2{
+.tab.option2{
     position:relative; 
     left:80px; 
     top:2px; 
 }
 
-.option3{
+.tab.option3{
     position:relative; 
     left:80px; 
     top:2px; 
@@ -183,7 +183,7 @@ th{
     color: #CEC5FF;
 }
 
-input{
+input[type=submit]{
     font-family: 'Open Sans', sans-serif;
     width: 220px;
     padding: 15px 0;
@@ -241,3 +241,32 @@ input:hover{
   text-align: center;
   width: 200px;
 }
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+  }
+  
+  /* Style the buttons that are used to open the tab content */
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: #ccc;
+  }
+  
+  

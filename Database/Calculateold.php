@@ -45,7 +45,6 @@ if(!isset($_SESSION['loggedin'])) {
                     <li><a href="../Login/login.php">Database</a></li>
                     <?php } ?>
                     <li><a href="../Links/ContactUs.php">Contact Us</a></li>
-                    <li><a href="../Registration/userprofile.php">Profile</a></li>
                 </ul>
             </div>
 
@@ -117,7 +116,7 @@ if(!isset($_SESSION['loggedin'])) {
                             <td><a href="sequence.php?seqID=<?php echo $row[0] ?>"><?php echo $row[0];?></td>
                             <td><?php echo $row[1];?></td>
                             <td><?php echo $row[2];?></td>
-                            <td><a href="individual.php?ID=<?php echo $row[3] ?>"><?php $name=explode('_',$row[3]); echo $name[0]; ?></td>
+                            <td><a href="individual.php?ID=<?php echo $row[3] ?>"><?php echo $row[3];?></td>
                             <td><?php if(is_null($row[4])){echo "Unknown";}
                             elseif ($row[4]){echo "Female";}
                             else{echo "male";}?></td>
@@ -144,7 +143,7 @@ if(!isset($_SESSION['loggedin'])) {
                             <td><a href="sequence.php?seqID=<?php echo $row[0] ?>"><?php echo $row[0];?></td>
                             <td><?php echo $row[1];?></td>
                             <td><?php echo $row[2];?></td>
-                            <td><a href="individual.php?ID=<?php echo $row[3] ?>"><?php $name=explode('_',$row[3]); echo $name[0];?></td>
+                            <td><a href="individual.php?ID=<?php echo $row[3] ?>"><?php echo $row[3];?></td>
                             <td><?php if(is_null($row[4])){echo "Unknown";}
                             elseif ($row[4]){echo "Female";}
                             else{echo "male";}?></td>
@@ -191,7 +190,7 @@ if(!isset($_SESSION['loggedin'])) {
                             <td><a href="sequence.php?seqID=<?php echo $row[0] ?>"><?php echo $row[0];?></td>
                             <td><?php echo $row[1];?></td>
                             <td><?php echo $row[2];?></td>
-                            <td><a href="individual.php?ID=<?php echo $row[3] ?>"><?php $name=explode('_',$row[3]); echo $name[0]; ?></td>
+                            <td><a href="individual.php?ID=<?php echo $row[3] ?>"><?php echo $row[3];?></td>
                             <td><?php if(is_null($row[4])){echo "Unknown";}
                             elseif ($row[4]){echo "Female";}
                             else{echo "male";}?></td>

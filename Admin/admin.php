@@ -7,20 +7,20 @@ error_reporting(E_ALL);
 if(!empty($_POST['search']))
 {
     $valueToSearch = $_POST['searchvalue'];
-    $tableToSearch = $_POST['dbtable']
-    if($valueToSearch=="users"){
+    $tableToSearch = $_POST['dbtable'];
+    if($tableToSearch=="users"){
       $query = "SELECT * FROM users WHERE username LIKE '%".$valueToSearch."%'";
-    }elseif($valueToSearch=="entries"){
+    }elseif($tableToSearch=="entries"){
       $query = "SELECT * FROM entries WHERE entryID LIKE '%".$valueToSearch."%'";
     }else{
-      $query = "SELECT * FROM sequence WHERE seqID LIKE '%".$valueToSearch."%'"
+      $query = "SELECT * FROM sequence WHERE seqID LIKE '%".$valueToSearch."%'";
     }
 
     $search_result = filterTable($query);
 
 }
 else {
-    "SELECT * FROM users WHERE username LIKE '%".$valueToSearch."%'";
+    $query = "SELECT * FROM users LIMIT 5";
     $search_result = filterTable($query);
 }
 
@@ -36,10 +36,9 @@ return $result;
 <!DOCTYPE html>
 <html>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&display=swap%27');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-</style>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap%27');
 </style>
     <head>
         <title>Admin</title>
@@ -69,75 +68,38 @@ return $result;
             </div>
         </body>
         <div class = "content">
-          <form action="admin.php" method="POST">
-            <input type="text" name="searchvalue" placeholder="Search IDs"/>
-            <select name="dbtable">
-              <option value="users">Users database</option>
-              <option value="entries">Individuals</option>
-              <option value="sequence">Sequences</option>
-            <input type="submit" value="search"/>
-          </form>
-          <?php if($tableToSearch == 'users')
-          <h1>Users</h1>
-          <table id="userTable">
-          <tr>
-              <th>Username</th>
-              <th>Email</th>
-              <th>Admin</th>
-              <th>Active</th>
-          </tr>
-          <?php while($row = mysqli_fetch_array($search_result)):?>
-            <tr>
-              <td><?php echo $row[0];?></td>
-              <td><?php echo $row[2];?></td>
-              <td><?php echo $row[3];?></td>
-              <td><?php echo $row[4];?></td>
-            </tr>
-              <?php endwhile;?>
-            </table>
-
-            <br>
-            <h1>Individuals</h1>
-            <table id="indTable">
-            <tr>
-                <th>Individual</th>
-                <th>Gender</th>
-                <th>Addedby</th>
-                <th>Species</th>
-                <th>Private</th>
-                <th>Date</th>
-            </tr>
-            <?php while($row = mysqli_fetch_array($indresult)):?>
-              <tr>
-                <td><?php echo $row[0];?></td>
-                <td><?php echo $row[1];?></td>
-                <td><?php echo $row[2];?></td>
-                <td><?php echo $row[3];?></td>
-                <td><?php echo $row[4];?></td>
-                <td><?php echo $row[5];?></td>
-              </tr>
-                <?php endwhile;?>
-              </table>
-
-              <br>
-              <h1>Sequences</h1>
-              <table id="indTable">
-              <tr>
-                  <th>Sequence ID</th>
-                  <th>Gene</th>
-                  <th>Individual</th>
-                  <th>Private</th>
-                  <th>Date</th>
-              </tr>
-              <?php while($row = mysqli_fetch_array($seqresult)):?>
+            <form action="admin.php" method="POST">
+              <input type="text" name="searchvalue" placeholder="Search IDs"/>
+              <select name="dbtable">
+                <option value="users">Users</option>
+                <option value="entries">Individuals</option>
+                <option value="sequence">Sequences</option>
+              </select>
+              <input type="submit" value="search"/>
+            </form>
+            <?php if(!isset($tableToSearch) || $tableToSearch == 'users'){ ?>
+            <h1>Users</h1>
+            <table class="content-table" id="userTable">
+              <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Admin</th>
+                    <th>Active</th>
+                </tr>
+              </thead>
+              <tbody>
+              <?php while($row = mysqli_fetch_array($search_result)):?>
                 <tr>
                   <td><?php echo $row[0];?></td>
-                  <td><?php echo $row[1];?></td>
                   <td><?php echo $row[2];?></td>
                   <td><?php echo $row[3];?></td>
                   <td><?php echo $row[4];?></td>
                 </tr>
                   <?php endwhile;?>
-                </table>
+              </tbody>
+              </table> <?php } ?>
+
+            <br>
       </div>
 </html>
