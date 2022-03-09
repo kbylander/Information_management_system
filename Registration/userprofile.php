@@ -1,5 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>User Profile</title>
+        <link rel="stylesheet" href="styleprofile.css">
+    </head>
 <?php //Initiating session and making sure the user gets tagged as not logged in.
 session_start();
+$_SESSION['RegistrationErrors'] = '';
 //Check so the user is logged in, and has access to the database
 if(!isset($_SESSION['loggedin'])) {
     $_SESSION['loggedin'] = False;
@@ -62,19 +69,23 @@ if(!isset($_SESSION['loggedin'])) {
           <h1 id= "A1"> User profile </h1>
           <div class="change-pw">
             <h2>Change Password </h2>
-            <form action="changepwd.php" method="POST"> 
-              <input type="password" placeholder="New Password" name="oldpwd" required/>
-              <input type="password" placeholder="Confirm Password" name="newpwd" required/>
+            <form action="changepwd.php" method="POST">
+              <input type="password" placeholder="New Password" name="passw" required/>
+              <input type="password" placeholder="Confirm Password" name="confirmpassword" required/>
               <input type="submit" value="Submit Changes">
             </form>
+            <?php echo $_SESSION['RegistrationErrors']; 
+            $_SESSION['RegistrationErrors'] = '';?>
           </div>
           <div class="change-email">
           <h2>Change email </h2>
             <form action="changeemail.php" method="POST">
               <input type="text" class="input-box" placeholder="Enter old email" name="oldemail" required>
-              <input type="text" class="input-box" placeholder="Enter new email" name="newemail" required>
+              <input type="text" class="input-box" placeholder="Enter new email" name="email" required>
               <input type="submit" value="Submit Changes">
             </form>
+            <?php echo $_SESSION['RegistrationErrors']; 
+            $_SESSION['RegistrationErrors'] = '';?>
           </div>
           <div class="delete-user">
           <h2>Do you want to delete your account? </h2>
@@ -84,6 +95,9 @@ if(!isset($_SESSION['loggedin'])) {
               <option value="No" style="color:black">No</option>
               </select>
               <input type="submit" value ="Submit Changes">
+          </div>
+          <div class="Log-out">
+            <button id = "b7" onclick="location.href = '../Login/sessiondestroy.php';" type="button">Log out</button>
           </div>
 
 </body>

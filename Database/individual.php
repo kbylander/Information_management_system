@@ -53,6 +53,7 @@ if($addedby == $_SESSION['user']){
                     <li><a href="../Login/login.php">Database</a></li>
                     <?php } ?>
                     <li><a href="../Links/ContactUs.php">Contact Us</a></li>
+                    <li><a href="../Registration/userprofile.php">Profile</a></li>
                 </ul>
             </div>
   </div>
