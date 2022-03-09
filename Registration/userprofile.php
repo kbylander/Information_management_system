@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-        <title>User Profile</title>
-        <link rel="stylesheet" href="styleprofile.css">
-    </head>
 <?php //Initiating session and making sure the user gets tagged as not logged in.
 session_start();
 $_SESSION['RegistrationErrors'] = '';
@@ -29,17 +23,13 @@ if(!isset($_SESSION['loggedin'])) {
 <!DOCTYPE html>
 <html>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-.change-pw{
-  border: 5px outset rgb(55, 10, 179); 
-  background-color: white;
-  text-align: center;
-}
-@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap%27');
+    @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 </style>
-    <head>
-        <title>User Profile</title>
-    </head>
+<head>
+    <title>USER PROFILE</title>
+    <link rel="stylesheet" href="styleprofile.css">
+</head>
     <body>
         <div class="banner">
             <div class="navbar">
@@ -47,46 +37,41 @@ if(!isset($_SESSION['loggedin'])) {
                 <ul>
                     <li><a href="../index.php">Home</a></li>
                     <li><a href="../Links/About.php">About</a></li>
-                    <?php if ($_SESSION['loggedin']) { //If logged in, take the user to the database?>
-                    <li><a href="databasemenu.php">Database</a></li>
-                    <?php }
-                    else{ //If not logged in, take the user to the login page?>
-                    <li><a href="../Login/login.php">Database</a></li>
-                    <?php } ?>
+                    <li><a href="../Database/databasemenu.php">Database</a></li>
                     <li><a href="../Links/ContactUs.php">Contact Us</a></li>
+                    <li><a href="../Registration/userprofile.php">Profile</a></li>
+                    <li><a href="../Login/sessiondestroy.php">Log Out</a></li>
                 </ul>
             </div>
 
-            <div class="LanguageToggle">
-                    <div class="GoogleTranslate">
-                        <div id="google_translate_element" style="text:right;"></div><script type="text/javascript">
-                        function googleTranslateElementInit() {
-                          new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,de,en,es,it,ja,pt,ru,zh-CN,zh-TW', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-                        }
-                        </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-                    </div>
-            </div>
-          <h1 id= "A1"> User profile </h1>
+          <div class="user-profile">
+          <h1> User profile </h1>
           <div class="change-pw">
             <h2>Change Password </h2>
             <form action="changepwd.php" method="POST">
-              <input type="password" placeholder="New Password" name="passw" required/>
-              <input type="password" placeholder="Confirm Password" name="confirmpassword" required/>
-              <input type="submit" value="Submit Changes">
+              <input type="password" class="input-box" placeholder="New Password" name="passw" required/>
+              <input type="password" class="input-box" placeholder="Confirm Password" name="confirmpassword" required/>
+              <input type="submit" id=submit name="Upload" value="Submit Changes"/>
             </form>
+            <div class='form-errors'>
             <?php echo $_SESSION['RegistrationErrors']; 
             $_SESSION['RegistrationErrors'] = '';?>
+            </div>
           </div>
           <div class="change-email">
           <h2>Change email </h2>
             <form action="changeemail.php" method="POST">
               <input type="text" class="input-box" placeholder="Enter old email" name="oldemail" required>
               <input type="text" class="input-box" placeholder="Enter new email" name="email" required>
-              <input type="submit" value="Submit Changes">
+              <input type="submit" id=submit name="Upload" value="Submit Changes"/>
+
             </form>
+            <div class='form-errors'>
             <?php echo $_SESSION['RegistrationErrors']; 
             $_SESSION['RegistrationErrors'] = '';?>
+            </div>
           </div>
+          <hr>
           <div class="delete-user">
           <h2>Do you want to delete your account? </h2>
           <form action="deleteuser.php" method="POST">
@@ -94,11 +79,8 @@ if(!isset($_SESSION['loggedin'])) {
               <option value="Yes" style="color:black">Yes</option>
               <option value="No" style="color:black">No</option>
               </select>
-              <input type="submit" value ="Submit Changes">
+              <input type="submit" id=submit1 name="Upload" value="Submit Changes"/>
           </div>
-          <div class="Log-out">
-            <button id = "b7" onclick="location.href = '../Login/sessiondestroy.php';" type="button">Log out</button>
           </div>
-
 </body>
 </html>

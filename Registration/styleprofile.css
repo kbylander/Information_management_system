@@ -1,7 +1,8 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: 'Bebas Neue', sans-serif;
+    color: black;
 }
 
 .banner{
@@ -53,43 +54,120 @@
     width: 100%;
 }
 
-.content{
-    width: 100%;
+.user-profile{
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -40%);
+    border-radius: 10px;
+    width: 600px;
+    box-shadow: 0 0 10px 0 rgb(0, 0, 0);
+    background: rgba(245, 245, 220, 0.226);
+    padding: 10px;
     text-align: center;
-    color: #fff ; 
 }
 
-.content h1{
-    font-family: 'Righteous', cursive;
+.user-profile h1{
+    color: #BAD2FF;
     font-size: 70px;
-    margin-top: 80px;
-}
-
-.content p{
-    font-family: 'Open Sans', sans-serif;
-    margin: 20px auto;
-    font-weight: 100;
-    line-height: 25px;
-}
-
-button{
-    font-family: 'Open Sans', sans-serif;
-    width: 200px;
-    padding: 15px 0;
     text-align: center;
-    margin: 20px 10px;
-    border-radius: 25px;
+}
+
+.user-profile h2{
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+}
+
+
+
+.input-box
+{
+  border-radius: 20px;
+  padding: 10px;
+  margin: 15px 0;
+  width: 30%;
+  border: 2px solid  #def4dd ;
+  background: transparent;
+  color: #fff ;
+  outline: none;
+  display: inline-block;
+}
+
+
+input {
+    border-radius: 2px;
+    box-sizing: border-box;
+    font-size: 1.25em;
+    font-family: 'Open Sans', sans-serif;
     font-weight: bold;
-    border: 2px solid #CEC5FF ;
-    background: transparent;
-    color: #fff ;
+    width: 500px;
+    padding: 8px;
+    overflow: hidden;
+    cursor: pointer;
+
+  }
+
+
+    
+
+.form-errors{
+    color: red;
+}
+
+
+
+input:hover span{
+    width: 100%;
+}
+
+input:hover{
+    border: none;
+}
+
+#submit{
+    font-family: 'Open Sans', sans-serif;
+    padding: 10px;
+    margin: 15px 5;
+    text-align: center;
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    border-radius: 20px;
+    width: 30%;
+    border: 2px solid  #def4dd ;
+    background: transparent;
+    color: #BAD2FF;
+    outline: none;
+    display: inline-block;
 }
+
+#submit1{
+    font-family: 'Open Sans', sans-serif;
+    width: 200px;
+    padding: 15px 0;
+    margin: 15px 0;
+    margin-left: 2%;
+    text-align: center;
+    border: 2px solid  #def4dd ;
+    background: transparent;
+    color:  #BAD2FF ;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    
+}
+
+
+hr{
+    border : 0;
+    height: 1px; 
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #BAD2FF, rgba(0, 0, 0, 0)); 
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+  }
 
 span{
     font-family: 'Open Sans', sans-serif;
@@ -102,18 +180,4 @@ span{
     bottom: 0;
     z-index: -1;
     transition: 0.5s;
-}
-
-button:hover span{
-    width: 100%;
-}
-
-button:hover{
-    border: none;
-}
-
-.GoogleTranslate{
-    position:absolute;
-    top:0;
-    right:0;
 }

@@ -22,12 +22,12 @@ if(!isset($_SESSION['loggedin'])) {
                     <li><a href="About.php">About</a></li>
                     <?php if ($_SESSION['loggedin']) { //If logged in, take the user to the database?>
                     <li><a href="../Database/databasemenu.php">Database</a></li>
+                    <li><a href="../Registration/userprofile.php">Profile</a></li>
                     <?php }
                     else{ //If not logged in, take the user to the login page?>
                     <li><a href="../Login/login.php">Database</a></li>
                     <?php } ?>
                     <li><a href="#">Contact Us</a></li>
-                    <li><a href="../Registration/userprofile.php">Profile</a></li>
                 </ul>
             </div>
 
