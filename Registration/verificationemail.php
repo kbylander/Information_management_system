@@ -17,7 +17,7 @@ Username: '.$username.'
 ------------------------
   
 Please click this link to activate your account:
-http://localhost/IMS-Daredevil/verify.php?email='.$useremail.'&hash='.$hash.'
+http://localhost/IMS-Daredevil/Registration/verify.php?email='.$useremail.'&hash='.$hash.'
   
 ';
                       

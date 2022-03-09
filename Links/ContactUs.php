@@ -27,6 +27,7 @@ if(!isset($_SESSION['loggedin'])) {
                     <li><a href="../Login/login.php">Database</a></li>
                     <?php } ?>
                     <li><a href="#">Contact Us</a></li>
+                    <li><a href="../Registration/userprofile.php">Profile</a></li>
                 </ul>
             </div>
 

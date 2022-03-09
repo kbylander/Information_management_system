@@ -10,11 +10,10 @@ $user = $_SESSION['user'];
 $answer = $_POST['delete'];
 
 if ($answer == "Yes"){
-    $query = "UPDATE users SET users.active = 0 WHERE users.username = $user";
-    include '../connectDB.php';
-    $result = mysqli_query($link, $query);
+    $query = "UPDATE users SET users.active = 0 WHERE users.username = '$user'";
+    require '../transactions.php';
+    dbtransactions($query);
     header('Location: ../index.php');
-include '../disconnectDB.php';
 }else{
     header('Location: userprofile.php');
 
