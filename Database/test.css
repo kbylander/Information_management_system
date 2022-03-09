@@ -169,7 +169,6 @@ select {
     border-radius: 25px;
     font-weight: bold;
     border: 2px solid #CEC5FF;
-    color: #fff ;
     background-color: transparent;
     cursor: pointer;
     position: 50%;
@@ -181,13 +180,15 @@ select {
 /* Change background color of buttons on hover */
   .tab button:hover {
     border: 2px solid #CEC5FF;
-    background-color: #CEC5FF;
+    background-color: white;
+    color: #202020;
     opacity: 0.5;
   }
   
   /* Create an active/current tablink class */
   .tab button.active {
     background-color: #CEC5FF;
+    color: #fff ;
   }
   
   /* Style the tab content */
