@@ -69,7 +69,7 @@ if(!isset($_SESSION['loggedin'])) {
 </div>
 <!-- Tab content -->
 <div id="input" class="tabcontent">
-  <h1 id= "A1"> Option 1: Insert two sequences to compare </h1>
+  <h1 id= "A1"> Insert two sequences to compare </h1>
     <h2>Choose your algorithm:</h2>
     <form action="../Algorithms/upload.php" method="POST">
         <select name="Method" id="Method">
@@ -95,7 +95,7 @@ if(!isset($_SESSION['loggedin'])) {
 </div>
 
 <div id="option3" class="tabcontent">
-    <h1 id= "A2"> Option 3: Insert one sequence and compare with db </h1>
+    <h1 id= "A2"> Insert one sequence and compare with db </h1>
     <h2>Choose your algorithm:</h2>
     <form action="preparecomparation2.php" method="POST">
         <select name="Method" id="Method">
@@ -141,7 +141,7 @@ if(!isset($_SESSION['loggedin'])) {
     </form>
 </div>
 <div id="option2" class="tabcontent">
-                    <h1 id= "A2"> Option 2: Select two sequences from db to compare </h1>
+                    <h1 id= "A2"> Select two sequences from db to compare </h1>
                     <div class="search">
                     <h2>Choose your algorithm:</h2>
                     <form action="preparecomparation.php" method="POST">

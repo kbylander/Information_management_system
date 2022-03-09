@@ -196,8 +196,14 @@ select {
     width: 20%;
     padding: 8px;
     border:2px #BAD2FF solid;
-
 }
+
+.searchInput:hover
+    {
+        width: 20%;
+        padding: 8px;
+        border:2px #BAD2FF solid;
+    }
 
 th{
     color: #CEC5FF;
