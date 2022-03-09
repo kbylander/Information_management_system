@@ -1,6 +1,6 @@
 *{
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     font-family: sans-serif;
 }
 
@@ -105,14 +105,61 @@ button:hover{
     right:0;
 }
 
-table{
-  color: #fff;
+.content{
+    text-align: center;
 }
 
-table th{
-  text-align: center;
+.content h1{
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 50px;
 }
 
-table td{
-  text-align: center;
+#userTable{
+    font-family: 'Open Sans', sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content-table{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(180, 180, 180, 0.158);
+}
+
+.content-table thead tr{
+    font-family: 'Open Sans', sans-serif;
+    background-color: #E2B8FF;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+}
+
+.content-table th, 
+.content-table td{
+    padding: 12px 15px;
+}
+
+.content-table tbody tr{
+    border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even){
+    background-color: #f3f3f3;
+    font-weight: bold;
+    color: #969696;
+}
+
+.content-table tbody tr:last-of-type {
+    border-bottom: 5px solid #E2B8FF;
+}
+
+.content-table tbody tr:nth-of-type(odd){
+    background-color: #969696;
+    color: #fff;
 }
