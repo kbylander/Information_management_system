@@ -189,7 +189,8 @@ button:hover{
 <div class = "context">
 <?php 
 //Header of focal sequence
-$Fasta1 = file_get_contents("../Database/TempFastaFiles/singlefasta_fasta.fasta");
+$file = $_SESSION['file1'];
+$Fasta1 = file_get_contents("../Database/TempFastaFiles/$file");
 $ExplodeFasta1 = explode("\n",$Fasta1);
 $header_fasta1 = $ExplodeFasta1[0];
 
@@ -220,11 +221,11 @@ echo "<h1>Genetic distance</h1>";
   <?php
 
         //Headers
-        $str_name = file_get_contents("output/seqname.php");
+        $str_name = file_get_contents("output/seqname$file");
         $output_name = explode("\n",$str_name);
         $count_name = count($output_name);
         //Genetic distance
-        $str_dist = file_get_contents("output/output.php");
+        $str_dist = file_get_contents("output/output$file");
         $output_dist = explode("\n",$str_dist);
         $count_dist = count($output_dist);
         
@@ -239,7 +240,7 @@ echo "<h1>Genetic distance</h1>";
         $counter = 0;
         foreach($output_array as $key => $value) {
             $counter++;
-            if ($counter == 1) {
+            if ($counter == 1 AND $value >= 0.5) {
               $backgroundcolor = "MediumSeaGreen";
             }elseif ($value >=0.5) {
               $backgroundcolor = "Orange";
@@ -248,7 +249,7 @@ echo "<h1>Genetic distance</h1>";
             }
             echo "<tr bgcolor=$backgroundcolor>";
             echo '<td>';
-                echo "<i>$key</i>";
+              echo "<i>".chunk_split($key,50)."</i>";
             echo '</td>';
             echo '<td>';
                 echo $value;

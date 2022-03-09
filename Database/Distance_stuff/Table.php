@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -240,7 +236,7 @@ echo "<h1>Genetic distance</h1>";
         $counter = 0;
         foreach($output_array as $key => $value) {
             $counter++;
-            if ($counter == 1) {
+            if ($counter == 1 AND $value >= 0.5) {
               $backgroundcolor = "MediumSeaGreen";
             }elseif ($value >=0.5) {
               $backgroundcolor = "Orange";
