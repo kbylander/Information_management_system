@@ -29,7 +29,7 @@ while($row2 = mysqli_fetch_array($result2)) {
   $date = $row2['date'];
   }
 }
-if($addedby == $_SESSION['user']){
+if($addedby == $_SESSION['user'] || $_SESSION['admin']){
 ?>
 
 <!DOCTYPE html>

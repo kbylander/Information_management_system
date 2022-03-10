@@ -16,10 +16,9 @@ include '../disconnectDB.php';
 
   while($row = mysqli_fetch_array($result)){
     $addedby = $row[0];
-    echo $addedby;
   }
   //Control if the user should be able to delete this sequence
-  if($addedby != $_SESSION['user']){
+  if($addedby != $_SESSION['user'] && !$_SESSION['admin']){
     header('Location: sequencesDB.php');
   } else {
     //The user have access and will delete the seq
