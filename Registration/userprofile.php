@@ -1,6 +1,8 @@
 <?php //Initiating session and making sure the user gets tagged as not logged in.
 session_start();
-$_SESSION['RegistrationErrors'] = '';
+if(!isset($_SESSION['RegistrationErrors'])){
+  $_SESSION['RegistrationErrors'] = '';
+}
 //Check so the user is logged in, and has access to the database
 if(!isset($_SESSION['loggedin'])) {
     $_SESSION['loggedin'] = False;
@@ -54,8 +56,7 @@ if(!isset($_SESSION['loggedin'])) {
               <input type="submit" id=submit name="Upload" value="Submit Changes"/>
             </form>
             <div class='form-errors'>
-            <?php echo $_SESSION['RegistrationErrors']; 
-            $_SESSION['RegistrationErrors'] = '';?>
+            <?php echo $_SESSION['RegistrationErrors']; ?>
             </div>
           </div>
           <div class="change-email">
@@ -67,8 +68,10 @@ if(!isset($_SESSION['loggedin'])) {
 
             </form>
             <div class='form-errors'>
-            <?php echo $_SESSION['RegistrationErrors']; 
-            $_SESSION['RegistrationErrors'] = '';?>
+            <?php if(isset($_SESSION['RegistrationErrors'])){
+            echo $_SESSION['RegistrationErrors'];
+            echo "<meta http-equiv='refresh' content='6; URL=../Login/login.php'>";
+            }?>
             </div>
           </div>
           <hr class="hr2"/>
