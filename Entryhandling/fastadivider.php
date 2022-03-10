@@ -36,7 +36,7 @@ foreach ($header as $key => $value){
     $seq[$key] = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $seq[$key]);
     $value = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $value);
     $seq[$key]= str_replace('\xBB\xBF', '',$seq[$key]);
-    $valie= str_replace('\xBB\xBF', '',$seq[$key]);
+    $value= str_replace('\xBB\xBF', '',$seq[$key]);
     
     //checks if the sequence/header contains any illegal charachters.
     if ((validseq($seq[$key])) && (validcharachters($value))){
