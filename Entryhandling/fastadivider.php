@@ -37,13 +37,12 @@ foreach ($header as $key => $value){
     $value = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $value);
     $seq[$key]= str_replace('\xBB\xBF', '',$seq[$key]);
     $value= str_replace('\xBB\xBF', '',$seq[$key]);
-    
-    //checks if the sequence/header contains any illegal charachters.
+        //checks if the sequence/header contains any illegal charachters.
     if ((validseq($seq[$key])) && (validcharachters($value))){
-        include 'headercheck.php';   
+        include 'headercheck.php';  
     }
     else{
-        $_SESSION['HeaderError'] = 'Fasta contained illegal characters: ' . $value;
+        $_SESSION['HeaderError'] = 'Fasta contained illegal characters';
         header('Location:./insertform.php');
     }
 }
