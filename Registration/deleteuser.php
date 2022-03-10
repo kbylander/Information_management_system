@@ -13,6 +13,7 @@ if ($answer == "Yes"){
     $query = "UPDATE users SET users.active = 0 WHERE users.username = '$user'";
     require '../transactions.php';
     dbtransactions($query);
+    include '../Login/SessionDestroy.php';
     header('Location: ../index.php');
 }else{
     header('Location: userprofile.php');

@@ -53,12 +53,12 @@ else{
 
 //This section will handle text inputs
 if(!empty($_POST['fastatext'])){
-    $ftext = $_POST['fastatext'];
+    $ffile = $_POST['fastatext'];
     if (strlen($_POST['fastatext']) <30000){
-        include 'textfastahandler.php';
+        include 'filefastahandler.php';
     }
     else{
-        $_SESSION['HeaderError'] = 'Filesize too large';
+        $_SESSION['HeaderError'] = 'Max 30 000 characters';
     }
 }
 

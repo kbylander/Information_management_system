@@ -270,13 +270,13 @@ body{
 }
 
 .tabcontent {
-    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+    animation: fadeanimation 1s; /* Fading effect takes 1 second */
     overflow: hidden;
     width: 90%;
   }
   
-  /* Go from zero to full opacity */
-  @keyframes fadeEffect {
+  /* keyframes ==> function for animations in css, which can be used later. */
+  @keyframes fadeanimation {
     from {opacity: 0;}
     to {opacity: 1;}
   }

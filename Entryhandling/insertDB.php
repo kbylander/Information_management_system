@@ -11,11 +11,11 @@ if (!empty(strpos($value,'gender='))){
     $genderpos = strtoupper(strpos($value,'gender='));
     $gender = substr($value,$genderpos+7,strlen($value)-1);
     $species=substr($value,$speciesnamepos+3, $genderpos-$speciesnamepos-3);
-    if (str_contains($gender,'MALE')){
-        $gender = 0;
-    }
-    elseif(strtoupper($gender == 'FEMALE')){
+    if (str_contains($gender, 'FEMALE')){
         $gender = 1;
+    }
+    elseif (str_contains($gender,'MALE')){
+        $gender = 0;
     }
     else{
         $_SESSION['HeaderError']= 'Header: ' . $value . ' is in incorrect format';
