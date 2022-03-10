@@ -33,7 +33,6 @@ if ($_SESSION['loggedin'] == False) {
                     <li><a href="databasemenu.php">Database</a></li>
                     <li><a href="../Links/ContactUs.php">Contact Us</a></li>
                     <li><a href="../Registration/userprofile.php">Profile</a></li>
-                    <li><a href="../Login/sessiondestroy.php">Log Out</a></li>
 
                 </ul>
             </div>
