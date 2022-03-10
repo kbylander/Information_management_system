@@ -15,12 +15,7 @@
                 <ul>
                     <li><a href="../index.php">Home</a></li>
                     <li><a href="../Links/About.php">About</a></li>
-                    <?php if ($_SESSION['loggedin']) { //If logged in, take the user to the database?>
-                    <li><a href="../Database/databasemenu.php">Database</a></li>
-                    <?php }
-                    else{ //If not logged in, take the user to the login page?>
                     <li><a href="../Login/login.php">Database</a></li>
-                    <?php } ?>
                     <li><a href="../Links/ContactUs.php">Contact Us</a></li>
                 </ul>
             </div>

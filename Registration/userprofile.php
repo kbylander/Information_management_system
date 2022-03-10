@@ -76,8 +76,8 @@ if(!isset($_SESSION['loggedin'])) {
           <h3>Do you want to delete your account? </h3>
           <form action="deleteuser.php" method="POST">
               <select name="delete" id="delete">
-              <option value="Yes" style="color:black">Yes</option>
               <option value="No" style="color:black">No</option>
+              <option value="Yes" style="color:black">Yes</option>
               </select>
               <input type="submit" id=submit1 name="Upload" value="Submit Changes"/>
           </div>
