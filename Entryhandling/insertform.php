@@ -53,7 +53,7 @@ if(!isset($_SESSION['loggedin'])) {
 </form>
 </div>
 <div id="footer">
-  <p>Required header format: >Individual identifier| gene=genename os=speciesname =male/female (voluntary)</p>
+  <p>Required header format: >Individual identifier| gene=genename os=speciesname gender=male/female (voluntary)</p>
 </div>
 </main>
 </body>
