@@ -44,7 +44,7 @@ include '../disconnectDB.php';
     <h1>Sequence <?php echo $seqID ?></h1>
       <div class="box">
       <?php while($row = mysqli_fetch_array($result)):?>
-      <?php if($_SESSION['user'] != $row[5] && $row[7] == 1){header('Location: sequencesDB.php');} //Check to see if person has access to this sequence?>
+      <?php if($_SESSION['user'] != $row[5] && $row[7] == 1 && !$_SESSION['admin']){header('Location: sequencesDB.php');} //Check to see if person has access to this sequence?>
       <p1>Gene, <?php echo $row[1];?></p1> <!-- echos and prints genename -->
       <p>Sequenced from, <a href="individual.php?ID=<?php echo $row[3];?>"><?php $name=explode('_',$row[3]); echo $name[0];?></a>, <?php echo $row[6];?>, <!-- links to the individual aswell as prints the ID -->
       <?php if(is_null($row[4])){echo "Unknown";} //Checks what gender should be printed
@@ -57,7 +57,7 @@ include '../disconnectDB.php';
       $access = $row[7]; //Defines if private or not
       endwhile;?>
       <p><a href="download.php?file=<?php echo $seqID?>">Download fasta file</a>
-      <?php if($addedby == $_SESSION['user']){ ?> | <a href="delete.php?seqID=<?php echo $seqID?>">Delete sequence</a>
+      <?php if($addedby == $_SESSION['user'] || $_SESSION['admin']){ ?> | <a href="delete.php?seqID=<?php echo $seqID?>">Delete sequence</a>
       <?php if($access){?> | <a href="privacy.php?seqID=<?php echo $seqID?>">Make shareable</a>
       <?php }else{ ?> | <a href="privacy.php?seqID=<?php echo $seqID?>">Make private</a><?php } } ?></p>
       </div>
