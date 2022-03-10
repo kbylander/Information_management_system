@@ -70,7 +70,11 @@ if(!isset($_SESSION['loggedin'])) {
             <div class='form-errors'>
             <?php if(isset($_SESSION['RegistrationErrors'])){
             echo $_SESSION['RegistrationErrors'];
-            echo "<meta http-equiv='refresh' content='6; URL=../Login/login.php'>";
+            }
+            if(isset($_SESSION['Emailmessg'])){
+              echo $_SESSION['Emailmessg'];
+              session_destroy();
+              echo "<meta http-equiv='refresh' content='6; URL=../Login/login.php'>";
             }?>
             </div>
           </div>
