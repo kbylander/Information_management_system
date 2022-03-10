@@ -102,7 +102,7 @@ return $result;
                     <th>Active</th>
                 </tr>
               </thead>
-              <form action="admindelete.php" method="post">
+              <form action="adminfunctions.php" method="post">
               <tbody>
               <?php while($row = mysqli_fetch_array($search_result)):?>
                 <tr>
@@ -115,7 +115,8 @@ return $result;
                   <?php endwhile;?>
               </tbody>
               </table>
-              <input type="submit" name="submit_users" value="Inactivate users"/>
+              <input type="submit" name="submit_users" value="Make user active/inactive"/>
+              <input type="submit" name="submit_users_admin" value="Make user admin/normal"/>
               <?php } ?>
 
             <?php if($tableToSearch == 'entries'){?>
@@ -123,6 +124,7 @@ return $result;
                 <table class="content-table" id="userTable">
                   <thead>
                     <tr>
+                        <th></th>
                         <th>ID</th>
                         <th>Gender</th>
                         <th>Added by</th>
@@ -131,9 +133,11 @@ return $result;
                         <th>Date</th>
                     </tr>
                   </thead>
+                  <form action="adminfunctions.php" method="post">
                   <tbody>
                   <?php while($row = mysqli_fetch_array($search_result)):?>
                     <tr>
+                      <td><input type="checkbox" name="selected[]" value="<?php echo $row[0]?>"></td>
                       <td><a href="../Database/individual.php?ID=<?php echo $row[0] ?>"><?php echo $row[0];?></td>
                       <td><?php if($row[1]){echo "Female";}elseif(!isset($row[1])){echo "Unknown";}else{echo "Male";};?></td>
                       <td><?php echo $row[2];?></td>
@@ -143,13 +147,16 @@ return $result;
                     </tr>
                       <?php endwhile;?>
                   </tbody>
-                  </table> <?php } ?>
+                  </table>
+                  <input type="submit" name="submit_individuals" value="Delete individuals"/>
+                  <?php } ?>
 
                 <?php if($tableToSearch == 'sequence'){?>
-                    <h1>Users</h1>
+                    <h1>Sequences</h1>
                     <table class="content-table" id="userTable">
                       <thead>
                         <tr>
+                            <th></th>
                             <th>ID</th>
                             <th>Gene</th>
                             <th>Entry ID</th>
@@ -158,9 +165,11 @@ return $result;
                             <th>Date</th>
                         </tr>
                       </thead>
+                      <form action="adminfunctions.php" method="post">
                       <tbody>
                       <?php while($row = mysqli_fetch_array($search_result)):?>
                         <tr>
+                          <td><input type="checkbox" name="selected[]" value="<?php echo $row[0]?>"></td>
                           <td><a href="../Database/sequence.php?seqID=<?php echo $row[0] ?>"><?php echo $row[0];?></td>
                           <td><?php echo $row[1];?></td>
                           <td><a href="../Database/individual.php?ID=<?php echo $row[2] ?>"><?php echo $row[2];?></td>
@@ -170,7 +179,9 @@ return $result;
                         </tr>
                           <?php endwhile;?>
                       </tbody>
-                    </table> <?php } ?>
+                    </table>
+                    <input type="submit" name="submit_seq" value="Delete sequences"/>
+                  <?php } ?>
             <br>
       </div>
 </html>
