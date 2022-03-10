@@ -17,7 +17,7 @@ $user = $_SESSION['user'];
 include 'emailsecurity.php';
 //If statement to check if the email is the correct. Returned from emailsecurity.php
 if(!$isemail){
-        $_SESSION['RegistrationErrors'] = $_SESSION['RegistrationErrors'] . 'Email address is not the correct format. '."<br>";//Adds an error message according to the error at hand
+        $_SESSION['EmailErrors'] = $_SESSION['EmailErrors'] . 'Email address is not the correct format. '."<br>";//Adds an error message according to the error at hand
 }else {
         $query2 = "UPDATE users SET users.email = '$email', users.active = 0 WHERE users.username = '$user'";
         require '../transactions.php';
@@ -46,7 +46,7 @@ if(!$isemail){
                         
         $headers = 'From: daredevilwolves@gmail.com' . "\r\n";
         mail($to, $subject, $message, $headers);
-        $_SESSION['RegistrationErrors'] = $_SESSION['RegistrationErrors'] . 'Your email has changed, please verify it by clicking the activation link that has been send to your new email'."<br>";
+        $_SESSION['Emailmessg'] = $_SESSION['Emailmessg'] . 'Your email has changed, please verify it by clicking the activation link that has been send to your new email'."<br>";
 }
 header("Location: userprofile.php");
 ?>

@@ -56,7 +56,8 @@ if(!isset($_SESSION['loggedin'])) {
               <input type="submit" id=submit name="Upload" value="Submit Changes"/>
             </form>
             <div class='form-errors'>
-            <?php echo $_SESSION['RegistrationErrors']; ?>
+            <?php echo $_SESSION['RegistrationErrors'];
+            $_SESSION['RegistrationErrors'] = '';?>
             </div>
           </div>
           <div class="change-email">
@@ -68,8 +69,9 @@ if(!isset($_SESSION['loggedin'])) {
 
             </form>
             <div class='form-errors'>
-            <?php if(isset($_SESSION['RegistrationErrors'])){
-            echo $_SESSION['RegistrationErrors'];
+            <?php if(isset($_SESSION['EmailErrors'])){
+            echo $_SESSION['EmailErrors'];
+            $_SESSION['EmailErrors'] = '';
             }
             if(isset($_SESSION['Emailmessg'])){
               echo $_SESSION['Emailmessg'];
