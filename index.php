@@ -13,7 +13,7 @@ if(!isset($_SESSION['loggedin'])) {
 </style>
     <head>
         <title>Welcome to Genetic Match.com</title>
-        <link rel="stylesheet" href="stylee.css">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <div class="banner">
