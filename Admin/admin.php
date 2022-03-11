@@ -115,8 +115,11 @@ return $result;
                   <?php endwhile;?>
               </tbody>
               </table>
-              <input type="submit" name="submit_users" value="Make user active/inactive"/>
-              <input type="submit" name="submit_users_admin" value="Make user admin/normal"/>
+
+              <div class="within">
+                <button type="submit" name="submit_users"><span></span>MAKE USER ACTIVE/INACTIVE</button>
+                <button type="submit" name="submit_users_admin"><span></span>MAKE USER ADMIN/NORMAL</button>
+              </div>
               <?php } ?>
 
             <?php if($tableToSearch == 'entries'){?>
