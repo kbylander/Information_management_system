@@ -1,13 +1,15 @@
 <?php
 session_start();
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 if(isset($_POST['comparation'])){ //Check if "submit" is empty
   if(isset($_POST['selected'])){
     $selected = $_POST['selected'];
+    $firstgene = array_shift($selected);
     $seqIDs = "('".join("','",$selected)."')";
+    $query1 = "SELECT sequence.genename, sequence.seq, entries.species FROM sequence LEFT JOIN entries ON sequence.entryID = entries.entryID WHERE seqID = '$firstgene'";
+    include '../connectDB.php';
+    $result1 = mysqli_query($link, $query1);
+    include '../disconnectDB.php';
     $query = "SELECT sequence.genename, sequence.seq, entries.species FROM sequence LEFT JOIN entries ON sequence.entryID = entries.entryID WHERE seqID IN $seqIDs";
     include '../connectDB.php';
     $result = mysqli_query($link, $query);
@@ -25,18 +27,10 @@ if(isset($_POST['comparation'])){ //Check if "submit" is empty
 
     $seqIDs = explode(",",$seqIDs);
     $seqIDs = str_replace(array('(',')',"'"), '',$seqIDs);
-    $seqID1 = $seqIDs[0];
-    $seq1 = $seqs[0];
-    $gene1 = $genes[0];
-    $species1 = $species[0];
     #first sequence
     require 'fastafilegenerator.php';
-    $file1 = fastagensingle($seqID1,$seq1,$gene1,$species1);
-    #remove first sequence
-    array_shift($seqIDs);
-    array_shift($seqs);
-    array_shift($genes);
-    array_shift($species);
+    $row1 = mysqli_fetch_array($result1);
+    $file1 = fastagensingle($firstgene, $row1[1],$row1[0],$row1[2]);
     #rest of sequences
     $file2 = fastamultiplegen($seqIDs,$seqs,$genes,$species);
 
@@ -48,21 +42,33 @@ if(isset($_POST['comparation'])){ //Check if "submit" is empty
 
 //go through each file in a folder, and run the exe
 
-    if ($Method == "Genpofad") {
-        exec("C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Distance_stuff/Genpofad.R $file1 $file2");
-    } 
+if ($Method == "Genpofad") {
+    exec('unset DYLD_LIBRARY_PATH ;');
+    putenv('DYLD_LIBRARY_PATH');
+    putenv('DYLD_LIBRARY_PATH=/usr/bin');
+    exec("C:/xampp/R/R-4.1.2/bin/Rscript.exe Distance_stuff/Genpofad.R $file1 $file2");
+} 
 
-    if ($Method == "Matchstates") {
-        exec("C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Distance_stuff/Matchstates.R $file1 $file2");
-    } 
+if ($Method == "Matchstates") {
+    exec('unset DYLD_LIBRARY_PATH ;');
+    putenv('DYLD_LIBRARY_PATH');
+    putenv('DYLD_LIBRARY_PATH=/usr/bin');
+    exec("C:/xampp/R/R-4.1.2/bin/Rscript.exe Distance_stuff/Matchstates.R $file1 $file2");
+} 
 
-    if ($Method == "Daredevil") {
-        exec("C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Distance_stuff/Daredevil.R $file1 $file2");
-    }
+if ($Method == "Daredevil") {
+    exec('unset DYLD_LIBRARY_PATH ;');
+    putenv('DYLD_LIBRARY_PATH');
+    putenv('DYLD_LIBRARY_PATH=/usr/bin');
+    exec("C:/xampp/R/R-4.1.2/bin/Rscript.exe Distance_stuff/Daredevil.R $file1 $file2");
+}
 
-    if ($Method == "Consensus") {
-        exec("C:/MAMP/bin/R-4.1.2/bin/Rscript.exe Distance_stuff/Consensus.R $file1 $file2");
-    }
+if ($Method == "Consensus") {
+    exec('unset DYLD_LIBRARY_PATH ;');
+    putenv('DYLD_LIBRARY_PATH');
+    putenv('DYLD_LIBRARY_PATH=/usr/bin');
+    exec("C:/xampp/R/R-4.1.2/bin/Rscript.exe Distance_stuff/Consensus.R $file1 $file2");
+}
 
     include 'Distance_stuff/Table.php';
 

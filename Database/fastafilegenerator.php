@@ -16,7 +16,7 @@ function fastamultiplegen($IDs,$seqs,$genes,$species){
     $genes[$i] = rtrim($genes[$i]);
     $species[$i] = rtrim($species[$i]);
     $seqs[$i] = rtrim($seqs[$i]);
-    fwrite($file,">" . $IDs[$i] . "|gene=" . $genes[$i] . "|os=" . $species[$i] . "\n" . chunk_split($seqs[$i],80) . "\n" );
+    fwrite($file,">" . $IDs[$i] . "|gene=" . $genes[$i] . "|os=" . $species[$i] . "\n" . chunk_split($seqs[$i],80) );
   }
   fclose($file);
   return ($filename);
