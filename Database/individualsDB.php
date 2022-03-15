@@ -47,7 +47,7 @@ include '../disconnectDB.php';
         <table id="entryTable" class="scrolltable">
         <thead><tr>
             <th>ID</th>
-            <th>Gender</th>
+            <th>Sex</th>
             <th>Species</th>
             <th>Date added</th>
         </tr></thead>

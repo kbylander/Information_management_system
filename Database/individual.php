@@ -81,7 +81,7 @@ if($addedby == $_SESSION['user'] || $_SESSION['admin']){
       </tbody></table>
 <p>Added by: <?php echo "$addedby, $date"?></p>
 <form action="editgender.php" method="POST">
-<p>Edit gender:
+<p>Edit sex:
 <?php if(!isset($gender)){?>
   <select name="gender">
   <option value="F">Female</option>

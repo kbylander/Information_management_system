@@ -52,7 +52,7 @@ include '../disconnectDB.php';
               <th>Gene name</th>
               <th>Species</th>
               <th>Individual ID</th>
-              <th>Gender</th>
+              <th>Sex</th>
           </tr></thead>
     <!--</table>-->
     <form action="download.php" method="post">

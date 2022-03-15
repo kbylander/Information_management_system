@@ -129,7 +129,7 @@ return $result;
                     <tr>
                         <th></th>
                         <th>ID</th>
-                        <th>Gender</th>
+                        <th>Sex</th>
                         <th>Added by</th>
                         <th>Species</th>
                         <th>Private</th>
